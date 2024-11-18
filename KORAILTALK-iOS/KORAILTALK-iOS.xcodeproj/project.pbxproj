@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
+		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
+		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
+		D03DF2072CEB6E8600BE7CAE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2062CEB6E8600BE7CAE /* Kingfisher */; };
+		D03DF2102CEB6EC000BE7CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */; };
+		D03DF2122CEB6EC000BE7CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */; };
+		D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */; };
+		D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */; };
+		D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */; };
+		D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2202CEB844300BE7CAE /* UIView+.swift */; };
+		D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */; };
+		D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2242CEB845E00BE7CAE /* NSObject+.swift */; };
+		D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2262CEB859600BE7CAE /* UILabel+.swift */; };
+		D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2282CEB863300BE7CAE /* UITextField+.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D03DF20A2CEB6EC000BE7CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D03DF20B2CEB6EC000BE7CAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D03DF2202CEB844300BE7CAE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		D03DF2242CEB845E00BE7CAE /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		D03DF2262CEB859600BE7CAE /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		D03DF2282CEB863300BE7CAE /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D03DF1E12CEB6A9400BE7CAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03DF2072CEB6E8600BE7CAE /* Kingfisher in Frameworks */,
+				D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */,
+				D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */,
+				D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D03DF1DB2CEB6A9400BE7CAE = {
+			isa = PBXGroup;
+			children = (
+				D03DF20F2CEB6EC000BE7CAE /* KORAILTALK-iOS */,
+				D03DF1E52CEB6A9400BE7CAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D03DF1E52CEB6A9400BE7CAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D03DF20F2CEB6EC000BE7CAE /* KORAILTALK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2192CEB6EF400BE7CAE /* Application */,
+				D03DF2182CEB6EDD00BE7CAE /* Global */,
+				D03DF2172CEB6ED400BE7CAE /* Network */,
+				D03DF2162CEB6EC800BE7CAE /* Presentation */,
+			);
+			path = "KORAILTALK-iOS";
+			sourceTree = "<group>";
+		};
+		D03DF2162CEB6EC800BE7CAE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D03DF2172CEB6ED400BE7CAE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D03DF2182CEB6EDD00BE7CAE /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF21F2CEB6F7800BE7CAE /* Extensions */,
+				D03DF21E2CEB6F7000BE7CAE /* Components */,
+				D03DF21D2CEB6F6600BE7CAE /* Literals */,
+				D03DF21C2CEB6F5C00BE7CAE /* Protocols */,
+				D03DF21B2CEB6F5400BE7CAE /* Resources */,
+				D03DF21A2CEB6F3C00BE7CAE /* Supporting Files */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		D03DF2192CEB6EF400BE7CAE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */,
+				D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D03DF21A2CEB6F3C00BE7CAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF20A2CEB6EC000BE7CAE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D03DF21B2CEB6F5400BE7CAE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */,
+				D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D03DF21C2CEB6F5C00BE7CAE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D03DF21D2CEB6F6600BE7CAE /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		D03DF21E2CEB6F7000BE7CAE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D03DF21F2CEB6F7800BE7CAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2202CEB844300BE7CAE /* UIView+.swift */,
+				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
+				D03DF2262CEB859600BE7CAE /* UILabel+.swift */,
+				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
+				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D03DF1E32CEB6A9400BE7CAE /* KORAILTALK-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D03DF1F72CEB6A9800BE7CAE /* Build configuration list for PBXNativeTarget "KORAILTALK-iOS" */;
+			buildPhases = (
+				D03DF1E02CEB6A9400BE7CAE /* Sources */,
+				D03DF1E12CEB6A9400BE7CAE /* Frameworks */,
+				D03DF1E22CEB6A9400BE7CAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KORAILTALK-iOS";
+			packageProductDependencies = (
+				D03DF1FD2CEB6DC500BE7CAE /* SnapKit */,
+				D03DF2002CEB6DD400BE7CAE /* Then */,
+				D03DF2032CEB6E5300BE7CAE /* Moya */,
+				D03DF2062CEB6E8600BE7CAE /* Kingfisher */,
+			);
+			productName = "KORAILTALK-iOS";
+			productReference = D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D03DF1DC2CEB6A9400BE7CAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D03DF1E32CEB6A9400BE7CAE = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = D03DF1DF2CEB6A9400BE7CAE /* Build configuration list for PBXProject "KORAILTALK-iOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D03DF1DB2CEB6A9400BE7CAE;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D03DF1FC2CEB6DC500BE7CAE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D03DF1FF2CEB6DD400BE7CAE /* XCRemoteSwiftPackageReference "Then" */,
+				D03DF2022CEB6E5300BE7CAE /* XCRemoteSwiftPackageReference "Moya" */,
+				D03DF2052CEB6E8600BE7CAE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D03DF1E52CEB6A9400BE7CAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D03DF1E32CEB6A9400BE7CAE /* KORAILTALK-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D03DF1E22CEB6A9400BE7CAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03DF2102CEB6EC000BE7CAE /* Assets.xcassets in Resources */,
+				D03DF2122CEB6EC000BE7CAE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D03DF1E02CEB6A9400BE7CAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
+				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
+				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
+				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
+				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
+				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D03DF20B2CEB6EC000BE7CAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D03DF1F82CEB6A9800BE7CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X395BM5WW7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Hyerin.KORAILTALK-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D03DF1F92CEB6A9800BE7CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X395BM5WW7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Hyerin.KORAILTALK-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D03DF1FA2CEB6A9800BE7CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D03DF1FB2CEB6A9800BE7CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D03DF1DF2CEB6A9400BE7CAE /* Build configuration list for PBXProject "KORAILTALK-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D03DF1FA2CEB6A9800BE7CAE /* Debug */,
+				D03DF1FB2CEB6A9800BE7CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D03DF1F72CEB6A9800BE7CAE /* Build configuration list for PBXNativeTarget "KORAILTALK-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D03DF1F82CEB6A9800BE7CAE /* Debug */,
+				D03DF1F92CEB6A9800BE7CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D03DF1FC2CEB6DC500BE7CAE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		D03DF1FF2CEB6DD400BE7CAE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		D03DF2022CEB6E5300BE7CAE /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		D03DF2052CEB6E8600BE7CAE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D03DF1FD2CEB6DC500BE7CAE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D03DF1FC2CEB6DC500BE7CAE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D03DF2002CEB6DD400BE7CAE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D03DF1FF2CEB6DD400BE7CAE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		D03DF2032CEB6E5300BE7CAE /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D03DF2022CEB6E5300BE7CAE /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		D03DF2062CEB6E8600BE7CAE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D03DF2052CEB6E8600BE7CAE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D03DF1DC2CEB6A9400BE7CAE /* Project object */;
+}
