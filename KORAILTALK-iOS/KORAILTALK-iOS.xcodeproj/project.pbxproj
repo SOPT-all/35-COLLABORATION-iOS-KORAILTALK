@@ -11,32 +11,32 @@
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
 		D03DF2072CEB6E8600BE7CAE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2062CEB6E8600BE7CAE /* Kingfisher */; };
+		D03DF2102CEB6EC000BE7CAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */; };
+		D03DF2122CEB6EC000BE7CAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */; };
+		D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */; };
+		D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */; };
+		D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */; };
+		D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2202CEB844300BE7CAE /* UIView+.swift */; };
+		D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */; };
+		D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2242CEB845E00BE7CAE /* NSObject+.swift */; };
+		D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2262CEB859600BE7CAE /* UILabel+.swift */; };
+		D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2282CEB863300BE7CAE /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D03DF20A2CEB6EC000BE7CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D03DF20B2CEB6EC000BE7CAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D03DF2202CEB844300BE7CAE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		D03DF2242CEB845E00BE7CAE /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		D03DF2262CEB859600BE7CAE /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		D03DF2282CEB863300BE7CAE /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D03DF1F62CEB6A9800BE7CAE /* Exceptions for "KORAILTALK-iOS" folder in "KORAILTALK-iOS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = D03DF1E32CEB6A9400BE7CAE /* KORAILTALK-iOS */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		D03DF1E62CEB6A9400BE7CAE /* KORAILTALK-iOS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D03DF1F62CEB6A9800BE7CAE /* Exceptions for "KORAILTALK-iOS" folder in "KORAILTALK-iOS" target */,
-			);
-			path = "KORAILTALK-iOS";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D03DF1E12CEB6A9400BE7CAE /* Frameworks */ = {
@@ -56,7 +56,7 @@
 		D03DF1DB2CEB6A9400BE7CAE = {
 			isa = PBXGroup;
 			children = (
-				D03DF1E62CEB6A9400BE7CAE /* KORAILTALK-iOS */,
+				D03DF20F2CEB6EC000BE7CAE /* KORAILTALK-iOS */,
 				D03DF1E52CEB6A9400BE7CAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +67,104 @@
 				D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D03DF20F2CEB6EC000BE7CAE /* KORAILTALK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2192CEB6EF400BE7CAE /* Application */,
+				D03DF2182CEB6EDD00BE7CAE /* Global */,
+				D03DF2172CEB6ED400BE7CAE /* Network */,
+				D03DF2162CEB6EC800BE7CAE /* Presentation */,
+			);
+			path = "KORAILTALK-iOS";
+			sourceTree = "<group>";
+		};
+		D03DF2162CEB6EC800BE7CAE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D03DF2172CEB6ED400BE7CAE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D03DF2182CEB6EDD00BE7CAE /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF21F2CEB6F7800BE7CAE /* Extensions */,
+				D03DF21E2CEB6F7000BE7CAE /* Components */,
+				D03DF21D2CEB6F6600BE7CAE /* Literals */,
+				D03DF21C2CEB6F5C00BE7CAE /* Protocols */,
+				D03DF21B2CEB6F5400BE7CAE /* Resources */,
+				D03DF21A2CEB6F3C00BE7CAE /* Supporting Files */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		D03DF2192CEB6EF400BE7CAE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */,
+				D03DF20D2CEB6EC000BE7CAE /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D03DF21A2CEB6F3C00BE7CAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF20A2CEB6EC000BE7CAE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D03DF21B2CEB6F5400BE7CAE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */,
+				D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D03DF21C2CEB6F5C00BE7CAE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D03DF21D2CEB6F6600BE7CAE /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		D03DF21E2CEB6F7000BE7CAE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D03DF21F2CEB6F7800BE7CAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D03DF2202CEB844300BE7CAE /* UIView+.swift */,
+				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
+				D03DF2262CEB859600BE7CAE /* UILabel+.swift */,
+				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
+				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +181,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D03DF1E62CEB6A9400BE7CAE /* KORAILTALK-iOS */,
 			);
 			name = "KORAILTALK-iOS";
 			packageProductDependencies = (
@@ -143,6 +238,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03DF2102CEB6EC000BE7CAE /* Assets.xcassets in Resources */,
+				D03DF2122CEB6EC000BE7CAE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +250,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
+				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
+				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
+				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
+				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
+				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D03DF20B2CEB6EC000BE7CAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D03DF1F82CEB6A9800BE7CAE /* Debug */ = {
@@ -168,7 +284,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X395BM5WW7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KORAILTALK-iOS/Info.plist";
+				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -196,7 +312,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X395BM5WW7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KORAILTALK-iOS/Info.plist";
+				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
