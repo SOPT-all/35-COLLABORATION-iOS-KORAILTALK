@@ -25,6 +25,8 @@
 		D0E6BE712CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */; };
 		D0E6BE722CEBA8D6006CDAA8 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */; };
 		D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */; };
+		D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */; };
+		D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
+		D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
+		D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 		D03DF21D2CEB6F6600BE7CAE /* Literals */ = {
 			isa = PBXGroup;
 			children = (
+				D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */,
 				D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */,
 			);
 			path = Literals;
@@ -172,6 +177,7 @@
 				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
 				D03DF2262CEB859600BE7CAE /* UILabel+.swift */,
 				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
+				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
 			);
 			path = Extensions;
@@ -276,12 +282,14 @@
 				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
 				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
 				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
+				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
