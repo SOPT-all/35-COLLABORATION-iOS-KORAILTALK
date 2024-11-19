@@ -197,6 +197,8 @@
 				D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
+            sourceTree = "<group>";
+        };
 		D62EAC232CEBAFCC005F622B /* SeatSelection */ = {
 			isa = PBXGroup;
 			children = (
