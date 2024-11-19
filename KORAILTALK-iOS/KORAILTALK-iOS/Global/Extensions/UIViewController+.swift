@@ -16,7 +16,7 @@ extension UIViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         let backBarButton = UIButton(type: .system).then {
-            $0.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+            $0.setImage(.icnArrowLeft.withRenderingMode(.alwaysOriginal), for: .normal)
             $0.addAction(backButtonTapped, for: .touchUpInside)
             $0.snp.makeConstraints {
                 $0.size.equalTo(44)
