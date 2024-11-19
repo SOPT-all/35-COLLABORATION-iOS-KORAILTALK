@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */; };
 		CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */; };
+		CB9473962CEC5DCE002B4D25 /* TrainSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473952CEC5DCE002B4D25 /* TrainSelectButton.swift */; };
+		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchViewController.swift; sourceTree = "<group>"; };
 		CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchFilterView.swift; sourceTree = "<group>"; };
+		CB9473952CEC5DCE002B4D25 /* TrainSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrainSelectButton.swift; path = "KORAILTALK-iOS/Presentation/TrainSearch/TrainSelectButton.swift"; sourceTree = SOURCE_ROOT; };
+		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		D03DF21E2CEB6F7000BE7CAE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CB9473952CEC5DCE002B4D25 /* TrainSelectButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
 				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
+				CB9473972CEC5F88002B4D25 /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,8 +217,8 @@
 				D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		D62EAC232CEBAFCC005F622B /* SeatSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +316,7 @@
 				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
@@ -319,6 +326,7 @@
 				D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
+				CB9473962CEC5DCE002B4D25 /* TrainSelectButton.swift in Sources */,
 				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
