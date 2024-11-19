@@ -11,9 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        let titleColor = UIColor.white
-        let backgroundColor = UIColor(red: 6/255, green: 59/255, blue: 98/255, alpha: 1)
+        let font = UIFont.korailTitle(.title1sb18)
+        let titleColor = UIColor.korailBasic(.white)
+        let backgroundColor = UIColor.korailBlue(.blue01)
         
         configureNavigationBarAppearance(
             font: font,
