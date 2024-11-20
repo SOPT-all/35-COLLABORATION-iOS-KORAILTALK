@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO: 여기 이야기하기... enum과 임시 list들 어떻게 처리할지
+
 enum BottomType {
     case blue, purple
 }
@@ -177,23 +179,15 @@ extension SelectBottomSheetViewController {
         }
     }
     
+}
+
+extension SelectBottomSheetViewController {
+    
+    //MARK: - objc
+    
     @objc
     private func closeButtonTapped() {
         hideBottomSheet()
-    }
-
-    private func showBottomSheet() {
-        
-        UIView.animate(withDuration: 0.1) {
-            self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
-            
-            self.bottomSheetView.snp.updateConstraints {
-                $0.bottom.equalToSuperview()
-            }
-
-            // 곧바로 UI를 업데이트
-            self.view.layoutIfNeeded()
-        }
     }
     
     @objc
@@ -213,6 +207,20 @@ extension SelectBottomSheetViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideBottomSheet))
         dimmedBackView.addGestureRecognizer(tap)
         dimmedBackView.isUserInteractionEnabled = true
+    }
+    
+    private func showBottomSheet() {
+        
+        UIView.animate(withDuration: 0.1) {
+            self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
+            
+            self.bottomSheetView.snp.updateConstraints {
+                $0.bottom.equalToSuperview()
+            }
+
+            // 곧바로 UI를 업데이트
+            self.view.layoutIfNeeded()
+        }
     }
     
 }

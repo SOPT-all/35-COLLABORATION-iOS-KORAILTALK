@@ -55,6 +55,7 @@ extension TrainSearchFilterView {
     
     private func setStyle() {
         
+        // date button style
         var dateContainer = AttributeContainer()
         dateContainer.font = UIFont.korailTitle(.title3m16)
         dateContainer.foregroundColor = UIColor.korailBasic(.black)
@@ -70,6 +71,7 @@ extension TrainSearchFilterView {
         //TODO: 피그마.... 날짜가 뚱뚱해지면 줄바뀜되어요.... 너비조정필요할듯?
         dateButtonConfiguration.attributedTitle = AttributedString("\(getToday())", attributes: dateContainer)
         
+        // select buttons style
         var selectContainer = AttributeContainer()
         selectContainer.font = UIFont.korailBody(.body2m14)
         selectContainer.foregroundColor = UIColor.korailGrayscale(.gray500)
@@ -117,19 +119,16 @@ extension TrainSearchFilterView {
                 trailing: 10
             )
         }
-
         dateButton.do {
             $0.setTitleColor(UIColor.black, for: .normal)
             $0.configuration = dateButtonConfiguration
             $0.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
         }
-        
         selectStackView.do {
             $0.axis = .horizontal
             $0.distribution = .equalSpacing
             $0.spacing = 8
         }
-        
         trainSelectButton.do {
             $0.addTarget(self, action: #selector(trainSelectButtonTapped), for: .touchUpInside)
         }
@@ -159,16 +158,13 @@ extension TrainSearchFilterView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(48)
         }
-        
         dateButton.snp.makeConstraints {
             //TODO: 여기서!!!! 너비조정
             $0.width.equalTo(129)
         }
-        
         selectStackView.snp.makeConstraints {
             $0.width.equalTo(193)
         }
-        
         trainSelectButton.snp.makeConstraints {
             $0.width.equalTo(71)
         }
@@ -228,7 +224,7 @@ extension TrainSearchFilterView {
         return "\(year).\(month).\(day) (\(changeWeekday(weekday)))"
     }
     
-    func changeWeekday(_ weekday: Int) -> String {
+    private func changeWeekday(_ weekday: Int) -> String {
         
         switch weekday {
         case 1: return "일"

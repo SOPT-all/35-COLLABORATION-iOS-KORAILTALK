@@ -39,6 +39,18 @@ final class SelectBottomSheetTableViewCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseidentifier)
         
+        setStyle()
+        setHierachy()
+        setLayout()
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setStyle() {
+        
         stackView.do {
             $0.axis = .horizontal
             $0.isLayoutMarginsRelativeArrangement = true
@@ -53,20 +65,25 @@ final class SelectBottomSheetTableViewCell: UITableViewCell {
             $0.font = UIFont.korailTitle(.title3m16)
         }
         
+    }
+    
+    private func setHierachy() {
+        
         addSubview(stackView)
         stackView.addArrangedSubviews(label, checkImage)
+        
+    }
+    
+    private func setLayout() {
         
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
         
         if selected {
@@ -78,6 +95,7 @@ final class SelectBottomSheetTableViewCell: UITableViewCell {
             backgroundColor = .systemBackground
             label.textColor = .korailBasic(.black)
         }
+        
     }
     
     func bindData(string: String) {

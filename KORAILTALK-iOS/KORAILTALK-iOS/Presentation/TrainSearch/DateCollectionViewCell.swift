@@ -9,9 +9,12 @@ import UIKit
 
 final class DateCollectionViewCell: UICollectionViewCell {
     
-    private let dateLable = PaddingLabel()
+    //MARK: - Properties
     
+    private let dateLable = PaddingLabel()
     private var isSelectedDate = true
+    
+    //MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +27,14 @@ final class DateCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func bindData(_ date: String) {
+        dateLable.text = date
+    }
+}
 
+extension DateCollectionViewCell {
+    
     private func setStyle() {
         
         dateLable.do {
@@ -35,9 +45,6 @@ final class DateCollectionViewCell: UICollectionViewCell {
             // 글자짤림이슈...
             $0.layer.cornerRadius = 16
             $0.layer.backgroundColor = isSelectedDate ? UIColor.korailBlue(.blue04).cgColor : UIColor.korailBasic(.white).cgColor
-            
-            
-            
         }
         
     }
@@ -50,10 +57,6 @@ final class DateCollectionViewCell: UICollectionViewCell {
         dateLable.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    func bindData(_ date: String) {
-        dateLable.text = date
     }
 }
 
