@@ -56,9 +56,13 @@ final class SelectBottomSheetViewController: UIViewController {
         listType: [String]
     ) {
         super.init(nibName: nil, bundle: nil)
+        
         self.titleLabel.text = title
         self.type = bottomType
         self.selectList = listType
+        
+        modalTransitionStyle = .coverVertical
+        modalPresentationStyle = .overFullScreen
     }
     
     required init?(coder: NSCoder) {
@@ -74,10 +78,17 @@ final class SelectBottomSheetViewController: UIViewController {
         setLayout()
         
         setBottomColor()
+        dimmedBackViewTapped()
         
         let indexPath = IndexPath(row: 0, section: 0)
         contentTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        showBottomSheet()
     }
 
 }
@@ -141,17 +152,15 @@ extension SelectBottomSheetViewController {
             $0.edges.equalToSuperview()
         }
         bottomSheetView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(100)
         }
-        
         headerStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
-
         contentTableView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalTo(headerStackView.snp.bottom)
-            $0.height.equalTo(50 * selectList.count + 32)
         }
         
     }
@@ -169,7 +178,39 @@ extension SelectBottomSheetViewController {
     
     @objc
     private func closeButtonTapped() {
-        dismiss(animated: true)
+        hideBottomSheet()
+    }
+    //TODO: contentTableView랑 headerStackView의 애니메이션이 다름... 왤까
+    private func showBottomSheet() {
+        UIView.animate(withDuration: 0.1) {
+            self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
+            
+            self.bottomSheetView.snp.remakeConstraints {
+                $0.bottom.leading.trailing.equalToSuperview()
+                $0.height.equalTo(50 * self.selectList.count + 32 + 62)
+            }
+            // 곧바로 UI를 업데이트
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    private func hideBottomSheet() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.dimmedBackView.backgroundColor = .clear
+            self.bottomSheetView.snp.remakeConstraints {
+                $0.bottom.leading.trailing.equalToSuperview()
+            }
+            self.view.layoutIfNeeded()
+        }, completion: { _ in
+            self.dismiss(animated: false)
+        })
+    }
+    
+    private func dimmedBackViewTapped() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideBottomSheet))
+        dimmedBackView.addGestureRecognizer(tap)
+        dimmedBackView.isUserInteractionEnabled = true
     }
     
 }
