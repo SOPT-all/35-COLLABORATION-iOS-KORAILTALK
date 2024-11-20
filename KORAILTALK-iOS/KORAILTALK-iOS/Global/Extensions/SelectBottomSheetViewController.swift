@@ -153,7 +153,8 @@ extension SelectBottomSheetViewController {
         }
         bottomSheetView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(100)
+            $0.bottom.equalToSuperview().offset(50 * self.selectList.count + 32 + 62)
+            $0.height.equalTo(50 * self.selectList.count + 32 + 62)
         }
         headerStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -180,15 +181,16 @@ extension SelectBottomSheetViewController {
     private func closeButtonTapped() {
         hideBottomSheet()
     }
-    //TODO: contentTableView랑 headerStackView의 애니메이션이 다름... 왤까
+
     private func showBottomSheet() {
+        
         UIView.animate(withDuration: 0.1) {
             self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
             
-            self.bottomSheetView.snp.remakeConstraints {
-                $0.bottom.leading.trailing.equalToSuperview()
-                $0.height.equalTo(50 * self.selectList.count + 32 + 62)
+            self.bottomSheetView.snp.updateConstraints {
+                $0.bottom.equalToSuperview()
             }
+
             // 곧바로 UI를 업데이트
             self.view.layoutIfNeeded()
         }
@@ -198,8 +200,8 @@ extension SelectBottomSheetViewController {
     private func hideBottomSheet() {
         UIView.animate(withDuration: 0.1, animations: {
             self.dimmedBackView.backgroundColor = .clear
-            self.bottomSheetView.snp.remakeConstraints {
-                $0.bottom.leading.trailing.equalToSuperview()
+            self.bottomSheetView.snp.updateConstraints {
+                $0.bottom.equalToSuperview().offset(50 * self.selectList.count + 32 + 62)
             }
             self.view.layoutIfNeeded()
         }, completion: { _ in
