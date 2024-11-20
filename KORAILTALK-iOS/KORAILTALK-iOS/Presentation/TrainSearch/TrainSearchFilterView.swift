@@ -10,14 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-// 임시
-var dayList: [String] = []
-
 final class TrainSearchFilterView: UIView {
 
     // MARK: - UI Properties
     
-    private let containerStackView = UIStackView()
+    private let containerView = UIView()
     
     private let dateButton = UIButton()
     
@@ -31,6 +28,11 @@ final class TrainSearchFilterView: UIView {
     private var dateButtonConfiguration = UIButton.Configuration.plain()
     private var selectButtonConfiguration = UIButton.Configuration.plain()
     
+    private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
+    private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
+    private let transferList: [String] = ["직통", "환승"]
+
+    
     weak var delegate: FilterDelegate?
 
     //MARK: - Life Cycle
@@ -42,7 +44,7 @@ final class TrainSearchFilterView: UIView {
         setStyle()
         setHierachy()
         setLayout()
-        
+    
     }
     
     required init?(coder: NSCoder) {
@@ -67,9 +69,10 @@ extension TrainSearchFilterView {
         
         dateButtonConfiguration.imagePlacement = .trailing
         dateButtonConfiguration.contentInsets = .zero
+        
         dateButtonConfiguration.imagePadding = 0
-        //TODO: 피그마.... 날짜가 뚱뚱해지면 줄바뀜되어요.... 너비조정필요할듯?
         dateButtonConfiguration.attributedTitle = AttributedString("\(getToday())", attributes: dateContainer)
+        
         
         // select buttons style
         var selectContainer = AttributeContainer()
@@ -102,22 +105,9 @@ extension TrainSearchFilterView {
             attributedTitle.foregroundColor = UIColor.korailGrayscale(.gray500)
             button.configuration?.attributedTitle = attributedTitle
         }
-        
-        containerStackView.do {
-            $0.axis = .horizontal
-            $0.backgroundColor = UIColor.korailBlue(.blue07)
-            $0.alignment = .center
-            $0.distribution = .equalSpacing
-            $0.spacing = 27
-            
-            // stackview에 padding 주기
-            $0.isLayoutMarginsRelativeArrangement = true
-            $0.directionalLayoutMargins = NSDirectionalEdgeInsets(
-                top: 12,
-                leading: 16,
-                bottom: 12,
-                trailing: 10
-            )
+
+        containerView.do {
+            $0.backgroundColor = .korailBlue(.blue07)
         }
         dateButton.do {
             $0.setTitleColor(UIColor.black, for: .normal)
@@ -142,8 +132,8 @@ extension TrainSearchFilterView {
     
     private func setHierachy() {
         
-        addSubview(containerStackView)
-        containerStackView.addArrangedSubviews(dateButton, selectStackView)
+        addSubview(containerView)
+        containerView.addSubviews(dateButton, selectStackView)
         selectStackView.addArrangedSubviews(
             trainSelectButton,
             seatSelectButton,
@@ -154,16 +144,19 @@ extension TrainSearchFilterView {
     
     private func setLayout() {
         
-        containerStackView.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(48)
         }
         dateButton.snp.makeConstraints {
-            //TODO: 여기서!!!! 너비조정
-            $0.width.equalTo(129)
+            $0.width.greaterThanOrEqualTo(129)
+            $0.leading.equalToSuperview().inset(16)
+            $0.verticalEdges.equalToSuperview().inset(12)
         }
         selectStackView.snp.makeConstraints {
             $0.width.equalTo(193)
+            $0.trailing.equalToSuperview().inset(10)
+            $0.verticalEdges.equalToSuperview().inset(12)
         }
         trainSelectButton.snp.makeConstraints {
             $0.width.equalTo(71)
@@ -209,17 +202,6 @@ extension TrainSearchFilterView {
         let month = Calendar.current.component(.month, from: Date())
         let day = Calendar.current.component(.day, from: Date())
         let weekday = Calendar.current.component(.weekday, from: Date())
-        
-        let today = Date()
-        for i in 0..<14 {
-            guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return "" }
-            
-            let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
-            let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
-            let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
-            
-            dayList.append("\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))")
-        }
         
         return "\(year).\(month).\(day) (\(changeWeekday(weekday)))"
     }

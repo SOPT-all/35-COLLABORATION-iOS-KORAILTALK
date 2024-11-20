@@ -19,6 +19,8 @@ final class TrainSearchViewController: UIViewController {
     
     //MARK: - Properties
     
+    private var dayList: [String] = []
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -32,6 +34,8 @@ final class TrainSearchViewController: UIViewController {
         
         setNavigationBar()
         setCollectionView()
+        
+        getDayList()
         
         let indexPath = IndexPath(row: 0, section: 0)
         dateCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
@@ -120,6 +124,39 @@ final class TrainSearchViewController: UIViewController {
             $0.delegate = self
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
+        }
+        
+    }
+}
+
+extension TrainSearchViewController {
+    private func getDayList() {
+ 
+        let today = Date()
+        for i in 0..<14 {
+            guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return }
+            
+            let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
+            let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
+            let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
+            
+            dayList.append("\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))")
+        }
+
+    }
+    
+    private func changeWeekday(_ weekday: Int) -> String {
+        
+        switch weekday {
+        case 1: return "일"
+        case 2: return "월"
+        case 3: return "화"
+        case 4: return "수"
+        case 5: return "목"
+        case 6: return "금"
+        case 7: return "토"
+        default:
+            return ""
         }
         
     }

@@ -7,21 +7,9 @@
 
 import UIKit
 
-// TODO: 여기 이야기하기... enum과 임시 list들 어떻게 처리할지
-
 enum BottomType {
     case blue, purple
 }
-
-// 열차조회임시
-public let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
-public let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
-public let transferList: [String] = ["직통", "환승"]
-
-// 결제임시
-public let myCardList: [String] = ["직접입력", "내 현대카드"]
-public let cardType: [String] = ["개인", "법인"]
-public let installmentsList: [String] = ["일시불", "3개월", "6개월"]
 
 /// 사용법 예시
 /// SelectBottomSheetViewController(
