@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
+// 임시
+var dayList: [String] = []
+
 final class TrainSearchFilterView: UIView {
 
     // MARK: - UI Properties
@@ -64,8 +67,8 @@ extension TrainSearchFilterView {
         dateButtonConfiguration.imagePlacement = .trailing
         dateButtonConfiguration.contentInsets = .zero
         dateButtonConfiguration.imagePadding = 0
-        //TODO: 날짜 설정 해야 함
-        dateButtonConfiguration.attributedTitle = AttributedString("2024.11.11 (토)", attributes: dateContainer)
+        //TODO: 피그마.... 날짜가 뚱뚱해지면 줄바뀜되어요.... 너비조정필요할듯?
+        dateButtonConfiguration.attributedTitle = AttributedString("\(getToday())", attributes: dateContainer)
         
         var selectContainer = AttributeContainer()
         selectContainer.font = UIFont.korailBody(.body2m14)
@@ -118,6 +121,7 @@ extension TrainSearchFilterView {
         dateButton.do {
             $0.setTitleColor(UIColor.black, for: .normal)
             $0.configuration = dateButtonConfiguration
+            $0.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
         }
         
         selectStackView.do {
@@ -157,6 +161,7 @@ extension TrainSearchFilterView {
         }
         
         dateButton.snp.makeConstraints {
+            //TODO: 여기서!!!! 너비조정
             $0.width.equalTo(129)
         }
         
@@ -176,6 +181,8 @@ extension TrainSearchFilterView {
     
     }
     
+    //MARK: - @objc
+    
     @objc
     func trainSelectButtonTapped() {
         delegate?.showBottomSheet(title: "모든열차", bottomType: .blue, listType: trainList)
@@ -190,4 +197,51 @@ extension TrainSearchFilterView {
     func transferSelectButtonTapped() {
         delegate?.showBottomSheet(title: "직통", bottomType: .blue, listType: transferList)
     }
+    
+    @objc
+    func dateButtonTapped() {
+        delegate?.showDateCollectionView()
+    }
+
+}
+
+extension TrainSearchFilterView {
+    
+    private func getToday() -> String {
+
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        let day = Calendar.current.component(.day, from: Date())
+        let weekday = Calendar.current.component(.weekday, from: Date())
+        
+        let today = Date()
+        for i in 0..<14 {
+            guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return "" }
+            
+            let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
+            let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
+            let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
+            
+            dayList.append("\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))")
+        }
+        
+        return "\(year).\(month).\(day) (\(changeWeekday(weekday)))"
+    }
+    
+    func changeWeekday(_ weekday: Int) -> String {
+        
+        switch weekday {
+        case 1: return "일"
+        case 2: return "월"
+        case 3: return "화"
+        case 4: return "수"
+        case 5: return "목"
+        case 6: return "금"
+        case 7: return "토"
+        default:
+            return ""
+        }
+        
+    }
+    
 }

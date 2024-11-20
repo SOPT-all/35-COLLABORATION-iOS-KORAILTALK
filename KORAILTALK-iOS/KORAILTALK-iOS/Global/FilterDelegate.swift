@@ -8,9 +8,13 @@
 import Foundation
 
 protocol FilterDelegate: AnyObject {
+    
     func showBottomSheet(
         title: String,
         bottomType: BottomType,
         listType: [String]
     )
+    
+    func showDateCollectionView()
+    
 }
