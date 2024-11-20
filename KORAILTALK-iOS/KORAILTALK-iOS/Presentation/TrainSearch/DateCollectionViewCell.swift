@@ -55,6 +55,9 @@ extension DateCollectionViewCell {
             //TODO: 물어보기.........20으로하면 고고마가됨..!!!!! ㅠㅠㅠ
             // 글자짤림이슈...
             $0.layer.cornerRadius = 16
+            
+            $0.textColor = .korailGrayscale(.gray500)
+            $0.layer.backgroundColor = UIColor.korailBasic(.white).cgColor
         }
         
     }
