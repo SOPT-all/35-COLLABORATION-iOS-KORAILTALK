@@ -12,7 +12,19 @@ final class DateCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
     
     private let dateLable = PaddingLabel()
-    private var isSelectedDate = true
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                dateLable.textColor = .korailBasic(.white)
+                dateLable.layer.backgroundColor = UIColor.korailBlue(.blue04).cgColor
+            } else {
+                dateLable.textColor = .korailGrayscale(.gray500)
+                dateLable.layer.backgroundColor = UIColor.korailBasic(.white).cgColor
+            }
+        }
+    }
+    
     
     //MARK: - Life Cycle
     
@@ -27,7 +39,7 @@ final class DateCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func bindData(_ date: String) {
         dateLable.text = date
     }
@@ -38,13 +50,11 @@ extension DateCollectionViewCell {
     private func setStyle() {
         
         dateLable.do {
-            $0.textColor = isSelectedDate ? .korailBasic(.white) : .korailGrayscale(.gray500)
             $0.font = .korailBody(.body3r14)
             $0.clipsToBounds = true
             //TODO: 물어보기.........20으로하면 고고마가됨..!!!!! ㅠㅠㅠ
             // 글자짤림이슈...
             $0.layer.cornerRadius = 16
-            $0.layer.backgroundColor = isSelectedDate ? UIColor.korailBlue(.blue04).cgColor : UIColor.korailBasic(.white).cgColor
         }
         
     }

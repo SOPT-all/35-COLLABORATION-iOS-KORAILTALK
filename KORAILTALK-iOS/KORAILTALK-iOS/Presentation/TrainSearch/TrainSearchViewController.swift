@@ -17,6 +17,8 @@ final class TrainSearchViewController: UIViewController {
     private let trainSearchFilterView = TrainSearchFilterView()
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    //MARK: - Properties
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -30,6 +32,9 @@ final class TrainSearchViewController: UIViewController {
         
         setNavigationBar()
         setCollectionView()
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        dateCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
         
     }
     
