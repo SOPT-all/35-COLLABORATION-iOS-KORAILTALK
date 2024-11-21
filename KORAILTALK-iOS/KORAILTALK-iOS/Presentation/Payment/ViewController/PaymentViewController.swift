@@ -1,0 +1,73 @@
+//
+//  PaymentViewController.swift
+//  KORAILTALK-iOS
+//
+//  Created by 조혜린 on 11/21/24.
+//
+
+import UIKit
+
+final class PaymentViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    private let rootView = PaymentView()
+    
+    // MARK: - Life Cycle
+    
+    override func loadView() {
+        view = rootView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setAddTarget()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBar()
+    }
+}
+
+extension PaymentViewController {
+    
+    // MARK: - Private Func
+    
+    private func setNavigationBar() {
+        self.title = "결제하기"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .korailPurple(.purple02)
+        appearance.titleTextAttributes = [
+            .font: UIFont.korailTitle(.title1sb18),
+            .foregroundColor: UIColor.korailBasic(.white)
+        ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        self.setCustomBackButton()
+        
+        let xButton = UIButton(type: .system).then {
+            $0.setImage(.icnX.withRenderingMode(.alwaysOriginal), for: .normal)
+            $0.snp.makeConstraints {
+                $0.size.equalTo(CGSize(width: 44, height: 44))
+            }
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: xButton)
+        
+    }
+    
+    private func setAddTarget() {
+        
+    }
+    
+    private func buttonTapped() {
+        
+    }
+}
+
