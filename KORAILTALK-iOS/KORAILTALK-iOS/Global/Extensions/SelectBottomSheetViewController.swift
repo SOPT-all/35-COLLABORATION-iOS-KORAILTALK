@@ -110,10 +110,7 @@ extension SelectBottomSheetViewController {
         }
         
         closeButton.do {
-            if let resizedImage = UIImage(resource: .icnX38)
-                .resized(CGSize(width: 38, height: 38)) {
-                $0.setImage(resizedImage, for: .normal)
-            }
+            $0.setImage(.icnX38.resized(CGSize(width: 38, height: 38)), for: .normal)
             $0.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         }
         

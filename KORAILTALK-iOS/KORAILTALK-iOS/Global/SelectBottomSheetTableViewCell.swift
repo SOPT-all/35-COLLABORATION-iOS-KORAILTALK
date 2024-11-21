@@ -14,21 +14,17 @@ final class SelectBottomSheetTableViewCell: UITableViewCell {
     private let stackView = UIStackView()
     private let label = UILabel()
     private let checkImage = UIImageView()
-    private var resizedImage = UIImage()
     
     // 주입 받을 부분
     var selectedBackgroundColor: UIColor = .systemBackground {
         didSet {
             
             if selectedBackgroundColor == UIColor.korailPurple(.purple05) {
-                resizedImage = UIImage(resource: .icnCheckPurple)
-                    .resized(CGSize(width: 38, height: 38)) ?? UIImage()
+                checkImage.image = .icnCheckPurple.resized(CGSize(width: 38, height: 38))
             } else {
-                resizedImage = UIImage(resource: .icnCheckBlue)
-                    .resized(CGSize(width: 38, height: 38)) ?? UIImage()
+                checkImage.image = .icnCheckBlue.resized(CGSize(width: 38, height: 38))
             }
             
-            checkImage.image = resizedImage
         }
     }
     var selectedTextColor: UIColor = .korailBasic(.black)

@@ -153,17 +153,11 @@ extension TrainSearchViewController {
     func dateButtonTapped() {
         showDateCollectionView()
         if !isDateShow {
-            if let resizedImage = UIImage(resource: .icnSearchArrowUp)
-                .resized(CGSize(width: 24, height: 24)) {
-                trainSearchFilterView.dateButtonConfiguration.image = resizedImage
-            } else { return }
+            trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowUp.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
             isDateShow.toggle()
         } else {
-            if let resizedImage = UIImage(resource: .icnSearchArrowDown)
-                .resized(CGSize(width: 24, height: 24)) {
-                trainSearchFilterView.dateButtonConfiguration.image = resizedImage
-            } else { return }
+            trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowDown.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
             isDateShow.toggle()
         }

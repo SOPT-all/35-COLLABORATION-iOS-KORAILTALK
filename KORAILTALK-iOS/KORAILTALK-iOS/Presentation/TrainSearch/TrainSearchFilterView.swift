@@ -57,11 +57,7 @@ extension TrainSearchFilterView {
         dateContainer.font = UIFont.korailTitle(.title3m16)
         dateContainer.foregroundColor = UIColor.korailBasic(.black)
         
-        if let resizedImage = UIImage(resource: .icnSearchArrowDown)
-            .resized(CGSize(width: 24, height: 24)) {
-            dateButtonConfiguration.image = resizedImage
-        } else { return }
-        
+        dateButtonConfiguration.image = .icnSearchArrowDown.resized(CGSize(width: 24, height: 24))
         dateButtonConfiguration.imagePlacement = .trailing
         dateButtonConfiguration.contentInsets = .zero
         
@@ -74,11 +70,7 @@ extension TrainSearchFilterView {
         selectContainer.font = UIFont.korailBody(.body2m14)
         selectContainer.foregroundColor = UIColor.korailGrayscale(.gray500)
         
-        if let resizedImage = UIImage(resource: .icnTrainSearchArrowDown)
-            .resized(CGSize(width: 18, height: 18)) {
-            selectButtonConfiguration.image = resizedImage
-        } else { return }
-        
+        selectButtonConfiguration.image = .icnTrainSearchArrowDown.resized(CGSize(width: 18, height: 18))
         selectButtonConfiguration.imagePlacement = .trailing
         selectButtonConfiguration.contentInsets = .zero
         selectButtonConfiguration.imagePadding = 4
