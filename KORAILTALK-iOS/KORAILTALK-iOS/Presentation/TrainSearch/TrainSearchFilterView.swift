@@ -25,13 +25,14 @@ final class TrainSearchFilterView: UIView {
     
     //MARK: - Properties
     
+    
     private var dateButtonConfiguration = UIButton.Configuration.plain()
     private var selectButtonConfiguration = UIButton.Configuration.plain()
     
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
     private let transferList: [String] = ["직통", "환승"]
-
+    private var isDateShow: Bool = false
     
     weak var delegate: FilterDelegate?
 
@@ -190,6 +191,22 @@ extension TrainSearchFilterView {
     @objc
     func dateButtonTapped() {
         delegate?.showDateCollectionView()
+        if !isDateShow {
+            if let resizedImage = UIImage(resource: .icnSearchArrowUp)
+                .resized(CGSize(width: 24, height: 24)) {
+                dateButtonConfiguration.image = resizedImage
+            } else { return }
+            dateButton.configuration = dateButtonConfiguration
+            isDateShow.toggle()
+        } else {
+            if let resizedImage = UIImage(resource: .icnSearchArrowDown)
+                .resized(CGSize(width: 24, height: 24)) {
+                dateButtonConfiguration.image = resizedImage
+            } else { return }
+            dateButton.configuration = dateButtonConfiguration
+            isDateShow.toggle()
+        }
+        
     }
 
 }
