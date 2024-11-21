@@ -20,6 +20,10 @@ final class TrainSearchViewController: UIViewController {
     //MARK: - Properties
     
     private var dayList: [String] = []
+    private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
+    private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
+    private let transferList: [String] = ["직통", "환승"]
+    private var isDateShow: Bool = false
     
     //MARK: - Life Cycle
     
@@ -28,12 +32,12 @@ final class TrainSearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        setStyle()
         setHierachy()
         setLayout()
         
         setNavigationBar()
         setCollectionView()
+        setAddTarget()
         
         getDayList()
         
@@ -81,14 +85,6 @@ final class TrainSearchViewController: UIViewController {
         
     }
     
-    private func setStyle() {
-        
-        trainSearchFilterView.do {
-            $0.delegate = self
-        }
-        
-    }
-    
     private func setHierachy() {
         view.addSubviews(trainSearchFilterView, dateCollectionView)
     }
@@ -127,6 +123,53 @@ final class TrainSearchViewController: UIViewController {
         }
         
     }
+}
+
+extension TrainSearchViewController {
+    
+    private func setAddTarget() {
+        trainSearchFilterView.dateButton.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
+        
+        trainSearchFilterView.trainSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
+        trainSearchFilterView.seatSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
+        trainSearchFilterView.transferSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func selectButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            showBottomSheet(title: "모든열차", bottomType: .blue, listType: trainList)
+        case 1:
+            showBottomSheet(title: "일반석", bottomType: .blue, listType: seatList)
+        case 2:
+            showBottomSheet(title: "직통", bottomType: .blue, listType: transferList)
+        default:
+            return
+        }
+    }
+    
+    @objc
+    func dateButtonTapped() {
+        showDateCollectionView()
+        if !isDateShow {
+            if let resizedImage = UIImage(resource: .icnSearchArrowUp)
+                .resized(CGSize(width: 24, height: 24)) {
+                trainSearchFilterView.dateButtonConfiguration.image = resizedImage
+            } else { return }
+            trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            isDateShow.toggle()
+        } else {
+            if let resizedImage = UIImage(resource: .icnSearchArrowDown)
+                .resized(CGSize(width: 24, height: 24)) {
+                trainSearchFilterView.dateButtonConfiguration.image = resizedImage
+            } else { return }
+            trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            isDateShow.toggle()
+        }
+        
+    }
+    
 }
 
 extension TrainSearchViewController {

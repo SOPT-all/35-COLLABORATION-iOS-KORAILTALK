@@ -14,38 +14,32 @@ final class TrainSearchFilterView: UIView {
 
     // MARK: - UI Properties
     
-    private let containerView = UIView()
-    
-    private let dateButton = UIButton()
+    let dateButton = UIButton()
     
     private let selectStackView = UIStackView()
-    private let trainSelectButton = UIButton()
-    private let seatSelectButton = UIButton()
-    private let transferSelectButton = UIButton()
+    let trainSelectButton = UIButton()
+    let seatSelectButton = UIButton()
+    let transferSelectButton = UIButton()
     
     //MARK: - Properties
     
-    
-    private var dateButtonConfiguration = UIButton.Configuration.plain()
+    var dateButtonConfiguration = UIButton.Configuration.plain()
     private var selectButtonConfiguration = UIButton.Configuration.plain()
     
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
     private let transferList: [String] = ["직통", "환승"]
-    private var isDateShow: Bool = false
-    
-    weak var delegate: FilterDelegate?
 
     //MARK: - Life Cycle
     
     init() {
-        
         super.init(frame: .zero)
         
         setStyle()
         setHierachy()
         setLayout()
     
+        backgroundColor = .korailBlue(.blue07)
     }
     
     required init?(coder: NSCoder) {
@@ -98,6 +92,7 @@ extension TrainSearchFilterView {
         selectButtons.enumerated().forEach { index, button in
             
             button.configuration = selectButtonConfiguration
+            button.tag = index
             
             let titles = ["모든열차", "일반석", "직통"]
             
@@ -107,34 +102,20 @@ extension TrainSearchFilterView {
             button.configuration?.attributedTitle = attributedTitle
         }
 
-        containerView.do {
-            $0.backgroundColor = .korailBlue(.blue07)
-        }
         dateButton.do {
             $0.setTitleColor(UIColor.black, for: .normal)
             $0.configuration = dateButtonConfiguration
-            $0.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
         }
         selectStackView.do {
             $0.axis = .horizontal
             $0.distribution = .equalSpacing
             $0.spacing = 8
         }
-        trainSelectButton.do {
-            $0.addTarget(self, action: #selector(trainSelectButtonTapped), for: .touchUpInside)
-        }
-        seatSelectButton.do {
-            $0.addTarget(self, action: #selector(seatSelectButtonTapped), for: .touchUpInside)
-        }
-        transferSelectButton.do {
-            $0.addTarget(self, action: #selector(transferSelectButtonTapped), for: .touchUpInside)
-        }
     }
     
     private func setHierachy() {
         
-        addSubview(containerView)
-        containerView.addSubviews(dateButton, selectStackView)
+        addSubviews(dateButton, selectStackView)
         selectStackView.addArrangedSubviews(
             trainSelectButton,
             seatSelectButton,
@@ -144,11 +125,7 @@ extension TrainSearchFilterView {
     }
     
     private func setLayout() {
-        
-        containerView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(48)
-        }
+    
         dateButton.snp.makeConstraints {
             $0.width.greaterThanOrEqualTo(129)
             $0.leading.equalToSuperview().inset(16)
@@ -169,44 +146,6 @@ extension TrainSearchFilterView {
             $0.width.equalTo(47)
         }
     
-    }
-    
-    //MARK: - @objc
-    
-    @objc
-    func trainSelectButtonTapped() {
-        delegate?.showBottomSheet(title: "모든열차", bottomType: .blue, listType: trainList)
-    }
-    
-    @objc
-    func seatSelectButtonTapped() {
-        delegate?.showBottomSheet(title: "일반석", bottomType: .blue, listType: seatList)
-    }
-    
-    @objc
-    func transferSelectButtonTapped() {
-        delegate?.showBottomSheet(title: "직통", bottomType: .blue, listType: transferList)
-    }
-    
-    @objc
-    func dateButtonTapped() {
-        delegate?.showDateCollectionView()
-        if !isDateShow {
-            if let resizedImage = UIImage(resource: .icnSearchArrowUp)
-                .resized(CGSize(width: 24, height: 24)) {
-                dateButtonConfiguration.image = resizedImage
-            } else { return }
-            dateButton.configuration = dateButtonConfiguration
-            isDateShow.toggle()
-        } else {
-            if let resizedImage = UIImage(resource: .icnSearchArrowDown)
-                .resized(CGSize(width: 24, height: 24)) {
-                dateButtonConfiguration.image = resizedImage
-            } else { return }
-            dateButton.configuration = dateButtonConfiguration
-            isDateShow.toggle()
-        }
-        
     }
 
 }
