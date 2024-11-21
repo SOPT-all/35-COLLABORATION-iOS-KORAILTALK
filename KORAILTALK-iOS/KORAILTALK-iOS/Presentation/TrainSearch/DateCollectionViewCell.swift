@@ -55,8 +55,7 @@ extension DateCollectionViewCell {
         }
         
         backgroundColor = UIColor.korailBasic(.white)
-        //TODO: 조랭이떡 again.. -> 디쌤한테 물어보ㄱㅣ?!
-        makeCornerRadius(cornerRadius: 20)
+        makeCornerRadius(cornerRadius: 17)
         
     }
     
