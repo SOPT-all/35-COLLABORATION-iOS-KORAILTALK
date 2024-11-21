@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "icn_seatmap_backward_activate.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
