@@ -121,6 +121,7 @@ extension SelectBottomSheetViewController {
             $0.register(SelectBottomSheetTableViewCell.self,
                         forCellReuseIdentifier: SelectBottomSheetTableViewCell.className)
             $0.rowHeight = 50
+            $0.delegate = self
             $0.dataSource = self
             $0.separatorStyle = .none
             
@@ -211,6 +212,12 @@ extension SelectBottomSheetViewController {
         }
     }
     
+}
+
+extension SelectBottomSheetViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        hideBottomSheet()
+    }
 }
 
 extension SelectBottomSheetViewController: UITableViewDataSource {
