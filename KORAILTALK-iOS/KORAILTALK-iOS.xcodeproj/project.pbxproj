@@ -39,6 +39,7 @@
 		D0F41C782CEF3B1A00689EBC /* TicketSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */; };
 		D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */; };
 		D0F41C8D2CEFAB8900689EBC /* KTXMileageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */; };
+		D0F41C8F2CF07A1200689EBC /* DiscountCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */; };
 		D0F41C912CF082F600689EBC /* KorailDiscountCouponButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C902CF082E600689EBC /* KorailDiscountCouponButton.swift */; };
 		D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */; };
 		D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */; };
@@ -75,6 +76,7 @@
 		D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSectionView.swift; sourceTree = "<group>"; };
 		D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailRadioButton.swift; sourceTree = "<group>"; };
 		D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTXMileageView.swift; sourceTree = "<group>"; };
+		D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCouponView.swift; sourceTree = "<group>"; };
 		D0F41C902CF082E600689EBC /* KorailDiscountCouponButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailDiscountCouponButton.swift; sourceTree = "<group>"; };
 		D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */,
+				D0F41C7E2CEF47D400689EBC /* DiscountSectionDetailView */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */,
+				D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */,
 			);
 			path = DiscountSectionDetailView;
 			sourceTree = "<group>";
@@ -417,6 +421,7 @@
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
 				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
+				D0F41C8F2CF07A1200689EBC /* DiscountCouponView.swift in Sources */,
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
