@@ -10,14 +10,21 @@ import UIKit
 import SnapKit
 import Then
 
+// 임시
+public struct TrainInfo {
+    let name: String
+}
+
 final class TrainSearchViewController: UIViewController {
     
     //MARK: - UI Properties
     
     private let trainSearchFilterView = TrainSearchFilterView()
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let trainInfoTableView = UITableView()
     
-    //MARK: - Properties
+    //임시
+    private let trainlist: [TrainInfo] = []
     
     private var dayList: [String] = []
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
@@ -32,6 +39,7 @@ final class TrainSearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        setStyle()
         setHierachy()
         setLayout()
         
@@ -85,8 +93,22 @@ final class TrainSearchViewController: UIViewController {
         
     }
     
+    private func setStyle() {
+        trainInfoTableView.do {
+            $0.register(TrainInfoTableViewCell.self, forCellReuseIdentifier: TrainInfoTableViewCell.className)
+            $0.rowHeight = 94
+            $0.dataSource = self
+            $0.delegate = self
+            $0.separatorStyle = .none
+        }
+    }
+    
     private func setHierachy() {
-        view.addSubviews(trainSearchFilterView, dateCollectionView)
+        view.addSubviews(
+            trainSearchFilterView,
+            dateCollectionView,
+            trainInfoTableView
+        )
     }
     
     private func setLayout() {
@@ -100,7 +122,11 @@ final class TrainSearchViewController: UIViewController {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
         }
-        
+        trainInfoTableView.snp.makeConstraints {
+            $0.top.equalTo(trainSearchFilterView.snp.bottom)
+            //TODO: 맨 마지막일 때 다음날로 넘어가는 버튼 만들면서 bottom 조정하기
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     private func setCollectionView() {
@@ -155,10 +181,19 @@ extension TrainSearchViewController {
         if !isDateShow {
             trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowUp.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            
+            trainInfoTableView.snp.remakeConstraints {
+                $0.top.equalTo(dateCollectionView.snp.bottom)
+                $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            }
             isDateShow.toggle()
         } else {
             trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowDown.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            trainInfoTableView.snp.remakeConstraints {
+                $0.top.equalTo(trainSearchFilterView.snp.bottom)
+                $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            }
             isDateShow.toggle()
         }
         
@@ -199,7 +234,7 @@ extension TrainSearchViewController {
     }
 }
 
-extension TrainSearchViewController: FilterDelegate {
+extension TrainSearchViewController {
     
     func showBottomSheet(title: String, bottomType: BottomType, listType: [String]) {
         
@@ -236,5 +271,25 @@ extension TrainSearchViewController: UICollectionViewDataSource {
         
         return item
     }
+    
+}
+
+extension TrainSearchViewController: UITableViewDelegate {
+    
+}
+
+extension TrainSearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrainInfoTableViewCell.className) as? TrainInfoTableViewCell
+        else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
     
 }
