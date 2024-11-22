@@ -5,7 +5,6 @@
 //  Created by 조혜린 on 11/21/24.
 //
 
-
 import UIKit
 
 import SnapKit
@@ -60,7 +59,6 @@ extension TicketSectionView {
             $0.axis = .horizontal
             $0.distribution = .equalSpacing
             $0.alignment = .center
-            $0.spacing = 0
             $0.addArrangedSubviews(titleLabel, priceLabel)
         }
         
