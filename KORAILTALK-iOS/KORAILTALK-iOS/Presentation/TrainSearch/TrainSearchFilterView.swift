@@ -29,12 +29,23 @@ final class TrainSearchFilterView: UIView {
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
     private let transferList: [String] = ["직통", "환승"]
+    private var todayText = "" {
+        didSet {
+            redrawDate()
+        }
+    }
+    var dateIndexPath = IndexPath(row: 0, section: 0) {
+        didSet {
+            getToday(index: dateIndexPath)
+        }
+    }
 
     //MARK: - Life Cycle
     
     init() {
         super.init(frame: .zero)
         
+        getToday(index: IndexPath(row: 0, section: 0))
         setStyle()
         setHierachy()
         setLayout()
@@ -62,7 +73,8 @@ extension TrainSearchFilterView {
         dateButtonConfiguration.contentInsets = .zero
         
         dateButtonConfiguration.imagePadding = 0
-        dateButtonConfiguration.attributedTitle = AttributedString("\(getToday())", attributes: dateContainer)
+        //TODO: 채우기
+        dateButtonConfiguration.attributedTitle = AttributedString("\(todayText)", attributes: dateContainer)
         
         
         // select buttons style
@@ -144,14 +156,16 @@ extension TrainSearchFilterView {
 
 extension TrainSearchFilterView {
     
-    private func getToday() -> String {
+    func getToday(index: IndexPath){
 
-        let year = Calendar.current.component(.year, from: Date())
-        let month = Calendar.current.component(.month, from: Date())
-        let day = Calendar.current.component(.day, from: Date())
-        let weekday = Calendar.current.component(.weekday, from: Date())
+        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: index.row, to: Date()) else { return }
         
-        return "\(year).\(month).\(day) (\(changeWeekday(weekday)))"
+        let modifedYear = Calendar.current.component(.year, from: modifiedDate)
+        let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
+        let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
+        let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
+        
+        todayText = "\(modifedYear).\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))"
     }
     
     private func changeWeekday(_ weekday: Int) -> String {
@@ -171,3 +185,27 @@ extension TrainSearchFilterView {
     }
     
 }
+
+extension TrainSearchFilterView {
+    
+    private func redrawDate() {
+        
+        // date button style
+        var dateContainer = AttributeContainer()
+        dateContainer.font = UIFont.korailTitle(.title3m16)
+        dateContainer.foregroundColor = UIColor.korailBasic(.black)
+        
+        dateButtonConfiguration.image = .icnSearchArrowUp.resized(CGSize(width: 24, height: 24))
+        dateButtonConfiguration.imagePlacement = .trailing
+        dateButtonConfiguration.contentInsets = .zero
+        
+        dateButtonConfiguration.imagePadding = 0
+        //TODO: 채우기
+        dateButtonConfiguration.attributedTitle = AttributedString("\(todayText)", attributes: dateContainer)
+        
+        dateButton.configuration = dateButtonConfiguration
+        
+    }
+
+}
+
