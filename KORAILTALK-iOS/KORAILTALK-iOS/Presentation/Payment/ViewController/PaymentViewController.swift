@@ -81,6 +81,7 @@ extension PaymentViewController {
     }
     
     @objc private func toolbarButtonTapped() {
+        rootView.endEditing(true)
         print("입력 완료!!!!!!!!!")
     }
 }

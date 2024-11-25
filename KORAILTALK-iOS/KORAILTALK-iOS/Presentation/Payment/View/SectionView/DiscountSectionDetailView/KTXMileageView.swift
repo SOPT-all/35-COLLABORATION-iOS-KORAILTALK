@@ -151,9 +151,11 @@ extension KTXMileageView: UITextFieldDelegate {
             toolBarButton.changeButtonState(isEnabled: true)
             if Int(inputNum) ?? 0 >= 2000 {
                 textField.text = "2000"
-            } else if Int(inputNum) == 0 || inputNum.first == "0" {
+            } else if Int(inputNum) == 0 {
                 toolBarButton.changeButtonState(isEnabled: false)
                 textField.text = "0"
+            } else if inputNum.first == "0" && inputNum.count > 1 {
+                textField.text?.removeFirst()
             }
         }
         if textField.text == "" {
