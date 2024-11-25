@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SeatCell: UICollectionViewCell {
+final class SeatCell: UICollectionViewCell {
     
     // MARK: - UI Properties
     
@@ -40,14 +40,23 @@ extension SeatCell {
     
     private func setLayout() {
         seatRowView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview().inset(6)
+            $0.bottom.horizontalEdges.equalToSuperview()
         }
     }
     
     // MARK: - func
     
+    func setDelegate(_ delegate: SeatRowViewDelegate?) {
+        seatRowView.delegate = delegate
+    }
+    
     func configure(with seat: [Seat]) {
         seatRowView.configure(with: seat)
+    }
+    
+    func updateSelection(_ selectedSeatID: Int?) {
+        seatRowView.updateButtonStyles(selectedSeatId: selectedSeatID)
     }
     
 }

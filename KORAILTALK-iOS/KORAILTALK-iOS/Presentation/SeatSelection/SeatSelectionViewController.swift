@@ -16,6 +16,7 @@ final class SeatSelectionViewController: UIViewController {
     
     private var coachDataSource: CoachDataSource?
     private var seatSelectionDataSource: SeatSelectionDataSource?
+    private var selectedSeatID: Int?
     
     // MARK: - UI Properties
     
@@ -144,6 +145,7 @@ extension SeatSelectionViewController {
         coachDataSource = CoachDataSource(collectionView: coachCollectionView)
         coachDataSource?.delegate = self
         seatSelectionDataSource = SeatSelectionDataSource(collectionView: seatCollectionView)
+        seatSelectionDataSource?.delegate = self
     }
     
     private func fetchTrainData() {
@@ -281,6 +283,35 @@ extension SeatSelectionViewController: CoachDataSourceDelegate {
     func popupButtonTapped() {
         // TODO: 팝업 구현
         print("팝업 버튼 눌림")
+    }
+    
+}
+
+extension SeatSelectionViewController: SeatRowViewDelegate {
+    func seatButtonTapped(_ seatID: Int) {
+        print("VC SelectedID: \(self.selectedSeatID)")
+        print("\(seatID) 좌석 선택")
+        if selectedSeatID == seatID {
+            selectedSeatID = nil
+        } else {
+            selectedSeatID = seatID
+        }
+        
+        updateAllSeatViews()
+    }
+    
+    private func updateAllSeatViews() {
+        seatCollectionView.visibleCells.compactMap { $0 as? SeatCell }
+            .forEach { cell in
+                cell.updateSelection(selectedSeatID)
+            }
+        
+        if let headerView = seatCollectionView.supplementaryView(
+            forElementKind: UICollectionView.elementKindSectionHeader,
+            at: IndexPath(row: 0, section: 0)
+        ) as? SeatRowHeaderView {
+            headerView.updateSelection(selectedSeatID)
+        }
     }
     
 }
