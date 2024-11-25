@@ -89,10 +89,17 @@ extension PaymentViewController {
     
     @objc private func veteranDiscountButtonTapped() {
         let veteranDiscountViewController = VeteranDiscountViewController()
+        veteranDiscountViewController.delegate = self
         if let sheet = veteranDiscountViewController.sheetPresentationController {
             sheet.detents = [.custom { _ in 234 }]
         }
         self.present(veteranDiscountViewController, animated: true)
 
+    }
+}
+
+extension PaymentViewController: discountDelegate {
+    func applyDiscount() {
+        rootView.discountSectionView.couponDetailView.applyVeteranDiscount(true)
     }
 }

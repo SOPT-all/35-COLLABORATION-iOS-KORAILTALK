@@ -125,4 +125,11 @@ extension KorailDropDownButton {
             $0.trailing.equalToSuperview().inset(16)
         }
     }
+    
+    //MARK: - Func
+    
+    func isHiddenOptionLabel(isHidden: Bool, text: String) {
+        optionLabel.isHidden = isHidden
+        optionLabel.text = text
+    }
 }

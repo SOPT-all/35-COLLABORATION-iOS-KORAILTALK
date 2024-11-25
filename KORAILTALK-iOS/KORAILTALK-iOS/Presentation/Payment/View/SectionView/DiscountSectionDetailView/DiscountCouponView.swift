@@ -15,7 +15,7 @@ final class DiscountCouponView: UIView {
     //MARK: - UI Properties
     
     private let applyCouponButton = KorailDropDownButton(dropDownType: .enanbleForDiscount, titleText: "할인쿠폰 적용")
-    let veteranDiscountButton = KorailDropDownButton(dropDownType: .enanbleForDiscount, titleText: "국가유공자 할인")
+    var veteranDiscountButton = KorailDropDownButton(dropDownType: .enanbleForDiscount, titleText: "국가유공자 할인")
     private let veteranGuardianDiscountButton = KorailDropDownButton(dropDownType: .disable, titleText: "국가유공자 보호자")
     private let severeGuardianDiscountButton = KorailDropDownButton(dropDownType: .disable, titleText: "중증 보호자 할인")
     private let activeDutySoldierDiscountButton = KorailDropDownButton(dropDownType: .enanbleForDiscount, titleText: "헌역병 할인")
@@ -79,5 +79,11 @@ extension DiscountCouponView {
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview().inset(16)
         }
+    }
+    
+    //MARK: - Func
+    
+    func applyVeteranDiscount(_ bool: Bool) {
+        veteranDiscountButton.isHiddenOptionLabel(isHidden: !bool, text: "500원 할인")
     }
 }

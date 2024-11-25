@@ -125,6 +125,7 @@ extension DiscountSectionView {
             
             couponRadioButton.isSelected = false
             couponDetailView.isHidden = true
+            couponDetailView.applyVeteranDiscount(false)
             pointRadioButton.isSelected = false
             pointDetailView.isHidden = true
         case couponRadioButton:
@@ -141,6 +142,7 @@ extension DiscountSectionView {
 
             couponRadioButton.isSelected = false
             couponDetailView.isHidden = true
+            couponDetailView.applyVeteranDiscount(false)
             mileageRadioButton.isSelected = false
             mileageDetailView.isHidden = true
         default:

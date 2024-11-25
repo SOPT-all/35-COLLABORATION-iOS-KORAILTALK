@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol discountDelegate: AnyObject {
+    func applyDiscount()
+}
+
 final class VeteranDiscountViewController: UIViewController {
     
     //MARK: - Properties
     
     private let rootView = VeteranDiscountView()
+    
+    weak var delegate: discountDelegate?
     
     private var veteranIDValue = false
     private var passwordValue = false
@@ -54,6 +60,7 @@ extension VeteranDiscountViewController {
     }
     
     @objc private func toolbarButtonTapped() {
+        delegate?.applyDiscount()
         self.dismiss(animated: true)
     }
 }
