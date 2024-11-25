@@ -181,7 +181,8 @@ extension SeatRowView {
         switch totalSeats {
         case 1:
             seatButtons[0].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
@@ -189,14 +190,16 @@ extension SeatRowView {
             
         case 2:
             seatButtons[0].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
@@ -204,21 +207,24 @@ extension SeatRowView {
             
         case 3:
             seatButtons[0].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[2].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.trailing.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
@@ -226,28 +232,32 @@ extension SeatRowView {
             
         case 4:
             seatButtons[0].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[3].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.trailing.equalToSuperview()
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
             }
             
             seatButtons[2].snp.makeConstraints {
-                $0.centerY.equalTo(arrowImageView)
+                $0.top.equalToSuperview().inset(6)
+                $0.bottom.equalToSuperview()
                 $0.trailing.equalTo(seatButtons[3].snp.leading).offset(-6)
                 $0.width.equalTo(50)
                 $0.height.equalTo(48)
@@ -264,7 +274,7 @@ extension SeatRowView {
 import SwiftUI
 
 #Preview {
-    let fourSeatsArray = Array(Coach.mock.seats.prefix(3))
+    let fourSeatsArray = Array(Coach.mock.seats.prefix(4))
     
     let rowView = SeatRowView()
     rowView.configure(with: fourSeatsArray)
