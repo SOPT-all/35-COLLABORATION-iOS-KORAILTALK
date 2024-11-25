@@ -15,6 +15,7 @@
 		CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */; };
 		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
+		D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */; };
 		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
@@ -56,6 +57,7 @@
 		CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
+		D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailToolBarButton.swift; sourceTree = "<group>"; };
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		D0F41C872CEFA89F00689EBC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */,
 				D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */,
 				D0F41C902CF082E600689EBC /* KorailDiscountCouponButton.swift */,
 			);
@@ -414,6 +417,7 @@
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
 				CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */,
 				CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */,
+				D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
