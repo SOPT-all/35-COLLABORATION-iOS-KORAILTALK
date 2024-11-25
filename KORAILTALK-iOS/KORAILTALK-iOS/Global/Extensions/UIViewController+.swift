@@ -32,4 +32,16 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = customBarView
     }
     
+    ///키보드 제외한 부분을 탭했을 때 키보드가 내려가는 함수
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
