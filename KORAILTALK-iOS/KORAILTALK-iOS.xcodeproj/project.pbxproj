@@ -27,8 +27,21 @@
 		D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */; };
 		D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */; };
 		D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */; };
+		D61E9A332CECC0F40005D772 /* SeatInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */; };
+		D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */; };
+		D61E9A382CECFAA50005D772 /* CoachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A372CECFAA50005D772 /* CoachCell.swift */; };
+		D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A4C2CECFE380005D772 /* SeatsResponse.swift */; };
+		D61E9A4F2CED06A30005D772 /* SeatRowHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A4E2CED06A30005D772 /* SeatRowHeaderView.swift */; };
+		D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A502CEE41260005D772 /* SeatRowView.swift */; };
+		D61E9A592CEFA9360005D772 /* SeatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A582CEFA9360005D772 /* SeatCell.swift */; };
+		D61E9A5B2CEFAA320005D772 /* WindowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A5A2CEFAA320005D772 /* WindowCell.swift */; };
+		D61E9A632CEFB36F0005D772 /* CoachDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A622CEFB36F0005D772 /* CoachDataSource.swift */; };
+		D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9AB52CF0B41E0005D772 /* CoachBackgroundView.swift */; };
+		D61E9B6A2CF210050005D772 /* SeatSelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9B692CF210050005D772 /* SeatSelectionDataSource.swift */; };
 		D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */; };
 		D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */; };
+		D62EAC522CEC9FC9005F622B /* CoachHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */; };
+		D62EAC542CECACCC005F622B /* UIView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC532CECACCC005F622B /* UIView+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +63,21 @@
 		D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+.swift"; sourceTree = "<group>"; };
+		D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatInfoCell.swift; sourceTree = "<group>"; };
+		D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
+		D61E9A372CECFAA50005D772 /* CoachCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachCell.swift; sourceTree = "<group>"; };
+		D61E9A4C2CECFE380005D772 /* SeatsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsResponse.swift; sourceTree = "<group>"; };
+		D61E9A4E2CED06A30005D772 /* SeatRowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatRowHeaderView.swift; sourceTree = "<group>"; };
+		D61E9A502CEE41260005D772 /* SeatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatRowView.swift; sourceTree = "<group>"; };
+		D61E9A582CEFA9360005D772 /* SeatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCell.swift; sourceTree = "<group>"; };
+		D61E9A5A2CEFAA320005D772 /* WindowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCell.swift; sourceTree = "<group>"; };
+		D61E9A622CEFB36F0005D772 /* CoachDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachDataSource.swift; sourceTree = "<group>"; };
+		D61E9AB52CF0B41E0005D772 /* CoachBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachBackgroundView.swift; sourceTree = "<group>"; };
+		D61E9B692CF210050005D772 /* SeatSelectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionDataSource.swift; sourceTree = "<group>"; };
 		D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionViewController.swift; sourceTree = "<group>"; };
+		D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachHeaderCell.swift; sourceTree = "<group>"; };
+		D62EAC532CECACCC005F622B /* UIView+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +116,7 @@
 			children = (
 				D03DF2192CEB6EF400BE7CAE /* Application */,
 				D03DF2182CEB6EDD00BE7CAE /* Global */,
-				D03DF2172CEB6ED400BE7CAE /* Network */,
+				D61E9A3F2CECFD430005D772 /* Network */,
 				D03DF2162CEB6EC800BE7CAE /* Presentation */,
 			);
 			path = "KORAILTALK-iOS";
@@ -103,13 +129,6 @@
 				D62EAC232CEBAFCC005F622B /* SeatSelection */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		D03DF2172CEB6ED400BE7CAE /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		D03DF2182CEB6EDD00BE7CAE /* Global */ = {
@@ -178,6 +197,7 @@
 		D03DF21F2CEB6F7800BE7CAE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D62EAC552CECACD2005F622B /* Preview */,
 				D03DF2202CEB844300BE7CAE /* UIView+.swift */,
 				D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */,
 				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
@@ -185,6 +205,7 @@
 				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
 				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
+				D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,14 +218,80 @@
 				D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
+		D61E9A362CECFA8F0005D772 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				D61E9A4E2CED06A30005D772 /* SeatRowHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		D61E9A392CECFAAB0005D772 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */,
+				D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */,
+				D61E9A372CECFAA50005D772 /* CoachCell.swift */,
+				D61E9A582CEFA9360005D772 /* SeatCell.swift */,
+				D61E9A5A2CEFAA320005D772 /* WindowCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D61E9A3F2CECFD430005D772 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D61E9A402CECFD870005D772 /* SeatSelectionMock */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D61E9A402CECFD870005D772 /* SeatSelectionMock */ = {
+			isa = PBXGroup;
+			children = (
+				D61E9A4C2CECFE380005D772 /* SeatsResponse.swift */,
+			);
+			path = SeatSelectionMock;
+			sourceTree = "<group>";
+		};
+		D61E9A6A2CEFB3870005D772 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				D61E9A622CEFB36F0005D772 /* CoachDataSource.swift */,
+				D61E9B692CF210050005D772 /* SeatSelectionDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		D62EAC232CEBAFCC005F622B /* SeatSelection */ = {
 			isa = PBXGroup;
 			children = (
+				D62EAC502CEC99B5005F622B /* Views */,
 				D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */,
+				D61E9A6A2CEFB3870005D772 /* DataSource */,
 			);
 			path = SeatSelection;
+			sourceTree = "<group>";
+		};
+		D62EAC502CEC99B5005F622B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D61E9A362CECFA8F0005D772 /* Headers */,
+				D61E9A392CECFAAB0005D772 /* Cells */,
+				D61E9A502CEE41260005D772 /* SeatRowView.swift */,
+				D61E9AB52CF0B41E0005D772 /* CoachBackgroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D62EAC552CECACD2005F622B /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				D62EAC532CECACCC005F622B /* UIView+Preview.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,19 +380,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61E9A382CECFAA50005D772 /* CoachCell.swift in Sources */,
+				D61E9A332CECC0F40005D772 /* SeatInfoCell.swift in Sources */,
+				D61E9B6A2CF210050005D772 /* SeatSelectionDataSource.swift in Sources */,
 				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
+				D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				D61E9A632CEFB36F0005D772 /* CoachDataSource.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
+				D61E9A4F2CED06A30005D772 /* SeatRowHeaderView.swift in Sources */,
+				D62EAC522CEC9FC9005F622B /* CoachHeaderCell.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */,
+				D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */,
 				D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */,
 				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
+				D62EAC542CECACCC005F622B /* UIView+Preview.swift in Sources */,
+				D61E9A592CEFA9360005D772 /* SeatCell.swift in Sources */,
 				D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
+				D61E9A5B2CEFAA320005D772 /* WindowCell.swift in Sources */,
 				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
+				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +437,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,7 +465,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
