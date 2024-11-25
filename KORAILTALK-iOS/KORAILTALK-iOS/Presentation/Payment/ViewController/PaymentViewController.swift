@@ -68,6 +68,8 @@ extension PaymentViewController {
         rootView.discountSectionView.pointRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.applyAllAmountButton.addTarget(self, action: #selector(applyAllAmountButtonTapped), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
+        
+        rootView.discountSectionView.couponDetailView.veteranDiscountButton.addTarget(self, action: #selector(veteranDiscountButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - @objc
@@ -83,5 +85,14 @@ extension PaymentViewController {
     @objc private func toolbarButtonTapped() {
         rootView.endEditing(true)
         print("입력 완료!!!!!!!!!")
+    }
+    
+    @objc private func veteranDiscountButtonTapped() {
+        let veteranDiscountViewController = VeteranDiscountViewController()
+        if let sheet = veteranDiscountViewController.sheetPresentationController {
+            sheet.detents = [.custom { _ in 234 }]
+        }
+        self.present(veteranDiscountViewController, animated: true)
+
     }
 }
