@@ -18,7 +18,7 @@ final class DiscountSectionView: UIView {
     let mileageRadioButton = KorailRadioButton(buttonType: .ktxMileage)
     let couponRadioButton = KorailRadioButton(buttonType: .discountCoupon)
     let pointRadioButton = KorailRadioButton(buttonType: .pointUsage)
-    private lazy var mileageDetailView = KTXMileageView()
+    lazy var mileageDetailView = KTXMileageView()
     private lazy var couponDetailView = DiscountCouponView()
     private lazy var pointDetailView = PointUsageView()
     private let mileageStackView = UIStackView()
@@ -112,6 +112,39 @@ extension DiscountSectionView {
         
         pointDetailView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
+        }
+    }
+    
+    //MARK: - Func
+    
+    func toggleDropDownState(sender: UIButton) {
+        switch sender {
+        case mileageRadioButton:
+            mileageRadioButton.isSelected.toggle()
+            mileageDetailView.isHidden = !mileageRadioButton.isSelected
+            
+            couponRadioButton.isSelected = false
+            couponDetailView.isHidden = true
+            pointRadioButton.isSelected = false
+            pointDetailView.isHidden = true
+        case couponRadioButton:
+            couponRadioButton.isSelected.toggle()
+            couponDetailView.isHidden = !couponRadioButton.isSelected
+
+            mileageRadioButton.isSelected = false
+            mileageDetailView.isHidden = true
+            pointRadioButton.isSelected = false
+            pointDetailView.isHidden = true
+        case pointRadioButton:
+            pointRadioButton.isSelected.toggle()
+            pointDetailView.isHidden = !pointRadioButton.isSelected
+
+            couponRadioButton.isSelected = false
+            couponDetailView.isHidden = true
+            mileageRadioButton.isSelected = false
+            mileageDetailView.isHidden = true
+        default:
+            return
         }
     }
 }

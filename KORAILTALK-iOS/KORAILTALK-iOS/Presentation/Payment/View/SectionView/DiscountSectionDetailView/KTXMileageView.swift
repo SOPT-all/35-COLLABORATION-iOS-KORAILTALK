@@ -18,7 +18,7 @@ final class KTXMileageView: UIView {
 
     //MARK: - UI Properties
     
-    private let mileageTextField = UITextField()
+    let mileageTextField = UITextField()
     private let applyAllAmountButton = UIButton()
     private let mileageInputStackView = UIStackView()
     private let usableMileageLabel = UILabel()
@@ -68,6 +68,7 @@ extension KTXMileageView {
                 $0.addSubview(rightTextLabel)
             }
             
+            $0.keyboardType = .numberPad
             $0.setPlaceholder(placeholder: "2000", fontColor: .korailGrayscale(.gray300), font: .korailBody(.body2m14))
             $0.setTextFont(font: .korailBody(.body2m14), fontColor: .korailBlue(.blue01))
             $0.textAlignment = .right
