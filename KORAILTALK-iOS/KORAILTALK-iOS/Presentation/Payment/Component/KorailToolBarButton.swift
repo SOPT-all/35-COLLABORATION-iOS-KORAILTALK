@@ -50,6 +50,7 @@ extension KorailToolBarButton {
     private func setStyle(buttonType: ToolBarButtonType) {
         setTitle(buttonType.title, for: .normal)
         setTitleColor(.korailBasic(.white), for: .normal)
+        titleLabel?.font = .korailTitle(.title3m16)
         backgroundColor = .korailGrayscale(.gray200)
         isEnabled = false
     }
