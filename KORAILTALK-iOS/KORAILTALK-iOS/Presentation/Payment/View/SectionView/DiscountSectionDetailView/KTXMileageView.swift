@@ -143,6 +143,10 @@ extension KTXMileageView {
         mileageTextField.text = "2000"
         toolBarButton.changeButtonState(isEnabled: true)
     }
+    
+    func initializeAmount() {
+        mileageTextField.text = ""
+    }
 }
 
 extension KTXMileageView: UITextFieldDelegate {

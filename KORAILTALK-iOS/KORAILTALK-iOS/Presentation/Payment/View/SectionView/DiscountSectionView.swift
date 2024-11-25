@@ -122,6 +122,11 @@ extension DiscountSectionView {
         case mileageRadioButton:
             mileageRadioButton.isSelected.toggle()
             mileageDetailView.isHidden = !mileageRadioButton.isSelected
+            if mileageRadioButton.isSelected {
+                mileageDetailView.mileageTextField.becomeFirstResponder()
+            } else {
+                endEditing(true)
+            }
             
             couponRadioButton.isSelected = false
             couponDetailView.isHidden = true
@@ -129,14 +134,17 @@ extension DiscountSectionView {
             pointRadioButton.isSelected = false
             pointDetailView.isHidden = true
         case couponRadioButton:
+            endEditing(true)
             couponRadioButton.isSelected.toggle()
             couponDetailView.isHidden = !couponRadioButton.isSelected
 
             mileageRadioButton.isSelected = false
             mileageDetailView.isHidden = true
+            mileageDetailView.initializeAmount()
             pointRadioButton.isSelected = false
             pointDetailView.isHidden = true
         case pointRadioButton:
+            endEditing(true)
             pointRadioButton.isSelected.toggle()
             pointDetailView.isHidden = !pointRadioButton.isSelected
 
@@ -145,7 +153,8 @@ extension DiscountSectionView {
             couponDetailView.applyVeteranDiscount(false)
             mileageRadioButton.isSelected = false
             mileageDetailView.isHidden = true
-        default:
+            mileageDetailView.initializeAmount()
+         default:
             return
         }
     }
