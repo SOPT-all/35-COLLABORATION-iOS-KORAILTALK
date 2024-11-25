@@ -24,6 +24,7 @@ final class KTXMileageView: UIView {
     private let usableMileageLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let mileageLabelStackView = UIStackView()
+    lazy var toolBarButton = KorailToolBarButton(buttonType: .done)
 
     // MARK: - Life Cycle
     
@@ -68,7 +69,9 @@ extension KTXMileageView {
                 $0.addSubview(rightTextLabel)
             }
             
+            $0.delegate = self
             $0.keyboardType = .numberPad
+            $0.inputAccessoryView = toolBarButton
             $0.setPlaceholder(placeholder: "2000", fontColor: .korailGrayscale(.gray300), font: .korailBody(.body2m14))
             $0.setTextFont(font: .korailBody(.body2m14), fontColor: .korailBlue(.blue01))
             $0.textAlignment = .right
@@ -131,6 +134,23 @@ extension KTXMileageView {
             $0.top.equalTo(mileageInputStackView.snp.bottom).offset(12)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview().inset(16)
+        }
+    }
+}
+
+extension KTXMileageView: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let inputNum = textField.text {
+            toolBarButton.changeButtonState(isEnabled: true)
+            if Int(inputNum) ?? 0 >= 2000 {
+                textField.text = "2000"
+            } else if Int(inputNum) == 0 || inputNum.first == "0" {
+                toolBarButton.changeButtonState(isEnabled: false)
+                textField.text = "0"
+            }
+        }
+        if textField.text == "" {
+            toolBarButton.changeButtonState(isEnabled: false)
         }
     }
 }
