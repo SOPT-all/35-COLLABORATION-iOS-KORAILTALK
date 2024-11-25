@@ -15,9 +15,9 @@ final class DiscountSectionView: UIView {
     //MARK: - UI Properties
     
     private let titleLabel = UILabel()
-    private let mileageRadioButton = KorailRadioButton(buttonType: .ktxMileage)
-    private let couponRadioButton = KorailRadioButton(buttonType: .discountCoupon)
-    private let pointRadioButton = KorailRadioButton(buttonType: .pointUsage)
+    let mileageRadioButton = KorailRadioButton(buttonType: .ktxMileage)
+    let couponRadioButton = KorailRadioButton(buttonType: .discountCoupon)
+    let pointRadioButton = KorailRadioButton(buttonType: .pointUsage)
     private lazy var mileageDetailView = KTXMileageView()
     private lazy var couponDetailView = DiscountCouponView()
     private lazy var pointDetailView = PointUsageView()
@@ -55,13 +55,15 @@ extension DiscountSectionView {
         }
         
         [mileageStackView, couponStackView, pointStackView].forEach { stackView in
-            stackView.do {
-                $0.backgroundColor = .clear
-                $0.axis = .vertical
-                $0.spacing = 12
-                $0.alignment = .leading
-                $0.distribution = .equalSpacing
-            }
+            stackView.backgroundColor = .clear
+            stackView.axis = .vertical
+            stackView.spacing = 12
+            stackView.alignment = .leading
+            stackView.distribution = .equalSpacing
+        }
+        
+        [mileageDetailView, couponDetailView, pointDetailView].forEach { view in
+            view.isHidden = true
         }
     }
     
@@ -78,6 +80,12 @@ extension DiscountSectionView {
             $0.leading.equalToSuperview().inset(16)
         }
         
+        [mileageRadioButton, couponRadioButton, pointRadioButton].forEach { button in
+            button.snp.makeConstraints {
+                $0.height.equalTo(28)
+            }
+        }
+        
         mileageStackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(16)
@@ -88,7 +96,7 @@ extension DiscountSectionView {
         }
         
         couponStackView.snp.makeConstraints {
-            $0.top.equalTo(mileageStackView.snp.bottom)
+            $0.top.equalTo(mileageStackView.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
@@ -97,9 +105,9 @@ extension DiscountSectionView {
         }
         
         pointStackView.snp.makeConstraints {
-            $0.top.equalTo(couponStackView.snp.bottom)
+            $0.top.equalTo(couponStackView.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
         }
         
         pointDetailView.snp.makeConstraints {

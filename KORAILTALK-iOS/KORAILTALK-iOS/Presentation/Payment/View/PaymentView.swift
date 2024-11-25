@@ -17,7 +17,10 @@ final class PaymentView: UIView {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let ticketSectionView = TicketSectionView()
-    private let discountSectionView = DiscountSectionView()
+    let discountSectionView = DiscountSectionView()
+    
+    //버튼 선택에 따라 contentView의 높이가 달라지기 때문에 임의로 bottom을 잡아주기 위해 추가
+    private let view = UIView()
         
     // MARK: - Life Cycle
     
@@ -46,7 +49,7 @@ extension PaymentView {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        contentView.addSubviews(ticketSectionView, discountSectionView)
+        contentView.addSubviews(ticketSectionView, discountSectionView, view)
     }
     
     private func setLayout() {
@@ -68,6 +71,10 @@ extension PaymentView {
         discountSectionView.snp.makeConstraints {
             $0.top.equalTo(ticketSectionView.snp.bottom).offset(8)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        view.snp.makeConstraints {
+            $0.top.equalTo(discountSectionView.snp.bottom).offset(8)
             $0.bottom.equalToSuperview()
         }
     }

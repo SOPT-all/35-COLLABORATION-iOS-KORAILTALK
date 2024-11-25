@@ -44,18 +44,16 @@ extension PointUsageView {
     
     private func setStyle() {
         [lPointButton, railPointButton, webeeHoneyButton, cityPoinButton, okCashBackButton].forEach { button in
-            button.do {
-                $0.makeCornerRadius(cornerRadius: 8)
-                $0.titleLabel?.font = .korailCaption(.caption2m12)
-                switch $0 {
-                case lPointButton, railPointButton, okCashBackButton:
-                    $0.backgroundColor = .korailBasic(.white)
-                    $0.setTitleColor(.korailBasic(.black), for: .normal)
-                    $0.makeBorder(width: 1, color: .korailGrayscale(.gray200))
-                default:
-                    $0.backgroundColor = .korailGrayscale(.gray200)
-                    $0.setTitleColor(.korailGrayscale(.gray400), for: .normal)
-                }
+            button.makeCornerRadius(cornerRadius: 8)
+            button.titleLabel?.font = .korailCaption(.caption2m12)
+            switch button {
+            case lPointButton, railPointButton, okCashBackButton:
+                button.backgroundColor = .korailBasic(.white)
+                button.setTitleColor(.korailBasic(.black), for: .normal)
+                button.makeBorder(width: 1, color: .korailGrayscale(.gray200))
+            default:
+                button.backgroundColor = .korailGrayscale(.gray200)
+                button.setTitleColor(.korailGrayscale(.gray400), for: .normal)
             }
         }
         
@@ -72,11 +70,9 @@ extension PointUsageView {
         }
         
         [horizontalStackView1, horizontalStackView2].forEach { stackView in
-            stackView.do {
-                $0.axis = .horizontal
-                $0.spacing = 8
-                $0.distribution = .fillEqually
-            }
+            stackView.axis = .horizontal
+            stackView.spacing = 8
+            stackView.distribution = .fillEqually
         }
     }
     
@@ -92,7 +88,7 @@ extension PointUsageView {
             $0.top.horizontalEdges.equalToSuperview()
             $0.height.equalTo(124)
             $0.width.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview()
         }
     }
 }
