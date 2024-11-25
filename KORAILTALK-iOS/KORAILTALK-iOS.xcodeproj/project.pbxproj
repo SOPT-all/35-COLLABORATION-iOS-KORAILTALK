@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */; };
+		CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */; };
+		CB390AF32CEC91C600BBD66F /* SelectBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */; };
+		CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */; };
+		CB390AFB2CECF31F00BBD66F /* FilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */; };
+		CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */; };
+		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
@@ -45,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchViewController.swift; sourceTree = "<group>"; };
+		CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchFilterView.swift; sourceTree = "<group>"; };
+		CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectBottomSheetViewController.swift; path = "KORAILTALK-iOS/Global/Extensions/SelectBottomSheetViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectBottomSheetTableViewCell.swift; path = "KORAILTALK-iOS/Global/SelectBottomSheetTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterDelegate.swift; path = "KORAILTALK-iOS/Global/FilterDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */,
+				CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */,
+				CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */,
+			);
+			path = TrainSearch;
+			sourceTree = "<group>";
+		};
 		D03DF1DB2CEB6A9400BE7CAE = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +149,7 @@
 		D03DF2162CEB6EC800BE7CAE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */,
 				D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */,
 				D62EAC232CEBAFCC005F622B /* SeatSelection */,
 			);
@@ -174,6 +199,7 @@
 		D03DF21C2CEB6F5C00BE7CAE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -190,6 +216,8 @@
 		D03DF21E2CEB6F7000BE7CAE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */,
+				CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,6 +234,7 @@
 				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
 				D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */,
+				CB9473972CEC5F88002B4D25 /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,11 +423,20 @@
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
 				D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */,
 				D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */,
+				CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */,
+				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
+				CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */,
+				CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */,
+				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
+				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
+				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */,
 				D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */,
 				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
 				D62EAC542CECACCC005F622B /* UIView+Preview.swift in Sources */,
 				D61E9A592CEFA9360005D772 /* SeatCell.swift in Sources */,
 				D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */,
+				CB390AFB2CECF31F00BBD66F /* FilterDelegate.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
 				D61E9A5B2CEFAA320005D772 /* WindowCell.swift in Sources */,
@@ -406,6 +444,7 @@
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
 				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
+				CB390AF32CEC91C600BBD66F /* SelectBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X395BM5WW7;
+				DEVELOPMENT_TEAM = L9J3VF6GK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -443,7 +482,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Hyerin.KORAILTALK-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sopt.korailtalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -458,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X395BM5WW7;
+				DEVELOPMENT_TEAM = L9J3VF6GK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KORAILTALK-iOS/Global/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -471,7 +510,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Hyerin.KORAILTALK-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sopt.korailtalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
