@@ -66,6 +66,7 @@ extension PaymentViewController {
         rootView.discountSectionView.mileageRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.couponRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.pointRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
+        rootView.discountSectionView.mileageDetailView.applyAllAmountButton.addTarget(self, action: #selector(applyAllAmountButtonTapped), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
     }
     
@@ -73,6 +74,10 @@ extension PaymentViewController {
     
     @objc private func radioButtonTapped(_ sender: UIButton) {
         rootView.discountSectionView.toggleDropDownState(sender: sender)
+    }
+    
+    @objc private func applyAllAmountButtonTapped() {
+        rootView.discountSectionView.mileageDetailView.applyAllAmount()
     }
     
     @objc private func toolbarButtonTapped() {

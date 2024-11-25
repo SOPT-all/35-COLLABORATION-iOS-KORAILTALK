@@ -19,7 +19,7 @@ final class KTXMileageView: UIView {
     //MARK: - UI Properties
     
     let mileageTextField = UITextField()
-    private let applyAllAmountButton = UIButton()
+    let applyAllAmountButton = UIButton()
     private let mileageInputStackView = UIStackView()
     private let usableMileageLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -135,6 +135,13 @@ extension KTXMileageView {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview().inset(16)
         }
+    }
+    
+    //MARK: - Func
+    
+    func applyAllAmount() {
+        mileageTextField.text = "2000"
+        toolBarButton.changeButtonState(isEnabled: true)
     }
 }
 
