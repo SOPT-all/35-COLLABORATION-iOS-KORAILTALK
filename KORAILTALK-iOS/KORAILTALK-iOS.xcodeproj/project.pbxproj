@@ -17,6 +17,8 @@
 		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
 		D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */; };
 		D022CDDB2CF458BC00A21713 /* ModalBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDDA2CF458B700A21713 /* ModalBaseView.swift */; };
+		D022CDDD2CF45AB300A21713 /* VeteranDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDDC2CF45AA500A21713 /* VeteranDiscountView.swift */; };
+		D022CDE22CF45E8E00A21713 /* VeteranDiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDE12CF45E8900A21713 /* VeteranDiscountViewController.swift */; };
 		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
@@ -73,6 +75,8 @@
 		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
 		D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailToolBarButton.swift; sourceTree = "<group>"; };
 		D022CDDA2CF458B700A21713 /* ModalBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBaseView.swift; sourceTree = "<group>"; };
+		D022CDDC2CF45AA500A21713 /* VeteranDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeteranDiscountView.swift; sourceTree = "<group>"; };
+		D022CDE12CF45E8900A21713 /* VeteranDiscountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeteranDiscountViewController.swift; sourceTree = "<group>"; };
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		D022CDDE2CF45E6200A21713 /* ModalViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D022CDE12CF45E8900A21713 /* VeteranDiscountViewController.swift */,
 			);
 			path = ModalViewController;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				D022CDDD2CF45AB300A21713 /* VeteranDiscountView.swift in Sources */,
 				CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */,
 				D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */,
 				D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */,
@@ -561,6 +567,7 @@
 				D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
 				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
+				D022CDE22CF45E8E00A21713 /* VeteranDiscountViewController.swift in Sources */,
 				CB390AF32CEC91C600BBD66F /* SelectBottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
