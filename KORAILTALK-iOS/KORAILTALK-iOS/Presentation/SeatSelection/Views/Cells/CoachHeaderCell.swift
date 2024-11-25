@@ -1,5 +1,5 @@
 //
-//  CoachHeaderView.swift
+//  CoachHeaderCell.swift
 //  KORAILTALK-iOS
 //
 //  Created by 조호근 on 11/19/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CoachHeaderView: UICollectionReusableView {
+final class CoachHeaderCell: UICollectionViewCell {
     
     // MARK: - UI Properties
     
@@ -35,11 +35,13 @@ final class CoachHeaderView: UICollectionReusableView {
     
 }
 
-extension CoachHeaderView {
+extension CoachHeaderCell {
     
     // MARK: - Layout
     
     private func setStyle() {
+        self.backgroundColor = .korailBasic(.white)
+        
         dateLabel.do {
             $0.font = .korailTitle(.title3m16)
             $0.backgroundColor = .korailBlue(.blue07)
@@ -115,7 +117,7 @@ extension CoachHeaderView {
 import SwiftUI
 
 #Preview {
-    let view = CoachHeaderView()
+    let view = CoachHeaderCell()
     view.updateDate("2024.11.16 (토)")
     view.updateRoute(departure: "서울", arrival: "부산")
     

@@ -46,6 +46,7 @@ extension CoachCell {
         
         selectedBackgroundView = UIView().then {
             $0.backgroundColor = .korailBlue(.blue06)
+            $0.makeCornerRadius(cornerRadius: 8)
             $0.layer.borderWidth = 0
         }
         
@@ -93,6 +94,7 @@ extension CoachCell {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(38)
             $0.height.equalTo(14)
+            
         }
     }
     

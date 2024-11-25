@@ -1,5 +1,5 @@
 //
-//  SeatHeaderView.swift
+//  SeatInfoCell.swift
 //  KORAILTALK-iOS
 //
 //  Created by 조호근 on 11/19/24.
@@ -10,7 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
-final class SeatHeaderView: UICollectionReusableView {
+protocol SeatInfoCellDelegate: AnyObject {
+    func popupButtonTapped(_ cell: SeatInfoCell)
+}
+
+final class SeatInfoCell: UICollectionViewCell {
+    
+    // MARK: - Properties
+    
+    weak var delegate: SeatInfoCellDelegate?
     
     // MARK: - UI Properties
     
@@ -35,7 +43,7 @@ final class SeatHeaderView: UICollectionReusableView {
     
 }
 
-extension SeatHeaderView {
+extension SeatInfoCell {
     
     // MARK: - Layout
     
@@ -122,13 +130,22 @@ extension SeatHeaderView {
         }
     }
     
+    private func setAction() {
+        let popupButtonTapped = UIAction { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.popupButtonTapped(self)
+            
+        }
+        popupButton.addAction(popupButtonTapped, for: .touchUpInside)
+    }
+    
 }
 
 #if DEBUG
 import SwiftUI
 
 #Preview {
-    SeatHeaderView().toPreview()
+    SeatInfoCell().toPreview()
 }
 
 #endif
