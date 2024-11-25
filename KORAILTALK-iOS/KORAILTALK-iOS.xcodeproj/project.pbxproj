@@ -14,6 +14,7 @@
 		CB390AFB2CECF31F00BBD66F /* FilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */; };
 		CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */; };
 		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
+		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
 		D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF1FD2CEB6DC500BE7CAE /* SnapKit */; };
 		D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2002CEB6DD400BE7CAE /* Then */; };
 		D03DF2042CEB6E5300BE7CAE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D03DF2032CEB6E5300BE7CAE /* Moya */; };
@@ -37,6 +38,7 @@
 		D0F41C712CEF2A5600689EBC /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */; };
 		D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C742CEF2A7B00689EBC /* PaymentView.swift */; };
 		D0F41C782CEF3B1A00689EBC /* TicketSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */; };
+		D0F41C7B2CEF453C00689EBC /* DiscountSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C7A2CEF453800689EBC /* DiscountSectionView.swift */; };
 		D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */; };
 		D0F41C8D2CEFAB8900689EBC /* KTXMileageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */; };
 		D0F41C8F2CF07A1200689EBC /* DiscountCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */; };
@@ -53,6 +55,7 @@
 		CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterDelegate.swift; path = "KORAILTALK-iOS/Global/FilterDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
 		D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KORAILTALK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03DF2082CEB6EC000BE7CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		D0F41C742CEF2A7B00689EBC /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSectionView.swift; sourceTree = "<group>"; };
+		D0F41C7A2CEF453800689EBC /* DiscountSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountSectionView.swift; sourceTree = "<group>"; };
 		D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailRadioButton.swift; sourceTree = "<group>"; };
 		D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTXMileageView.swift; sourceTree = "<group>"; };
 		D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCouponView.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */,
+				D0F41C7A2CEF453800689EBC /* DiscountSectionView.swift */,
 				D0F41C7E2CEF47D400689EBC /* DiscountSectionDetailView */,
 			);
 			path = SectionView;
@@ -292,6 +297,7 @@
 			children = (
 				D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */,
 				D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */,
+				D022CDCE2CF3A02000A21713 /* PointUsageView.swift */,
 			);
 			path = DiscountSectionDetailView;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
 				CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */,
 				D0F41C912CF082F600689EBC /* KorailDiscountCouponButton.swift in Sources */,
+				D0F41C7B2CEF453C00689EBC /* DiscountSectionView.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
 				CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */,
 				CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */,
@@ -416,6 +423,7 @@
 				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
 				D0F41C782CEF3B1A00689EBC /* TicketSectionView.swift in Sources */,
 				D0F41C712CEF2A5600689EBC /* PaymentViewController.swift in Sources */,
+				D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */,
 				D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */,
 				CB390AFB2CECF31F00BBD66F /* FilterDelegate.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
