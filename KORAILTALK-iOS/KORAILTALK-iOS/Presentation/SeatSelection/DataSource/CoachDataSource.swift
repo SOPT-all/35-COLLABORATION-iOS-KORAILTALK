@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CoachDataSourceDelegate: AnyObject {
+    func popupButtonTapped()
+}
+
 class CoachDataSource {
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
@@ -24,6 +28,7 @@ class CoachDataSource {
         case dummy2
     }
     
+    weak var delegate: CoachDataSourceDelegate?
     private weak var collectionView: UICollectionView?
     private var dataSource: DataSource?
     
@@ -103,6 +108,7 @@ class CoachDataSource {
                 withReuseIdentifier: SeatInfoCell.className,
                 for: indexPath
             ) as! SeatInfoCell
+            cell.delegate = self
             return cell
         }
         
@@ -122,4 +128,12 @@ class CoachDataSource {
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
 
+}
+
+extension CoachDataSource: SeatInfoCellDelegate {
+    
+    func popupButtonTapped() {
+        delegate?.popupButtonTapped()
+    }
+    
 }

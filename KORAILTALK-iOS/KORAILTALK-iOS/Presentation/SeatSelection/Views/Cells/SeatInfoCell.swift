@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol SeatInfoCellDelegate: AnyObject {
-    func popupButtonTapped(_ cell: SeatInfoCell)
+    func popupButtonTapped()
 }
 
 final class SeatInfoCell: UICollectionViewCell {
@@ -35,6 +35,7 @@ final class SeatInfoCell: UICollectionViewCell {
         setStyle()
         setHierarchy()
         setLayout()
+        setAction()
     }
     
     required init?(coder: NSCoder) {
@@ -133,7 +134,7 @@ extension SeatInfoCell {
     private func setAction() {
         let popupButtonTapped = UIAction { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.popupButtonTapped(self)
+            self.delegate?.popupButtonTapped()
             
         }
         popupButton.addAction(popupButtonTapped, for: .touchUpInside)
