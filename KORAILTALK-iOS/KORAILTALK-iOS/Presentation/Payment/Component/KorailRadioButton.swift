@@ -38,10 +38,6 @@ final class KorailRadioButton: UIButton {
     //MARK: - Properties
     
     private let titleText: String?
-
-    //MARK: - UI Properties
-    
-    private let radioButton = UIButton()
         
     // MARK: - Life Cycle
     

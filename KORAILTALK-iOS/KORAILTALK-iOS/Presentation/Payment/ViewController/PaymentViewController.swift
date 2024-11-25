@@ -22,6 +22,7 @@ final class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboard()
         setAddTarget()
     }
     
@@ -61,14 +62,11 @@ extension PaymentViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: xButton)
     }
     
-    private func setDelegate() {
-        rootView.discountSectionView.mileageDetailView.mileageTextField.delegate = self
-    }
-    
     private func setAddTarget() {
         rootView.discountSectionView.mileageRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.couponRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.pointRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
+        rootView.discountSectionView.mileageDetailView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - @objc
@@ -76,13 +74,8 @@ extension PaymentViewController {
     @objc private func radioButtonTapped(_ sender: UIButton) {
         rootView.discountSectionView.toggleDropDownState(sender: sender)
     }
-}
-
-extension PaymentViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        let inputNum = Int(textField.text ?? "") ?? 0
-        if inputNum >= 2000 {
-            textField.text = "2000"
-        }
+    
+    @objc private func toolbarButtonTapped() {
+        print("입력 완료!!!!!!!!!")
     }
 }
