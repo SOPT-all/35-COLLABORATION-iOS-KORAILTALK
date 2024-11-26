@@ -11,6 +11,8 @@ final class PaymentViewController: UIViewController {
     
     //MARK: - Properties
     
+    private let simplePayModelList = SimplePayModel.dummy()
+    
     private let rootView = PaymentView()
     
     // MARK: - Life Cycle
@@ -24,6 +26,7 @@ final class PaymentViewController: UIViewController {
         
         hideKeyboard()
         setAddTarget()
+        setCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,19 +66,28 @@ extension PaymentViewController {
     }
     
     private func setAddTarget() {
-        rootView.discountSectionView.mileageRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
-        rootView.discountSectionView.couponRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
-        rootView.discountSectionView.pointRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
+        [rootView.discountSectionView.mileageRadioButton, rootView.discountSectionView.couponRadioButton, rootView.discountSectionView.pointRadioButton].forEach { button in
+            button.addTarget(self, action: #selector(discountSectionRadioButtonTapped(_:)), for: .touchUpInside)
+        }
         rootView.discountSectionView.mileageDetailView.applyAllAmountButton.addTarget(self, action: #selector(applyAllAmountButtonTapped), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
         
         rootView.discountSectionView.couponDetailView.veteranDiscountButton.addTarget(self, action: #selector(veteranDiscountButtonTapped), for: .touchUpInside)
         rootView.discountSectionView.pointDetailView.lPointButton.addTarget(self, action: #selector(lpointButtonTapped), for: .touchUpInside)
+        
+        [rootView.paymentMethodSectionView.simplePayRadioButton, rootView.paymentMethodSectionView.cardPayRadioButton].forEach { button in
+            button.addTarget(self, action: #selector(paymentMethodSectionRadioButtonTapped(_:)), for: .touchUpInside)
+        }
+    }
+    
+    private func setCollectionView() {
+        rootView.paymentMethodSectionView.simplePayDetailView.simplePayCollectionView.delegate = self
+        rootView.paymentMethodSectionView.simplePayDetailView.simplePayCollectionView.dataSource = self
     }
     
     //MARK: - @objc
     
-    @objc private func radioButtonTapped(_ sender: UIButton) {
+    @objc private func discountSectionRadioButtonTapped(_ sender: UIButton) {
         rootView.discountSectionView.toggleDropDownState(sender: sender)
     }
     
@@ -107,6 +119,10 @@ extension PaymentViewController {
         self.present(lPointModalViewController, animated: true)
 
     }
+    
+    @objc private func paymentMethodSectionRadioButtonTapped(_ sender: UIButton) {
+        rootView.paymentMethodSectionView.toggleDropDownState(sender: sender)
+    }
 }
 
 extension PaymentViewController: DiscountDelegate {
@@ -118,5 +134,34 @@ extension PaymentViewController: DiscountDelegate {
 extension PaymentViewController: PointDelegate {
     func applyPoint(pointText: String) {
         rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: pointText)
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+
+extension PaymentViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        return simplePayModelList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePayCollectionViewCell.className, for: indexPath) as? SimplePayCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.configureCell(data: simplePayModelList[indexPath.item])
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension PaymentViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 40) / 2, height: 36)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.isSelected.toggle()
     }
 }
