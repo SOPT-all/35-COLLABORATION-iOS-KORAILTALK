@@ -73,9 +73,9 @@ final class TrainSearchViewController: UIViewController {
 extension TrainSearchViewController {
     
     private func setNavigationBar() {
-        self.title = "열차 조회"
+        title = "열차 조회"
         
-        self.setCustomBackButton()
+        setCustomBackButton()
         
         let reloadButtonTapped = UIAction { _ in
             // TODO: 새로고침
@@ -250,7 +250,7 @@ extension TrainSearchViewController {
             time: "2시간 48분"
         )
         viewController.delegate = self
-        self.present(viewController, animated: false)
+        present(viewController, animated: false)
     }
     
 }
@@ -307,7 +307,7 @@ extension TrainSearchViewController {
             bottomType: bottomType,
             listType: listType
         )
-        self.present(viewController, animated: false)
+        present(viewController, animated: false)
         
     }
     

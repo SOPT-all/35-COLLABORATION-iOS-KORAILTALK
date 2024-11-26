@@ -141,8 +141,8 @@ extension SelectBottomSheetViewController {
         }
         bottomSheetView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(50 * self.selectList.count + 32 + 62)
-            $0.height.equalTo(50 * self.selectList.count + 32 + 62)
+            $0.bottom.equalToSuperview().offset(50 * selectList.count + 32 + 62)
+            $0.height.equalTo(50 * selectList.count + 32 + 62)
         }
         headerStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()

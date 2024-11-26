@@ -65,7 +65,7 @@ final class TrainPriceButton: UIButton {
             titleContainer.foregroundColor = .korailBlue(.blue02)
             subtitleContainer.foregroundColor = .korailBasic(.black)
             buttonConfiguration.background.strokeColor = .korailBlue(.blue02)
-            if self.isSelected {
+            if isSelected {
                 buttonConfiguration.baseBackgroundColor = .korailBlue(.blue06)
             }
         case .standardSoldOut:
@@ -74,21 +74,21 @@ final class TrainPriceButton: UIButton {
             subtitleContainer.foregroundColor = .korailGrayscale(.gray400)
             buttonConfiguration.background.strokeColor = .korailGrayscale(.gray400)
             buttonConfiguration.background.backgroundColor = .korailGrayscale(.gray300)
-            self.isEnabled = true
+            isEnabled = true
             priceText = "매진"
         case .premiumSell:
             titleText = "특/우등"
             titleContainer.foregroundColor = .korailBlue(.blue02)
             subtitleContainer.foregroundColor = .korailBasic(.black)
             buttonConfiguration.background.strokeColor = .korailBlue(.blue02)
-            self.isEnabled = true
+            isEnabled = true
         case .premiumSoldOut:
             titleText = "특/우등"
             titleContainer.foregroundColor = .korailGrayscale(.gray400)
             subtitleContainer.foregroundColor = .korailGrayscale(.gray400)
             buttonConfiguration.background.strokeColor = .korailGrayscale(.gray400)
             buttonConfiguration.background.backgroundColor = .korailGrayscale(.gray300)
-            self.isEnabled = true
+            isEnabled = true
             priceText = "매진"
         }
         

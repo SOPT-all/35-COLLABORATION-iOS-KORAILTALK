@@ -411,51 +411,50 @@ extension TrainDetailBottomSheetViewController {
                 priceButtonTapped()
             }
             
-            self.timetableImageView.isHidden = false
-            self.bottomSheetView.snp.updateConstraints {
+            timetableImageView.isHidden = false
+            bottomSheetView.snp.updateConstraints {
                 $0.height.equalTo(442 + 208)
             }
-            self.timetableButton.snp.remakeConstraints {
+            timetableButton.snp.remakeConstraints {
                 $0.top.equalTo(trainTimeLocationStackView.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(55)
                 $0.width.equalTo(355)
             }
-            //TODO: 여기 weak self 해야하는지 물어보기
-            self.timetableImageView.snp.makeConstraints {
-                $0.top.equalTo(self.timetableButton.snp.bottom).offset(-7)
+            timetableImageView.snp.makeConstraints {
+                $0.top.equalTo(timetableButton.snp.bottom).offset(-7)
                 $0.leading.equalToSuperview().inset(10)
             }
-            self.priceButton.snp.remakeConstraints {
-                $0.top.equalTo(self.timetableImageView.snp.bottom).offset(8)
+            priceButton.snp.remakeConstraints {
+                $0.top.equalTo(timetableImageView.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(48)
                 $0.width.equalTo(355)
             }
             
-            self.view.layoutIfNeeded()
+            view.layoutIfNeeded()
         } else {
             
-            self.timetableImageView.isHidden = true
+            timetableImageView.isHidden = true
             
-            self.bottomSheetView.snp.updateConstraints {
+            bottomSheetView.snp.updateConstraints {
                 $0.height.equalTo(442)
             }
-            self.timetableImageView.snp.removeConstraints()
+            timetableImageView.snp.removeConstraints()
             timetableButton.snp.makeConstraints {
                 $0.top.equalTo(trainTimeLocationStackView.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(48)
                 $0.width.equalTo(355)
             }
-            self.priceButton.snp.remakeConstraints {
+            priceButton.snp.remakeConstraints {
                 $0.top.equalTo(self.timetableButton.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(48)
                 $0.width.equalTo(355)
             }
             
-            self.view.layoutIfNeeded()
+            view.layoutIfNeeded()
         }
         
         isTimetableImageHidden.toggle()
@@ -469,18 +468,18 @@ extension TrainDetailBottomSheetViewController {
             if !isTimetableImageHidden {
                 timetableButtonTapped()
             }
-            self.priceImageView.isHidden = false
-            self.bottomSheetView.snp.updateConstraints {
+            priceImageView.isHidden = false
+            bottomSheetView.snp.updateConstraints {
                 $0.height.equalTo(702)
             }
-            self.priceButton.snp.remakeConstraints {
+            priceButton.snp.remakeConstraints {
                 $0.top.equalTo(timetableButton.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(55)
                 $0.width.equalTo(355)
             }
-            self.priceImageView.snp.makeConstraints {
-                $0.top.equalTo(self.priceButton.snp.bottom).offset(-7)
+            priceImageView.snp.makeConstraints {
+                $0.top.equalTo(priceButton.snp.bottom).offset(-7)
                 $0.leading.equalToSuperview().inset(10)
             }
             
@@ -497,14 +496,14 @@ extension TrainDetailBottomSheetViewController {
                 $0.width.equalTo(174)
             }
             
-            self.view.layoutIfNeeded()
+            view.layoutIfNeeded()
         } else {
-            self.priceImageView.isHidden = true
-            self.bottomSheetView.snp.updateConstraints {
+            priceImageView.isHidden = true
+            bottomSheetView.snp.updateConstraints {
                 $0.height.equalTo(442)
             }
-            self.priceImageView.snp.removeConstraints()
-            self.priceButton.snp.remakeConstraints {
+            priceImageView.snp.removeConstraints()
+            priceButton.snp.remakeConstraints {
                 $0.top.equalTo(timetableButton.snp.bottom).offset(8)
                 $0.leading.equalToSuperview().inset(10)
                 $0.height.equalTo(48)
@@ -522,7 +521,7 @@ extension TrainDetailBottomSheetViewController {
                 $0.height.equalTo(50)
                 $0.width.equalTo(174)
             }
-            self.view.layoutIfNeeded()
+            view.layoutIfNeeded()
         }
         
         isPriceImageHidden.toggle()
