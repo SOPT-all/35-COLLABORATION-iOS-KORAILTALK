@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol SeatRowViewDelegate: AnyObject {
-    func seatRowView(_ seatRowView: SeatRowView, didSelectSeat seatId: Int)
+    func seatButtonTapped(_ seatID: Int)
 }
 
 class SeatRowView: UIView {
@@ -19,7 +19,7 @@ class SeatRowView: UIView {
     // MARK: - Properties
     
     weak var delegate: SeatRowViewDelegate?
-    private var selectedSeatId: Int?
+    
     private var seats: [Seat] = []
     
     // MARK: - Lazy Image Properties
@@ -121,33 +121,14 @@ extension SeatRowView {
         
         let seatButtonTapped = UIAction { [weak self] _ in
             guard let self = self else { return }
-            self.handleSeatSelection(seatId: seat.seatId)
+            self.delegate?.seatButtonTapped(seat.seatId)
         }
         button.addAction(seatButtonTapped, for: .touchUpInside)
         
         return button
     }
     
-    private func handleSeatSelection(seatId: Int) {
-        // 선택된 좌석이 있고 현재 선택한 좌석이 아닌 경우 아무 동작도 하지 않음
-        if let selectedSeatId = selectedSeatId, selectedSeatId != seatId {
-            return
-        }
-        
-        if selectedSeatId == seatId {
-            selectedSeatId = nil
-        } else {
-            selectedSeatId = seatId
-        }
-        
-        updateButtonStyles()
-        
-        if let selectedSeatId = selectedSeatId {
-            delegate?.seatRowView(self, didSelectSeat: selectedSeatId)
-        }
-    }
-    
-    private func updateButtonStyles() {
+    func updateButtonStyles(selectedSeatId: Int?) {
         for button in seatButtons {
             guard let seat = seats.first(where: { $0.seatId == button.tag }) else { continue }
             
@@ -162,6 +143,7 @@ extension SeatRowView {
             }()
             
             button.setBackgroundImage(imageName, for: .normal)
+            button.isEnabled = !seat.isSold && (selectedSeatId == nil || button.tag == selectedSeatId)
             
             if button.tag == selectedSeatId {
                 button.setTitleColor(.korailBasic(.white), for: .normal)
@@ -181,86 +163,76 @@ extension SeatRowView {
         switch totalSeats {
         case 1:
             seatButtons[0].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
         case 2:
             seatButtons[0].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
         case 3:
             seatButtons[0].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[2].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.trailing.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
         case 4:
             seatButtons[0].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[1].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.leading.equalTo(seatButtons[0].snp.trailing).offset(6)
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[3].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.trailing.equalToSuperview()
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
             seatButtons[2].snp.makeConstraints {
-                $0.top.equalToSuperview().inset(6)
+                $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.trailing.equalTo(seatButtons[3].snp.leading).offset(-6)
                 $0.width.equalTo(50)
-                $0.height.equalTo(48)
             }
             
         default:
