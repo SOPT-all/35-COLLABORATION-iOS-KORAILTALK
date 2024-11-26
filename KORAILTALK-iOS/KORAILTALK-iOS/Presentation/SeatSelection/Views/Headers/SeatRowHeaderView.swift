@@ -115,7 +115,7 @@ extension SeatRowHeaderView {
         }
         
         seatRowView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(22)
+            $0.top.equalTo(leftAisleLabel.snp.bottom).offset(6)
             $0.centerX.equalToSuperview()
             $0.leading.equalTo(leftWindowView.snp.trailing).offset(10)
             $0.trailing.equalTo(rightWindowView.snp.leading).offset(-10)
@@ -125,9 +125,17 @@ extension SeatRowHeaderView {
     
     // MARK: - func
     
+    func setDelegate(_ delegate: SeatRowViewDelegate?) {
+        seatRowView.delegate = delegate
+    }
+    
     func configure(with seats: [Seat]) {
         let firstFourSeats = Array(seats.prefix(4))
         seatRowView.configure(with: firstFourSeats)
+    }
+    
+    func updateSelection(_ selectedSeatId: Int?) {
+        seatRowView.updateButtonStyles(selectedSeatId: selectedSeatId)
     }
     
 }

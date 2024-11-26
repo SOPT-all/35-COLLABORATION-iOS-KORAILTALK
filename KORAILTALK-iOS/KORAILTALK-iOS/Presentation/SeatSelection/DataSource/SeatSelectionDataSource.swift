@@ -20,6 +20,7 @@ class SeatSelectionDataSource {
         
     }
     
+    weak var delegate: SeatRowViewDelegate?
     private weak var collectionView: UICollectionView?
     private var dataSource: DataSource?
     
@@ -69,6 +70,7 @@ class SeatSelectionDataSource {
                 for: indexPath
             ) as! SeatCell
             cell.configure(with: seats)
+            cell.setDelegate(delegate)
             return cell
             
         case .leftWindow:
@@ -102,8 +104,8 @@ class SeatSelectionDataSource {
             withReuseIdentifier: SeatRowHeaderView.className,
             for: indexPath
         ) as? SeatRowHeaderView
-        
         header?.configure(with: headerData)
+        header?.setDelegate(delegate)
         return header
     }
     
@@ -116,9 +118,7 @@ class SeatSelectionDataSource {
         let remainingSeats = Array(seats.dropFirst(4))
         
         snapshot.appendSections([0])
-        
-        snapshot.appendItems([.seatRow(headerSeats)], toSection: 0)
-        
+    
         for i in stride(from: 0, to: remainingSeats.count, by: 4) {
             let seatRow = Array(remainingSeats[i..<min(i + 4, remainingSeats.count)])
             snapshot.appendItems([.seatRow(seatRow)], toSection: 0)
