@@ -296,13 +296,18 @@ extension SeatSelectionViewController {
 extension SeatSelectionViewController: CoachDataSourceDelegate {
     
     func popupButtonTapped() {
-        // TODO: 팝업 구현
-        
         let popupVC = OutletPopupViewController()
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
         present(popupVC, animated: true)
         
+    }
+    
+    func coachCellSelected(_ coach: Coach) {
+        // TODO: 객실에 따라 좌석 다르게 설정
+        
+        print("선택된 객실: \(coach.coachId)호차")
+        print("남은 좌석: \(coach.leftSeats)석")
     }
     
 }

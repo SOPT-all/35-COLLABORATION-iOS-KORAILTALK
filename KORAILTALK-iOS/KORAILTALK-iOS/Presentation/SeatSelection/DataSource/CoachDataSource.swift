@@ -9,9 +9,10 @@ import UIKit
 
 protocol CoachDataSourceDelegate: AnyObject {
     func popupButtonTapped()
+    func coachCellSelected(_ coach: Coach)
 }
 
-class CoachDataSource {
+class CoachDataSource: NSObject {
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
@@ -35,9 +36,12 @@ class CoachDataSource {
     // TODO: - 날짜와 경로 데이터를 받아야함.
     
     init(collectionView: UICollectionView) {
-        self.collectionView = collectionView
-        configureDataSource()
+        super.init()
         
+        self.collectionView = collectionView
+        collectionView.delegate = self
+        
+        configureDataSource()
     }
     
     private func registerCells() {
@@ -134,6 +138,19 @@ extension CoachDataSource: SeatInfoCellDelegate {
     
     func popupButtonTapped() {
         delegate?.popupButtonTapped()
+    }
+    
+}
+
+extension CoachDataSource: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section),
+              section == .coach,
+              let item = dataSource?.itemIdentifier(for: indexPath),
+              case let .coach(coach) = item else { return }
+        
+        delegate?.coachCellSelected(coach)
     }
     
 }
