@@ -11,8 +11,8 @@ import SnapKit
 import Then
 
 enum DropDownButtonType {
-    case enanbleForDiscount
-    case enanbleForSeat
+    case enableForDiscount
+    case enableForSeat
     case disable
 }
 
@@ -36,7 +36,7 @@ final class KorailDropDownButton: UIButton {
         self.dropDownButtonType = dropDownType
         self.titleText = titleText
         switch dropDownType {
-        case .enanbleForDiscount, .enanbleForSeat:
+        case .enableForDiscount, .enableForSeat:
             self.optionText = optionText ?? ""
         case .disable:
             self.optionText = optionText ?? "적용대상 없음"
@@ -80,11 +80,11 @@ extension KorailDropDownButton {
             $0.text = optionText
 
             switch dropDownButtonType {
-            case .enanbleForDiscount:
+            case .enableForDiscount:
                 $0.font = .korailCaption(.caption2m12)
                 $0.textColor = .korailPurple(.purple03)
                 $0.isHidden = true
-            case .enanbleForSeat:
+            case .enableForSeat:
                 $0.font = .korailBody(.body2m14)
                 $0.textColor = .korailBlue(.blue01)
                 $0.isHidden = false
