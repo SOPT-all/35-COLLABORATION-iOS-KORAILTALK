@@ -14,7 +14,7 @@ final class PointUsageView: UIView {
 
     //MARK: - UI Properties
     
-    private let lPointButton = UIButton()
+    let lPointButton = UIButton()
     private let railPointButton = UIButton()
     private let webeeHoneyButton = UIButton()
     private let cityPoinButton = UIButton()

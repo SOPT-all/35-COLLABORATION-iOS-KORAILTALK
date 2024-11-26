@@ -70,12 +70,12 @@ extension VeteranDiscountViewController: UITextFieldDelegate {
         guard let currentText = textField.text else { return true }
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        guard let maxLength = TextFieldType(rawValue: textField.tag)?.maxLength else { return false }
+        guard let maxLength = VeteranDiscountTextFieldType(rawValue: textField.tag)?.maxLength else { return false }
         return newText.count <= maxLength
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        let value = textField.text?.count == TextFieldType(rawValue: textField.tag)?.maxLength
+        let value = textField.text?.count == VeteranDiscountTextFieldType(rawValue: textField.tag)?.maxLength
         
         switch textField {
         case rootView.veteranIDTextField:

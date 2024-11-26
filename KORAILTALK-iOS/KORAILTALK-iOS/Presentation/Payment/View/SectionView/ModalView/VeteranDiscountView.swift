@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-enum TextFieldType: Int {
+enum VeteranDiscountTextFieldType: Int {
     case veteranID
     case password
     case verificationCode
@@ -90,7 +90,7 @@ extension VeteranDiscountView {
         [veteranIDTextField, passwordTextField, verificationCodeField].enumerated().forEach { i, textField in
             let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 54, height: 40)).then {
                 let leftTextLabel = UILabel(frame: CGRect(x: 12, y: 0, width: 42, height: 40)).then {
-                    $0.text = TextFieldType(rawValue: i)?.title
+                    $0.text = VeteranDiscountTextFieldType(rawValue: i)?.title
                     $0.textColor = .korailBasic(.black)
                     $0.font = .korailCaption(.caption2m12)
                 }
@@ -101,7 +101,7 @@ extension VeteranDiscountView {
             textField.tag = i
             textField.keyboardType = .numberPad
             textField.inputAccessoryView = toolBarButton
-            textField.setPlaceholder(placeholder: TextFieldType(rawValue: i)?.placeholder ?? "", fontColor: .korailGrayscale(.gray400), font: .korailBody(.body2m14))
+            textField.setPlaceholder(placeholder: VeteranDiscountTextFieldType(rawValue: i)?.placeholder ?? "", fontColor: .korailGrayscale(.gray400), font: .korailBody(.body2m14))
             textField.setTextFont(font: .korailBody(.body2m14), fontColor: .korailBlue(.blue01))
             textField.textAlignment = .right
             textField.makeBorder(width: 1, color: .korailGrayscale(.gray200))
