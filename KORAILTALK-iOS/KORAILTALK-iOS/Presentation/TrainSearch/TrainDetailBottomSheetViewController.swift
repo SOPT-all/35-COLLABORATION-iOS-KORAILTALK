@@ -98,6 +98,10 @@ final class TrainDetailBottomSheetViewController: UIViewController {
         showBottomSheet()
     }
     
+}
+
+extension TrainDetailBottomSheetViewController {
+    
     private func setStyle() {
         
         var timetableContainer = AttributeContainer()

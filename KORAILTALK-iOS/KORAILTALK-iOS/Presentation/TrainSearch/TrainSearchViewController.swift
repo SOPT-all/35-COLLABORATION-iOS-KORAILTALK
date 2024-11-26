@@ -67,6 +67,10 @@ final class TrainSearchViewController: UIViewController {
         dateCollectionView.selectItem(at: selectedDateIndexPath, animated: true, scrollPosition: .left)
         
     }
+
+}
+
+extension TrainSearchViewController {
     
     private func setNavigationBar() {
         self.title = "열차 조회"
@@ -165,6 +169,7 @@ final class TrainSearchViewController: UIViewController {
         }
         
     }
+    
 }
 
 extension TrainSearchViewController {
@@ -326,7 +331,6 @@ extension TrainSearchViewController: UICollectionViewDelegate {
         
     }
     
-    
 }
 
 extension TrainSearchViewController: UICollectionViewDataSource {
@@ -381,6 +385,7 @@ extension TrainSearchViewController: UITableViewDataSource {
 }
 
 extension TrainSearchViewController: BottomSheetDelegate {
+    
     func bottomSheetDidDismiss() {
         if let indexPath = selectedTrainInfoIndexPath {
             let cell = trainInfoTableView.cellForRow(at: indexPath) as? TrainInfoTableViewCell
@@ -388,4 +393,5 @@ extension TrainSearchViewController: BottomSheetDelegate {
             cell?.standardButton.setStyle()
         }
     }
+    
 }

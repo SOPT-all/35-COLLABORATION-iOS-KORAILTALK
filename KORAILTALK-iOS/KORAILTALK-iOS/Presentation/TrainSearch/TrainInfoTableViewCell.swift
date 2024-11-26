@@ -43,7 +43,6 @@ class TrainInfoTableViewCell: UITableViewCell {
             }
         }
     }
-    var delegate: TrainInfoDelegate?
     
     var tapAction: (() -> Void)?
     
@@ -225,9 +224,4 @@ extension TrainInfoTableViewCell {
     func buttonTapped() {
         tapAction?()
     }
-}
-
-protocol TrainInfoDelegate {
-    func nextDayButtonTapped()
-    func standardButtonTapped()
 }
