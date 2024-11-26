@@ -32,4 +32,51 @@ extension UILabel {
         self.attributedText = attributedString
     }
     
+    /**
+    텍스트와 이미지를 함께 표시하는 UILabel 설정 함수
+    - Parameters:
+        - text: 라벨에 표시할 텍스트
+        - font: 텍스트에 적용할 폰트
+        - textColor: 텍스트에 적용할 색상
+        - image: 텍스트 앞에 표시할 이미지 (옵션)
+        - imageFrame: 이미지의 크기와 위치를 지정하는 `CGRect` (기본값: `CGRect(x: 0, y: -2, width: 17, height: 17)`)
+        - spacing: 이미지와 텍스트 사이의 간격 (기본값: `4`)
+    
+     > 사용 예시:
+      `label.configureWithImage(text: "아이콘 텍스트", font: .systemFont(ofSize: 14), textColor: .black, image: UIImage(systemName: "star.fill"))`
+    */
+    func configureWithImage(
+        text: String,
+        font: UIFont,
+        textColor: UIColor,
+        image: UIImage?,
+        imageFrame: CGRect = CGRect(x: 0, y: -5, width: 17, height: 17),
+        spacing: CGFloat = 0.5
+    ) {
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image
+        imageAttachment.bounds = imageFrame
+        
+        let attributedString = NSMutableAttributedString()
+        
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: textColor
+        ]
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        let spacingString = NSAttributedString(
+            string: " ",
+            attributes: [.kern: spacing]
+        )
+
+        let textString = NSAttributedString(string: text, attributes: textAttributes)
+        
+        attributedString.append(imageString)
+        attributedString.append(spacingString)
+        attributedString.append(textString)
+        
+        self.attributedText = attributedString
+    }
+    
 }
