@@ -44,6 +44,7 @@ final class TrainSearchViewController: UIViewController {
     private var isDateShow: Bool = false
     private var tomorrow: String = ""
     private var selectedDateIndexPath = IndexPath(row: 0, section: 0)
+    private var selectedTrainInfoIndexPath: IndexPath?
     
     //MARK: - Life Cycle
     
@@ -62,7 +63,7 @@ final class TrainSearchViewController: UIViewController {
         setNavigationBar()
         setCollectionView()
         setAddTarget()
-    
+        
         dateCollectionView.selectItem(at: selectedDateIndexPath, animated: true, scrollPosition: .left)
         
     }
@@ -107,7 +108,7 @@ final class TrainSearchViewController: UIViewController {
     }
     
     private func setStyle() {
-
+        
         trainInfoTableView.do {
             $0.register(TrainInfoTableViewCell.self, forCellReuseIdentifier: TrainInfoTableViewCell.className)
             $0.rowHeight = 94
@@ -243,6 +244,7 @@ extension TrainSearchViewController {
             arrivalTime: "08:15",
             time: "2시간 48분"
         )
+        viewController.delegate = self
         self.present(viewController, animated: false)
     }
     
@@ -260,7 +262,7 @@ extension TrainSearchViewController {
     }
     
     private func getDayList() {
- 
+        
         let today = Date()
         
         for i in 0..<14 {
@@ -272,7 +274,7 @@ extension TrainSearchViewController {
             
             dayList.append("\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))")
         }
-
+        
     }
     
     private func changeWeekday(_ weekday: Int) -> String {
@@ -312,18 +314,18 @@ extension TrainSearchViewController {
 }
 
 extension TrainSearchViewController: UICollectionViewDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         trainSearchFilterView.dateIndexPath = indexPath
         getTomorrow(indexPath.row + 1)
         selectedDateIndexPath = indexPath
         trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         trainSearchFilterView.getToday(index: selectedDateIndexPath)
-
+        
         //TODO: 날짜에 따른 기차시간표 API 호출
-
+        
     }
-
+    
     
 }
 
@@ -345,7 +347,7 @@ extension TrainSearchViewController: UICollectionViewDataSource {
 }
 
 extension TrainSearchViewController: UITableViewDelegate {
-    
+
 }
 
 extension TrainSearchViewController: UITableViewDataSource {
@@ -369,9 +371,21 @@ extension TrainSearchViewController: UITableViewDataSource {
             cell.isLastCell = false
             cell.bindData(train: trainInfoList[indexPath.row])
             cell.tapAction = { [weak self] in
+                self?.selectedTrainInfoIndexPath = indexPath
                 self?.standardButtonTapped()
+                cell.standardButton.isSelected = true
             }
         }
         return cell
+    }
+}
+
+extension TrainSearchViewController: BottomSheetDelegate {
+    func bottomSheetDidDismiss() {
+        if let indexPath = selectedTrainInfoIndexPath {
+            let cell = trainInfoTableView.cellForRow(at: indexPath) as? TrainInfoTableViewCell
+            cell?.standardButton.isSelected = false
+            cell?.standardButton.setStyle()
+        }
     }
 }

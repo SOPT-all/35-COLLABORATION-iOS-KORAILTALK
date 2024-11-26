@@ -53,6 +53,8 @@ final class TrainDetailBottomSheetViewController: UIViewController {
     private var isTimetableImageHidden = true
     private var isPriceImageHidden = true
     
+    weak var delegate: BottomSheetDelegate?
+    
     //MARK: - Life Cycle
     
     //날짜, 기차이름, 출발시간, 도착시간, 소요시간
@@ -167,7 +169,6 @@ final class TrainDetailBottomSheetViewController: UIViewController {
             $0.backgroundColor = .korailBlue(.blue07)
         }
         dateLabel.do {
-//            $0.text = "2024.11.16 (토)"
             $0.font = .korailTitle(.title3m16)
         }
         trainNameView.do {
@@ -175,7 +176,6 @@ final class TrainDetailBottomSheetViewController: UIViewController {
             $0.makeCornerRadius(cornerRadius: 10)
         }
         trainNameLabel.do {
-//            $0.text = "KTX 001"
             $0.font = .korailCaption(.caption2m12)
             $0.textColor = .korailBasic(.white)
         }
@@ -201,7 +201,6 @@ final class TrainDetailBottomSheetViewController: UIViewController {
             $0.font = .korailHead(.head5m20)
         }
         departureTimeLabel.do {
-//            $0.text = "05:27"
             $0.font = .korailBody(.body3r14)
         }
         timeStackView.do {
@@ -212,7 +211,6 @@ final class TrainDetailBottomSheetViewController: UIViewController {
             $0.image = .icnTrainSearchArrowRightBlue.resized(CGSize(width: 24, height: 24))
         }
         timeLabel.do {
-//            $0.text = "2시간 48분"
             $0.font = .korailCaption(.caption4m10)
             $0.textColor = .korailGrayscale(.gray500)
         }
@@ -225,7 +223,6 @@ final class TrainDetailBottomSheetViewController: UIViewController {
             $0.font = .korailHead(.head5m20)
         }
         arrivalTimeLabel.do {
-//            $0.text = "08:15"
             $0.font = .korailBody(.body3r14)
         }
         timetableButton.do {
@@ -374,6 +371,9 @@ extension TrainDetailBottomSheetViewController {
                 $0.bottom.equalToSuperview().offset(702)
             }
             self?.view.layoutIfNeeded()
+            
+            self?.delegate?.bottomSheetDidDismiss()
+            
         }, completion: { _ in
             self.dismiss(animated: false)
         })
@@ -388,6 +388,7 @@ extension TrainDetailBottomSheetViewController {
     private func showBottomSheet() {
         
         UIView.animate(withDuration: 0.1) { [weak self] in
+            
             self?.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
             
             self?.bottomSheetView.snp.updateConstraints {
@@ -523,4 +524,8 @@ extension TrainDetailBottomSheetViewController {
         isPriceImageHidden.toggle()
     }
     
+}
+
+protocol BottomSheetDelegate: AnyObject {
+    func bottomSheetDidDismiss()
 }

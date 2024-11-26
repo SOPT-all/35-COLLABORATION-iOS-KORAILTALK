@@ -66,7 +66,7 @@ class TrainInfoTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func drawCell() {
         
         setStyle()
@@ -101,7 +101,8 @@ class TrainInfoTableViewCell: UITableViewCell {
             }
             
             standardButton.do {
-                $0.type = .standardSoldOut
+                $0.type = .standardSell
+                $0.price = 32000
                 $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             }
             premiumButton.do {

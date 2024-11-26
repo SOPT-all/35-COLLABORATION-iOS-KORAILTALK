@@ -16,7 +16,7 @@ enum TrainInfoButtonType {
 
 final class TrainPriceButton: UIButton {
     
-    private var buttonConfiguration = UIButton.Configuration.plain()
+    var buttonConfiguration = UIButton.Configuration.plain()
     var type: TrainInfoButtonType = .standardSell {
         didSet {
             setStyle()
@@ -35,13 +35,11 @@ final class TrainPriceButton: UIButton {
         super.init(frame: .zero)
     }
     
-    //TODO: init으로 하고 싶은데! cell 에서 컴포넌트를 생성할 때 기본 이니셜라이저로 호출 후에 .do로 하는 방식으로는 custom init을 호출할 수 없음... 어떻게 하는 게 좋을까요?
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setStyle() {
+    func setStyle() {
         
         var titleContainer = AttributeContainer()
         titleContainer.font = .korailCaption(.caption2m12)
