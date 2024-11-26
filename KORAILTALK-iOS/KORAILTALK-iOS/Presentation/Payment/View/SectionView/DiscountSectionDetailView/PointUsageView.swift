@@ -14,7 +14,7 @@ final class PointUsageView: UIView {
 
     //MARK: - UI Properties
     
-    private let lPointButton = UIButton()
+    let lPointButton = UIButton()
     private let railPointButton = UIButton()
     private let webeeHoneyButton = UIButton()
     private let cityPoinButton = UIButton()
@@ -50,6 +50,7 @@ extension PointUsageView {
             case lPointButton, railPointButton, okCashBackButton:
                 button.backgroundColor = .korailBasic(.white)
                 button.setTitleColor(.korailBasic(.black), for: .normal)
+                button.setTitleColor(.korailBasic(.white), for: .selected)
                 button.makeBorder(width: 1, color: .korailGrayscale(.gray200))
             default:
                 button.backgroundColor = .korailGrayscale(.gray200)
@@ -89,6 +90,22 @@ extension PointUsageView {
             $0.height.equalTo(124)
             $0.width.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    //MARK: - Func
+    
+    func changeLPointButtonState(isApplied: Bool, pointText: String? = nil) {
+        lPointButton.isSelected = isApplied
+        if let pointText {
+            lPointButton.setTitle("L.POINT \(pointText)P 사용", for: .selected)
+        }
+        if isApplied {
+            lPointButton.backgroundColor = .korailBlue(.blue04)
+            lPointButton.layer.borderWidth = 0
+        } else {
+            lPointButton.backgroundColor = .korailBasic(.white)
+            lPointButton.makeBorder(width: 1, color: .korailGrayscale(.gray200))
         }
     }
 }

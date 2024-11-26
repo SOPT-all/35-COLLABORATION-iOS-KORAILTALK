@@ -68,6 +68,9 @@ extension PaymentViewController {
         rootView.discountSectionView.pointRadioButton.addTarget(self, action: #selector(radioButtonTapped(_:)), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.applyAllAmountButton.addTarget(self, action: #selector(applyAllAmountButtonTapped), for: .touchUpInside)
         rootView.discountSectionView.mileageDetailView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
+        
+        rootView.discountSectionView.couponDetailView.veteranDiscountButton.addTarget(self, action: #selector(veteranDiscountButtonTapped), for: .touchUpInside)
+        rootView.discountSectionView.pointDetailView.lPointButton.addTarget(self, action: #selector(lpointButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - @objc
@@ -83,5 +86,37 @@ extension PaymentViewController {
     @objc private func toolbarButtonTapped() {
         rootView.endEditing(true)
         print("입력 완료!!!!!!!!!")
+    }
+    
+    @objc private func veteranDiscountButtonTapped() {
+        let veteranDiscountViewController = VeteranDiscountViewController()
+        veteranDiscountViewController.delegate = self
+        if let sheet = veteranDiscountViewController.sheetPresentationController {
+            sheet.detents = [.custom { _ in 234 }]
+        }
+        self.present(veteranDiscountViewController, animated: true)
+
+    }
+    
+    @objc private func lpointButtonTapped() {
+        let lPointModalViewController = LPointModalViewController()
+        lPointModalViewController.delegate = self
+        if let sheet = lPointModalViewController.sheetPresentationController {
+            sheet.detents = [.custom { _ in 248 }]
+        }
+        self.present(lPointModalViewController, animated: true)
+
+    }
+}
+
+extension PaymentViewController: DiscountDelegate {
+    func applyDiscount() {
+        rootView.discountSectionView.couponDetailView.applyVeteranDiscount(true)
+    }
+}
+
+extension PaymentViewController: PointDelegate {
+    func applyPoint(pointText: String) {
+        rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: pointText)
     }
 }

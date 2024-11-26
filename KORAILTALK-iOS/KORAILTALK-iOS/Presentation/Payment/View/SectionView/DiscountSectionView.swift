@@ -19,8 +19,8 @@ final class DiscountSectionView: UIView {
     let couponRadioButton = KorailRadioButton(buttonType: .discountCoupon)
     let pointRadioButton = KorailRadioButton(buttonType: .pointUsage)
     lazy var mileageDetailView = KTXMileageView()
-    private lazy var couponDetailView = DiscountCouponView()
-    private lazy var pointDetailView = PointUsageView()
+    lazy var couponDetailView = DiscountCouponView()
+    lazy var pointDetailView = PointUsageView()
     private let mileageStackView = UIStackView()
     private let couponStackView = UIStackView()
     private let pointStackView = UIStackView()
@@ -122,28 +122,41 @@ extension DiscountSectionView {
         case mileageRadioButton:
             mileageRadioButton.isSelected.toggle()
             mileageDetailView.isHidden = !mileageRadioButton.isSelected
+            if mileageRadioButton.isSelected {
+                mileageDetailView.mileageTextField.becomeFirstResponder()
+            } else {
+                endEditing(true)
+            }
             
             couponRadioButton.isSelected = false
             couponDetailView.isHidden = true
+            couponDetailView.applyVeteranDiscount(false)
             pointRadioButton.isSelected = false
             pointDetailView.isHidden = true
+            pointDetailView.changeLPointButtonState(isApplied: false)
         case couponRadioButton:
+            endEditing(true)
             couponRadioButton.isSelected.toggle()
             couponDetailView.isHidden = !couponRadioButton.isSelected
 
             mileageRadioButton.isSelected = false
             mileageDetailView.isHidden = true
+            mileageDetailView.initializeAmount()
             pointRadioButton.isSelected = false
             pointDetailView.isHidden = true
+            pointDetailView.changeLPointButtonState(isApplied: false)
         case pointRadioButton:
+            endEditing(true)
             pointRadioButton.isSelected.toggle()
             pointDetailView.isHidden = !pointRadioButton.isSelected
 
             couponRadioButton.isSelected = false
             couponDetailView.isHidden = true
+            couponDetailView.applyVeteranDiscount(false)
             mileageRadioButton.isSelected = false
             mileageDetailView.isHidden = true
-        default:
+            mileageDetailView.initializeAmount()
+         default:
             return
         }
     }
