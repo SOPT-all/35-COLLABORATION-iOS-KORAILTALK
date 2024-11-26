@@ -35,6 +35,7 @@
 		D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DF2282CEB863300BE7CAE /* UITextField+.swift */; };
 		D07C21262CF5216400C06522 /* LPointModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21252CF5215900C06522 /* LPointModalView.swift */; };
 		D07C21282CF5275D00C06522 /* LPointModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21272CF5275400C06522 /* LPointModalViewController.swift */; };
+		D07C212F2CF5900B00C06522 /* PaymentMethodSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C212E2CF58FE800C06522 /* PaymentMethodSectionView.swift */; };
 		D07C21342CF595D600C06522 /* SimplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21332CF595CF00C06522 /* SimplePayView.swift */; };
 		D07C213A2CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */; };
 		D07C213C2CF5ADFB00C06522 /* SimplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */; };
@@ -96,6 +97,7 @@
 		D03DF2282CEB863300BE7CAE /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		D07C21252CF5215900C06522 /* LPointModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPointModalView.swift; sourceTree = "<group>"; };
 		D07C21272CF5275400C06522 /* LPointModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPointModalViewController.swift; sourceTree = "<group>"; };
+		D07C212E2CF58FE800C06522 /* PaymentMethodSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodSectionView.swift; sourceTree = "<group>"; };
 		D07C21332CF595CF00C06522 /* SimplePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayView.swift; sourceTree = "<group>"; };
 		D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayCollectionViewCell.swift; sourceTree = "<group>"; };
 		D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayModel.swift; sourceTree = "<group>"; };
@@ -358,6 +360,8 @@
 				D0F41C7A2CEF453800689EBC /* DiscountSectionView.swift */,
 				D0F41C7E2CEF47D400689EBC /* DiscountSectionDetailView */,
 				D022CDD92CF458AC00A21713 /* ModalView */,
+				D07C212E2CF58FE800C06522 /* PaymentMethodSectionView.swift */,
+				D07C21302CF595AB00C06522 /* PaymentMethodSectionDetailView */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -567,6 +571,7 @@
 				D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
+				D07C212F2CF5900B00C06522 /* PaymentMethodSectionView.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
 				D07C213C2CF5ADFB00C06522 /* SimplePayModel.swift in Sources */,
 				D022CDDD2CF45AB300A21713 /* VeteranDiscountView.swift in Sources */,
