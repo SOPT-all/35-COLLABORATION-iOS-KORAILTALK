@@ -13,6 +13,8 @@
 		CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */; };
 		CB390AFB2CECF31F00BBD66F /* FilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */; };
 		CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */; };
+		CB3913222CF5FE1500BBD66F /* MyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913212CF5FE1500BBD66F /* MyTicketViewController.swift */; };
+		CB3913242CF6196100BBD66F /* MyTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913232CF6196100BBD66F /* MyTicketView.swift */; };
 		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
 		D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */; };
@@ -73,6 +75,8 @@
 		CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectBottomSheetTableViewCell.swift; path = "KORAILTALK-iOS/Global/SelectBottomSheetTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CB390AFA2CECF31F00BBD66F /* FilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterDelegate.swift; path = "KORAILTALK-iOS/Global/FilterDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB3913212CF5FE1500BBD66F /* MyTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewController.swift; sourceTree = "<group>"; };
+		CB3913232CF6196100BBD66F /* MyTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketView.swift; sourceTree = "<group>"; };
 		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
 		D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailToolBarButton.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			path = TrainSearch;
 			sourceTree = "<group>";
 		};
+		CB3913202CF5FE0600BBD66F /* MyTicket */ = {
+			isa = PBXGroup;
+			children = (
+				CB3913212CF5FE1500BBD66F /* MyTicketViewController.swift */,
+				CB3913232CF6196100BBD66F /* MyTicketView.swift */,
+			);
+			path = MyTicket;
+			sourceTree = "<group>";
+		};
 		D022CDD92CF458AC00A21713 /* ModalView */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +211,7 @@
 		D03DF2162CEB6EC800BE7CAE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CB3913202CF5FE0600BBD66F /* MyTicket */,
 				CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */,
 				D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */,
 				D62EAC232CEBAFCC005F622B /* SeatSelection */,
@@ -530,6 +544,7 @@
 				D61E9A332CECC0F40005D772 /* SeatInfoCell.swift in Sources */,
 				D61E9B6A2CF210050005D772 /* SeatSelectionDataSource.swift in Sources */,
 				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
+				CB3913222CF5FE1500BBD66F /* MyTicketViewController.swift in Sources */,
 				D0F41C8D2CEFAB8900689EBC /* KTXMileageView.swift in Sources */,
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
 				D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */,
@@ -539,6 +554,7 @@
 				D61E9A4F2CED06A30005D772 /* SeatRowHeaderView.swift in Sources */,
 				D62EAC522CEC9FC9005F622B /* CoachHeaderCell.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
+				CB3913242CF6196100BBD66F /* MyTicketView.swift in Sources */,
 				D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */,
 				D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */,
 				CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */,

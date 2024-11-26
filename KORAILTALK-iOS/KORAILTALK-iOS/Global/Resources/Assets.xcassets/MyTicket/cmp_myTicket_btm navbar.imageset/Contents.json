@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "cmp_myTicket_btm navbar.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "cmp_myTicket_btm navbar@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "cmp_myTicket_btm navbar@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
