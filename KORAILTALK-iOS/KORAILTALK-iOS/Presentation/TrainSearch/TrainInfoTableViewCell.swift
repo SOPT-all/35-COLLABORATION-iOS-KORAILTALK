@@ -29,9 +29,6 @@ class TrainInfoTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    private var soldButtonConfiguration = UIButton.Configuration.plain()
-    private var sellButtonConfiguration = UIButton.Configuration.plain()
-    
     private var buttonConfiguration = UIButton.Configuration.plain()
     var tomorrow: String = ""
     var isLastCell: Bool = false {
@@ -48,6 +45,8 @@ class TrainInfoTableViewCell: UITableViewCell {
     }
     var delegate: TrainInfoDelegate?
     
+    var tapAction: (() -> Void)?
+    
     //MARK: - Life Cycle
     
     override init(
@@ -56,7 +55,6 @@ class TrainInfoTableViewCell: UITableViewCell {
             
             super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-            
             if isLastCell {
                 drawLastCell(tomorrow: tomorrow)
             } else {
@@ -104,6 +102,7 @@ class TrainInfoTableViewCell: UITableViewCell {
             
             standardButton.do {
                 $0.type = .standardSoldOut
+                $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             }
             premiumButton.do {
                 $0.type = .premiumSell
@@ -183,7 +182,7 @@ class TrainInfoTableViewCell: UITableViewCell {
         }
         nextDayButton.do {
             $0.configuration = buttonConfiguration
-            $0.addTarget(self, action: #selector(nextDayButtonTapped), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         }
         
         addSubview(lastView)
@@ -205,6 +204,9 @@ class TrainInfoTableViewCell: UITableViewCell {
         subviews.forEach {
             $0.removeFromSuperview()
         }
+        
+        tapAction = nil
+        
         if isLastCell {
             drawLastCell(tomorrow: tomorrow)
         } else {
@@ -219,11 +221,12 @@ class TrainInfoTableViewCell: UITableViewCell {
 
 extension TrainInfoTableViewCell {
     @objc
-    func nextDayButtonTapped() {
-        delegate?.nextDayButtonTapped()
+    func buttonTapped() {
+        tapAction?()
     }
 }
 
 protocol TrainInfoDelegate {
     func nextDayButtonTapped()
+    func standardButtonTapped()
 }

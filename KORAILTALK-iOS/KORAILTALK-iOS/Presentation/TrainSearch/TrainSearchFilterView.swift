@@ -195,12 +195,10 @@ extension TrainSearchFilterView {
         dateContainer.font = UIFont.korailTitle(.title3m16)
         dateContainer.foregroundColor = UIColor.korailBasic(.black)
         
-        dateButtonConfiguration.image = .icnSearchArrowUp.resized(CGSize(width: 24, height: 24))
         dateButtonConfiguration.imagePlacement = .trailing
         dateButtonConfiguration.contentInsets = .zero
         
         dateButtonConfiguration.imagePadding = 0
-        //TODO: 채우기
         dateButtonConfiguration.attributedTitle = AttributedString("\(todayText)", attributes: dateContainer)
         
         dateButton.configuration = dateButtonConfiguration

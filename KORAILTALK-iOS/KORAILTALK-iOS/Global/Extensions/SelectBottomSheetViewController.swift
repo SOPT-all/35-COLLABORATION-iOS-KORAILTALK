@@ -197,15 +197,15 @@ extension SelectBottomSheetViewController {
     
     private func showBottomSheet() {
         
-        UIView.animate(withDuration: 0.1) {
-            self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            self?.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
             
-            self.bottomSheetView.snp.updateConstraints {
+            self?.bottomSheetView.snp.updateConstraints {
                 $0.bottom.equalToSuperview()
             }
 
             // 곧바로 UI를 업데이트
-            self.view.layoutIfNeeded()
+            self?.view.layoutIfNeeded()
         }
     }
     

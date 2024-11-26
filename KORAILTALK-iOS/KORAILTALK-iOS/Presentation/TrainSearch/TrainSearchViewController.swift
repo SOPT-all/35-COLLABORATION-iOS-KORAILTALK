@@ -52,7 +52,7 @@ final class TrainSearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        getTomorrow(0)
+        getTomorrow(1)
         getDayList()
         
         setStyle()
@@ -234,12 +234,24 @@ extension TrainSearchViewController {
         
     }
     
+    @objc
+    private func standardButtonTapped() {
+        let viewController = TrainDetailBottomSheetViewController(
+            dateText: "2024.11.16 (토)",
+            trainName: "KTX 001",
+            departureTime: "05:27",
+            arrivalTime: "08:15",
+            time: "2시간 48분"
+        )
+        self.present(viewController, animated: false)
+    }
+    
 }
 
 extension TrainSearchViewController {
     
     private func getTomorrow(_ value: Int) {
-        
+        print("getTomorrow 호출 !")
         guard let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: Date()) else { return }
         let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
         let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
@@ -347,17 +359,18 @@ extension TrainSearchViewController: UITableViewDataSource {
         else { return UITableViewCell() }
         cell.selectionStyle = .none
         
-        cell.standardButton.tag = indexPath.row
-        //TODO:  임시 !! -> bottom sheet 올라오는 걸로 바꿔야 함
-        cell.standardButton.addTarget(self, action: #selector(nextDayButtonTapped), for: .touchUpInside)
-        
         if indexPath.row == trainInfoList.count {
             cell.tomorrow = tomorrow
             cell.isLastCell = true
-            cell.nextDayButton.addTarget(self, action: #selector(nextDayButtonTapped), for: .touchUpInside)
+            cell.tapAction = { [weak self] in
+                self?.nextDayButtonTapped()
+            }
         } else {
             cell.isLastCell = false
             cell.bindData(train: trainInfoList[indexPath.row])
+            cell.tapAction = { [weak self] in
+                self?.standardButtonTapped()
+            }
         }
         return cell
     }
