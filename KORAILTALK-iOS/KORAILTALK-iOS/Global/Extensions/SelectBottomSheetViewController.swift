@@ -141,8 +141,8 @@ extension SelectBottomSheetViewController {
         }
         bottomSheetView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(50 * self.selectList.count + 32 + 62)
-            $0.height.equalTo(50 * self.selectList.count + 32 + 62)
+            $0.bottom.equalToSuperview().offset(50 * selectList.count + 32 + 62)
+            $0.height.equalTo(50 * selectList.count + 32 + 62)
         }
         headerStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -197,15 +197,15 @@ extension SelectBottomSheetViewController {
     
     private func showBottomSheet() {
         
-        UIView.animate(withDuration: 0.1) {
-            self.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            self?.dimmedBackView.backgroundColor = .korailBasic(.black).withAlphaComponent(0.5)
             
-            self.bottomSheetView.snp.updateConstraints {
+            self?.bottomSheetView.snp.updateConstraints {
                 $0.bottom.equalToSuperview()
             }
 
             // 곧바로 UI를 업데이트
-            self.view.layoutIfNeeded()
+            self?.view.layoutIfNeeded()
         }
     }
     

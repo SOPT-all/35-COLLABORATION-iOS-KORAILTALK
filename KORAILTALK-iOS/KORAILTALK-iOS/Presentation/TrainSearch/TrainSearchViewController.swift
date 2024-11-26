@@ -10,20 +10,41 @@ import UIKit
 import SnapKit
 import Then
 
+// 임시
+public struct TrainInfo {
+    let name: String
+}
+
 final class TrainSearchViewController: UIViewController {
     
     //MARK: - UI Properties
     
     private let trainSearchFilterView = TrainSearchFilterView()
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let trainInfoTableView = UITableView()
     
-    //MARK: - Properties
+    //임시
+    private let trainInfoList: [TrainInfo] = [
+        TrainInfo(name: "KTX1"),
+        TrainInfo(name: "KTX2"),
+        TrainInfo(name: "KTX3"),
+        TrainInfo(name: "KTX4"),
+        TrainInfo(name: "KTX5"),
+        TrainInfo(name: "KTX6"),
+        TrainInfo(name: "KTX7"),
+        TrainInfo(name: "KTX8"),
+        TrainInfo(name: "KTX9"),
+    ]
     
     private var dayList: [String] = []
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
     private let transferList: [String] = ["직통", "환승"]
+    
     private var isDateShow: Bool = false
+    private var tomorrow: String = ""
+    private var selectedDateIndexPath = IndexPath(row: 0, section: 0)
+    private var selectedTrainInfoIndexPath: IndexPath?
     
     //MARK: - Life Cycle
     
@@ -32,6 +53,10 @@ final class TrainSearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        getTomorrow(1)
+        getDayList()
+        
+        setStyle()
         setHierachy()
         setLayout()
         
@@ -39,17 +64,18 @@ final class TrainSearchViewController: UIViewController {
         setCollectionView()
         setAddTarget()
         
-        getDayList()
-        
-        let indexPath = IndexPath(row: 0, section: 0)
-        dateCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        dateCollectionView.selectItem(at: selectedDateIndexPath, animated: true, scrollPosition: .left)
         
     }
+
+}
+
+extension TrainSearchViewController {
     
     private func setNavigationBar() {
-        self.title = "열차 조회"
+        title = "열차 조회"
         
-        self.setCustomBackButton()
+        setCustomBackButton()
         
         let reloadButtonTapped = UIAction { _ in
             // TODO: 새로고침
@@ -85,8 +111,25 @@ final class TrainSearchViewController: UIViewController {
         
     }
     
+    private func setStyle() {
+        
+        trainInfoTableView.do {
+            $0.register(TrainInfoTableViewCell.self, forCellReuseIdentifier: TrainInfoTableViewCell.className)
+            $0.rowHeight = 94
+            $0.dataSource = self
+            $0.delegate = self
+            $0.separatorStyle = .none
+            $0.showsVerticalScrollIndicator = false
+            $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+        }
+    }
+    
     private func setHierachy() {
-        view.addSubviews(trainSearchFilterView, dateCollectionView)
+        view.addSubviews(
+            trainSearchFilterView,
+            dateCollectionView,
+            trainInfoTableView
+        )
     }
     
     private func setLayout() {
@@ -100,7 +143,10 @@ final class TrainSearchViewController: UIViewController {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
         }
-        
+        trainInfoTableView.snp.makeConstraints {
+            $0.top.equalTo(trainSearchFilterView.snp.bottom)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     private func setCollectionView() {
@@ -123,6 +169,7 @@ final class TrainSearchViewController: UIViewController {
         }
         
     }
+    
 }
 
 extension TrainSearchViewController {
@@ -133,6 +180,7 @@ extension TrainSearchViewController {
         trainSearchFilterView.trainSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
         trainSearchFilterView.seatSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
         trainSearchFilterView.transferSelectButton.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
+        
     }
     
     @objc
@@ -155,21 +203,72 @@ extension TrainSearchViewController {
         if !isDateShow {
             trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowUp.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            
+            trainInfoTableView.snp.remakeConstraints {
+                $0.top.equalTo(dateCollectionView.snp.bottom)
+                $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            }
             isDateShow.toggle()
         } else {
             trainSearchFilterView.dateButtonConfiguration.image = .icnSearchArrowDown.resized(CGSize(width: 24, height: 24))
             trainSearchFilterView.dateButton.configuration = trainSearchFilterView.dateButtonConfiguration
+            trainInfoTableView.snp.remakeConstraints {
+                $0.top.equalTo(trainSearchFilterView.snp.bottom)
+                $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            }
             isDateShow.toggle()
         }
         
     }
     
+    @objc
+    private func nextDayButtonTapped() {
+        
+        //TODO: 왜 첫번째 버튼은 동작을 하지 않는 걸까...
+        let nextItem = selectedDateIndexPath.item + 1
+        if nextItem < dateCollectionView.numberOfItems(inSection: 0) {
+            let nextIndexPath = IndexPath(row: nextItem, section: 0)
+            dateCollectionView.selectItem(at: nextIndexPath, animated: true, scrollPosition: .left)
+            
+            getTomorrow(nextIndexPath.row + 1)
+            selectedDateIndexPath = nextIndexPath
+            trainSearchFilterView.getToday(index: selectedDateIndexPath)
+            
+            // 테이블뷰 스크롤 위로 올리기
+            trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
+        
+    }
+    
+    @objc
+    private func standardButtonTapped() {
+        let viewController = TrainDetailBottomSheetViewController(
+            dateText: "2024.11.16 (토)",
+            trainName: "KTX 001",
+            departureTime: "05:27",
+            arrivalTime: "08:15",
+            time: "2시간 48분"
+        )
+        viewController.delegate = self
+        present(viewController, animated: false)
+    }
+    
 }
 
 extension TrainSearchViewController {
+    
+    private func getTomorrow(_ value: Int) {
+        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: Date()) else { return }
+        let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
+        let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
+        
+        tomorrow = "\(modifiedMonth)월 \(modifiedDay)일"
+    }
+    
     private func getDayList() {
- 
+        
         let today = Date()
+        
         for i in 0..<14 {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return }
             
@@ -179,7 +278,7 @@ extension TrainSearchViewController {
             
             dayList.append("\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))")
         }
-
+        
     }
     
     private func changeWeekday(_ weekday: Int) -> String {
@@ -199,7 +298,7 @@ extension TrainSearchViewController {
     }
 }
 
-extension TrainSearchViewController: FilterDelegate {
+extension TrainSearchViewController {
     
     func showBottomSheet(title: String, bottomType: BottomType, listType: [String]) {
         
@@ -208,7 +307,7 @@ extension TrainSearchViewController: FilterDelegate {
             bottomType: bottomType,
             listType: listType
         )
-        self.present(viewController, animated: false)
+        present(viewController, animated: false)
         
     }
     
@@ -219,6 +318,17 @@ extension TrainSearchViewController: FilterDelegate {
 }
 
 extension TrainSearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        trainSearchFilterView.dateIndexPath = indexPath
+        getTomorrow(indexPath.row + 1)
+        selectedDateIndexPath = indexPath
+        trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        trainSearchFilterView.getToday(index: selectedDateIndexPath)
+        
+        //TODO: 날짜에 따른 기차시간표 API 호출
+        
+    }
     
 }
 
@@ -235,6 +345,52 @@ extension TrainSearchViewController: UICollectionViewDataSource {
         item.bindData(dayList[indexPath.row])
         
         return item
+    }
+    
+}
+
+extension TrainSearchViewController: UITableViewDelegate {
+
+}
+
+extension TrainSearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return trainInfoList.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrainInfoTableViewCell.className) as? TrainInfoTableViewCell
+        else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        
+        if indexPath.row == trainInfoList.count {
+            cell.tomorrow = tomorrow
+            cell.isLastCell = true
+            cell.tapAction = { [weak self] in
+                self?.nextDayButtonTapped()
+            }
+        } else {
+            cell.isLastCell = false
+            cell.bindData(train: trainInfoList[indexPath.row])
+            cell.tapAction = { [weak self] in
+                self?.selectedTrainInfoIndexPath = indexPath
+                self?.standardButtonTapped()
+                cell.standardButton.isSelected = true
+            }
+        }
+        return cell
+    }
+}
+
+extension TrainSearchViewController: BottomSheetDelegate {
+    
+    func bottomSheetDidDismiss() {
+        if let indexPath = selectedTrainInfoIndexPath {
+            let cell = trainInfoTableView.cellForRow(at: indexPath) as? TrainInfoTableViewCell
+            cell?.standardButton.isSelected = false
+            cell?.standardButton.setStyle()
+        }
     }
     
 }
