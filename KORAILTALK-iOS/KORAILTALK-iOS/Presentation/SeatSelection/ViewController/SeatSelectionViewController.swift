@@ -42,7 +42,7 @@ final class SeatSelectionViewController: UIViewController {
         return collectionView
     }()
     
-    private let bottomView = UIView()
+    private let bottomView = BottomSelectionView()
     
     // MARK: - Life Cycle
     
@@ -55,6 +55,7 @@ final class SeatSelectionViewController: UIViewController {
         setHierarchy()
         setLayout()
         fetchTrainData()
+        setDelegate()
     }
     
 }
@@ -106,7 +107,17 @@ extension SeatSelectionViewController {
         self.view.backgroundColor = .white
         
         bottomView.do {
-            $0.backgroundColor = .yellow
+            $0.backgroundColor = .white
+            $0.makeCornerRadius(cornerRadius: 20, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+            $0.layer.addShadow(
+                color: UIColor.black,
+                alpha: 0.5,
+                x: 0,
+                y: 2,
+                blur: 10,
+                spread: 0
+            )
+            
         }
     }
     
@@ -143,9 +154,13 @@ extension SeatSelectionViewController {
     
     private func configureDataSource() {
         coachDataSource = CoachDataSource(collectionView: coachCollectionView)
-        coachDataSource?.delegate = self
         seatSelectionDataSource = SeatSelectionDataSource(collectionView: seatCollectionView)
+    }
+    
+    private func setDelegate() {
+        coachDataSource?.delegate = self
         seatSelectionDataSource?.delegate = self
+        bottomView.delegate = self
     }
     
     private func fetchTrainData() {
@@ -282,7 +297,12 @@ extension SeatSelectionViewController: CoachDataSourceDelegate {
     
     func popupButtonTapped() {
         // TODO: 팝업 구현
-        print("팝업 버튼 눌림")
+        
+        let popupVC = OutletPopupViewController()
+        popupVC.modalPresentationStyle = .overFullScreen
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true)
+        
     }
     
 }
@@ -312,6 +332,19 @@ extension SeatSelectionViewController: SeatRowViewDelegate {
         ) as? SeatRowHeaderView {
             headerView.updateSelection(selectedSeatID)
         }
+        
+        bottomView.updateSelection(selectedSeatID)
+    }
+    
+}
+
+extension SeatSelectionViewController: BottomSelectionViewDelegate {
+    
+    func completeButtonTapped() {
+        guard let selectedSeatID = selectedSeatID else { return }
+        
+        // TODO: 선택 완료 처리
+        print("선택된 좌석: \(selectedSeatID)")
     }
     
 }
