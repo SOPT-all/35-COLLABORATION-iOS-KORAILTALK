@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol discountDelegate: AnyObject {
+protocol DiscountDelegate: AnyObject {
     func applyDiscount()
 }
 
@@ -17,7 +17,7 @@ final class VeteranDiscountViewController: UIViewController {
     
     private let rootView = VeteranDiscountView()
     
-    weak var delegate: discountDelegate?
+    weak var delegate: DiscountDelegate?
     
     private var veteranIDValue = false
     private var passwordValue = false
