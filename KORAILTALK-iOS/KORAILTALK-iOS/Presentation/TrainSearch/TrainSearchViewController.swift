@@ -258,7 +258,6 @@ extension TrainSearchViewController {
 extension TrainSearchViewController {
     
     private func getTomorrow(_ value: Int) {
-        print("getTomorrow 호출 !")
         guard let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: Date()) else { return }
         let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
         let modifiedDay = Calendar.current.component(.day, from: modifiedDate)

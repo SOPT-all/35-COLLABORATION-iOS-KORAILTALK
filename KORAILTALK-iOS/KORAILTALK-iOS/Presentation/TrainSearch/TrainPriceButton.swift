@@ -24,6 +24,10 @@ final class TrainPriceButton: UIButton {
     }
     var price: Int = 0 {
         didSet {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let result = numberFormatter.string(for: price)
+            priceText = "\(result ?? "")원"
             setStyle()
         }
     }
@@ -58,7 +62,6 @@ final class TrainPriceButton: UIButton {
         switch type {
         case .standardSell:
             titleText = "일반실"
-            priceText = "\(price)원"
             titleContainer.foregroundColor = .korailBlue(.blue02)
             subtitleContainer.foregroundColor = .korailBasic(.black)
             buttonConfiguration.background.strokeColor = .korailBlue(.blue02)
@@ -75,7 +78,6 @@ final class TrainPriceButton: UIButton {
             priceText = "매진"
         case .premiumSell:
             titleText = "특/우등"
-            priceText = "\(price)원"
             titleContainer.foregroundColor = .korailBlue(.blue02)
             subtitleContainer.foregroundColor = .korailBasic(.black)
             buttonConfiguration.background.strokeColor = .korailBlue(.blue02)
