@@ -79,4 +79,55 @@ extension UILabel {
         self.attributedText = attributedString
     }
     
+    func applyAttributedStyles(
+        text: String,
+        styles: [(text: String, font: UIFont, color: UIColor, lineSpacing: CGFloat)]
+    ) {
+        let attributedString = NSMutableAttributedString(string: text)
+       
+        styles.forEach { style in
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = style.lineSpacing
+            
+            if let range = text.range(of: style.text) {
+                let nsRange = NSRange(range, in: text)
+                attributedString.addAttributes([
+                    .font: style.font,
+                    .foregroundColor: style.color,
+                    .paragraphStyle: paragraphStyle
+                ], range: nsRange)
+            }
+        }
+        
+        self.attributedText = attributedString
+        self.numberOfLines = 0
+    }
+    
+    func applyUniformStyleWithLineSpacing(
+        text: String,
+        font: UIFont,
+        color: UIColor,
+        styles: [(text: String, lineSpacing: CGFloat)]
+    ) {
+        let attributedString = NSMutableAttributedString(string: text, attributes: [
+            .font: font,
+            .foregroundColor: color
+        ])
+        
+        styles.forEach { style in
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = style.lineSpacing
+            
+            if let range = text.range(of: style.text) {
+                let nsRange = NSRange(range, in: text)
+                attributedString.addAttributes([
+                    .paragraphStyle: paragraphStyle
+                ], range: nsRange)
+            }
+        }
+        
+        self.attributedText = attributedString
+        self.numberOfLines = 0
+    }
+    
 }
