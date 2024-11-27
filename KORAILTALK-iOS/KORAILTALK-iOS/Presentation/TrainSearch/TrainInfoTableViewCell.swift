@@ -115,13 +115,16 @@ class TrainInfoTableViewCell: UITableViewCell {
         }
         
         func setHierachy() {
+            
             addSubviews(trainNameView, timeStackView, stroke, standardButton, premiumButton)
+            
             trainNameView.addSubview(trainNameLabel)
             timeStackView.addArrangedSubviews(
                 departureLabel,
                 arrowImageView,
                 arrivalLabel
             )
+            sendSubviewToBack(contentView)
         }
         
         
