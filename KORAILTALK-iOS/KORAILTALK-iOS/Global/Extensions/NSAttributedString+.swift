@@ -30,7 +30,7 @@ extension NSAttributedString {
                                      paragraphSeparator: CGFloat = 0,
                                      textAlignment: NSTextAlignment = .left,
                                      lineBreakMode: NSLineBreakMode = .byWordWrapping,
-                                     lineHeightMultiple: CGFloat = 1.0) -> NSAttributedString {
+                                     lineHeightMultiple: CGFloat = 1.0) -> AttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = lineBreakMode
         paragraphStyle.alignment = textAlignment
@@ -46,7 +46,7 @@ extension NSAttributedString {
         
         let attributedString = NSMutableAttributedString(string: text, attributes: attributes)
         
-        return attributedString
+        return AttributedString(attributedString)
     }
     
 }

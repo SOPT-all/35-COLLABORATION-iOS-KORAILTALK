@@ -47,7 +47,7 @@ extension TrainCheckPopupViewController {
         listLabel.do {
             $0.numberOfLines = 0
             
-            $0.attributedText = NSAttributedString.makeAttributedString(
+            $0.attributedText = NSAttributedString(NSAttributedString.makeAttributedString(
                 text: """
                 1. 코레일톡에서 구매한 승차권은 역창구에서 변경 시 할인이\n취소 될 수 있습니다.
                 2. 할인 승차권의 할인율은 별도 공지없이 변경될 수 있습니다.
@@ -70,7 +70,7 @@ extension TrainCheckPopupViewController {
                 color: .korailGrayscale(.gray500),
                 font: .korailCaption(.caption2m12),
                 lineSpacing: 4
-            )
+            ))
             $0.highlightText(targetText: "특실/우등실은 운임\n과 요금으로 구분", color: .korailBasic(.red))
             $0.highlightText(targetText: "사진이나 캡쳐한\n화면은 유효한 승차권이 아닙니다.", color: .korailBasic(.red))
         }

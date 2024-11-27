@@ -44,11 +44,11 @@ extension PaymentActionsView {
         
         saveButton.do {
             var config = UIButton.Configuration.filled()
-            config.attributedTitle = AttributedString(NSAttributedString.makeAttributedString(
+            config.attributedTitle = NSAttributedString.makeAttributedString(
                 text: "담아두기",
                 color: .korailBlue(.blue01),
                 font: .korailTitle(.title3m16)
-            ))
+            )
             config.baseBackgroundColor = .korailBasic(.white)
             config.cornerStyle = .capsule
             $0.configuration = config
@@ -58,11 +58,11 @@ extension PaymentActionsView {
         
         payButton.do {
             var config = UIButton.Configuration.filled()
-            config.attributedTitle =  AttributedString(NSAttributedString.makeAttributedString(
+            config.attributedTitle =  NSAttributedString.makeAttributedString(
                 text: "바로결제",
                 color: .korailBasic(.white),
                 font: .korailTitle(.title3m16)
-            ))
+            )
             config.baseBackgroundColor = .korailBlue(.blue03)
             config.cornerStyle = .capsule
             $0.configuration = config
