@@ -52,4 +52,5 @@ extension WindowCell {
             $0.edges.equalToSuperview()
         }
     }
+    
 }

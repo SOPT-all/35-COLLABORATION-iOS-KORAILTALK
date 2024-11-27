@@ -69,11 +69,11 @@ extension BottomSelectionView {
         
         completeButton.do {
             var config = UIButton.Configuration.filled()
-            config.attributedTitle = NSAttributedString.makeAttributedString(
+            config.attributedTitle = AttributedString(NSAttributedString.makeAttributedString(
                 text: "선택 완료",
                 color: .korailBasic(.white),
                 font: .korailTitle(.title3m16)
-            )
+            ))
             config.baseBackgroundColor = .korailGrayscale(.gray200)
             config.cornerStyle = .capsule
             $0.configuration = config
@@ -138,11 +138,11 @@ extension BottomSelectionView {
     
     private func updateButtonState() {
         var config = UIButton.Configuration.filled()
-        config.attributedTitle = NSAttributedString.makeAttributedString(
+        config.attributedTitle = AttributedString(NSAttributedString.makeAttributedString(
             text: "선택 완료",
             color: .korailBasic(.white),
             font: .korailTitle(.title3m16)
-        )
+        ))
         
         if selectedSeatID != nil {
             config.baseBackgroundColor = .korailBlue(.blue03)

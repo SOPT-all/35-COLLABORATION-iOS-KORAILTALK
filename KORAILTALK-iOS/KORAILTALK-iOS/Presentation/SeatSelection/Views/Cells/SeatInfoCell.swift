@@ -78,11 +78,11 @@ extension SeatInfoCell {
         
         popupButton.do {
             var config = UIButton.Configuration.filled()
-            config.attributedTitle = NSAttributedString.makeAttributedString(
+            config.attributedTitle = AttributedString(NSAttributedString.makeAttributedString(
                 text: "콘센트 확인",
                 color: .korailBlue(.blue01),
                 font: .korailCaption(.caption1sb12)
-            )
+            ))
             config.image = .icnSeatMapOutlet.withRenderingMode(.alwaysOriginal)
             config.imagePlacement = .leading
             config.imagePadding = 4
