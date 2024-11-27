@@ -166,11 +166,9 @@
 		CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */ = {
 			isa = PBXGroup;
 			children = (
-				CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */,
-				CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */,
-				CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */,
-				CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */,
-				CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */,
+				CB39134A2CF7345700BBD66F /* Component */,
+				CB3913492CF7344B00BBD66F /* ViewController */,
+				CB3913482CF7344100BBD66F /* View */,
 			);
 			path = TrainSearch;
 			sourceTree = "<group>";
@@ -178,10 +176,9 @@
 		CB3913202CF5FE0600BBD66F /* MyTicket */ = {
 			isa = PBXGroup;
 			children = (
-				CB39132C2CF6D40D00BBD66F /* MyTicketViewController.swift */,
-				CB39132A2CF6D3F300BBD66F /* MyTicketView.swift */,
-				CB39133D2CF6F39A00BBD66F /* MyTicketBlueButton.swift */,
-				CB3913462CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift */,
+				CB39134D2CF7347200BBD66F /* Component */,
+				CB39134C2CF7346800BBD66F /* ViewController */,
+				CB39134B2CF7346200BBD66F /* View */,
 			);
 			path = MyTicket;
 			sourceTree = "<group>";
@@ -194,6 +191,57 @@
 				CB3913442CF6F91700BBD66F /* TrainPriceButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CB3913482CF7344100BBD66F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */,
+				CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */,
+				CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB3913492CF7344B00BBD66F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB39134A2CF7345700BBD66F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */,
+				CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		CB39134B2CF7346200BBD66F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB39132A2CF6D3F300BBD66F /* MyTicketView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB39134C2CF7346800BBD66F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB39132C2CF6D40D00BBD66F /* MyTicketViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB39134D2CF7347200BBD66F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CB39133D2CF6F39A00BBD66F /* MyTicketBlueButton.swift */,
+				CB3913462CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		D022CDD92CF458AC00A21713 /* ModalView */ = {
