@@ -114,7 +114,7 @@ extension TrainDetailBottomSheetViewController {
         timetableButtonConfiguration.imagePadding = 238
         timetableButtonConfiguration.imagePlacement = .trailing
         timetableButtonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-        timetableButtonConfiguration.attributedTitle = AttributedString("시간표", attributes: timetableContainer)
+        timetableButtonConfiguration.attributedTitle = setButtonLabel(title: "시간표", image: .icnTrainSearchTimetable)
         
         var priceContainer = AttributeContainer()
         priceContainer.font = .korailBody(.body2m14)
@@ -126,7 +126,8 @@ extension TrainDetailBottomSheetViewController {
         priceButtonConfiguration.imagePadding = 226
         priceButtonConfiguration.imagePlacement = .trailing
         priceButtonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-        priceButtonConfiguration.attributedTitle = AttributedString("운임요금", attributes: priceContainer)
+        
+        priceButtonConfiguration.attributedTitle = setButtonLabel(title: "운임요금", image: .icnTrainSearchMoney)
         
         var selectContainer = AttributeContainer()
         selectContainer.font = .korailTitle(.title3m16)
@@ -356,6 +357,34 @@ extension TrainDetailBottomSheetViewController {
             $0.height.equalTo(50)
             $0.width.equalTo(174)
         }
+    }
+    
+    private func setButtonLabel(title: String, image: UIImage) -> AttributedString {
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image
+        imageAttachment.bounds = CGRect(x: 0, y: -4, width: 18, height: 18)
+        
+        let attributedString = NSMutableAttributedString()
+        
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.korailBody(.body2m14),
+            .foregroundColor: UIColor.korailBasic(.black)
+        ]
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        let spacingString = NSAttributedString(
+            string: " ",
+            attributes: [.kern: 1]
+        )
+
+        let textString = NSAttributedString(string: title, attributes: textAttributes)
+        
+        attributedString.append(imageString)
+        attributedString.append(spacingString)
+        attributedString.append(textString)
+        
+        return AttributedString(attributedString)
     }
     
 }
