@@ -37,4 +37,14 @@ extension UIView {
         layer.borderColor = color.cgColor
     }
     
+    /// view에 stroke 추가 - 오른쪽만
+    /// - Parameters:
+    ///   - color: 색깔
+    func addStroke(color: UIColor) {
+        let strokeLayer = CALayer()
+        strokeLayer.frame = CGRect(x: frame.width - 1, y: 0, width: 1, height: frame.height)
+        strokeLayer.backgroundColor = color.cgColor
+        layer.addSublayer(strokeLayer)
+    }
+    
 }

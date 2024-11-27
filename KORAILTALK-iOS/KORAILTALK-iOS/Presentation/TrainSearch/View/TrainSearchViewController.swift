@@ -393,4 +393,9 @@ extension TrainSearchViewController: BottomSheetDelegate {
         }
     }
     
+    func didDismissAndNavigateToSeat() {
+        let viewController = SeatSelectionViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
