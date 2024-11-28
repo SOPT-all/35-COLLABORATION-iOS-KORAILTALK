@@ -253,6 +253,7 @@ extension TrainDetailBottomSheetViewController {
         //TODO: 승차권 정보 확인 view로 넘어가게 하기
         autoButton.do {
             $0.configuration = autoButtonConfiguration
+            $0.addTarget(self, action: #selector(autoButtonTapped), for: .touchUpInside)
         }
 
     }
@@ -578,9 +579,28 @@ extension TrainDetailBottomSheetViewController {
         
     }
     
+    @objc
+    private func autoButtonTapped() {
+        UIView.animate(withDuration: 0.1, animations: { [weak self] in
+            self?.dimmedBackView.backgroundColor = .clear
+            self?.bottomSheetView.snp.updateConstraints {
+                $0.bottom.equalToSuperview().offset(702)
+            }
+            self?.view.layoutIfNeeded()
+            
+            self?.delegate?.bottomSheetDidDismiss()
+            
+        }, completion: { _ in
+            self.dismiss(animated: false) { [weak self] in
+                self?.delegate?.didDismissAndnavigateToCheck()
+            }
+        })
+    }
+    
 }
 
 protocol BottomSheetDelegate: AnyObject {
     func bottomSheetDidDismiss()
     func didDismissAndNavigateToSeat()
+    func didDismissAndnavigateToCheck()
 }
