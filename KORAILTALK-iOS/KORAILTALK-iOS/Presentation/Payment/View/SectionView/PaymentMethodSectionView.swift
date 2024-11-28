@@ -112,6 +112,7 @@ extension PaymentMethodSectionView {
             
             cardPayRadioButton.isSelected = false
             cardPayDetailView.isHidden = true
+            cardPayDetailView.isHyundaiCardSelected(false)
         case cardPayRadioButton:
             endEditing(true)
             cardPayRadioButton.isSelected.toggle()
@@ -119,6 +120,7 @@ extension PaymentMethodSectionView {
 
             simplePayRadioButton.isSelected = false
             simplePayDetailView.isHidden = true
+            simplePayDetailView.simplePayCollectionView.reloadData()
          default:
             return
         }

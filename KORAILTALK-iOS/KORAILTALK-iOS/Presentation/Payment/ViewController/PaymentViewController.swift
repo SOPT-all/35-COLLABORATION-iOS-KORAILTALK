@@ -81,6 +81,8 @@ extension PaymentViewController {
         [rootView.paymentMethodSectionView.cardPayDetailView.mostUsedCardButton, rootView.paymentMethodSectionView.cardPayDetailView.cardTypeButton, rootView.paymentMethodSectionView.cardPayDetailView.installmentPeriodButton].forEach { button in
             button.addTarget(self, action: #selector(cardPayDetailViewDropDownButtonTapped(_:)), for: .touchUpInside)
         }
+        
+        rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.addTarget(self, action: #selector(cardPayDetailViewCheckBoxButtonTapped), for: .touchUpInside)
     }
     
     private func setCollectionView() {
@@ -100,7 +102,6 @@ extension PaymentViewController {
     
     @objc private func toolbarButtonTapped() {
         rootView.endEditing(true)
-        print("입력 완료!!!!!!!!!")
     }
     
     @objc private func veteranDiscountButtonTapped() {
@@ -142,6 +143,10 @@ extension PaymentViewController {
         default:
             return
         }
+    }
+    
+    @objc private func cardPayDetailViewCheckBoxButtonTapped() {
+        rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected.toggle()
     }
 }
 
