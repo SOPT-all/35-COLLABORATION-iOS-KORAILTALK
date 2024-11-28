@@ -11,8 +11,10 @@ import SnapKit
 import Then
 
 enum DropDownButtonType {
-    case enanbleForDiscount
-    case enanbleForSeat
+    case enableForDiscount
+    case enableForSeat
+    case enableForNoneCard
+    case enableForCard
     case disable
 }
 
@@ -36,8 +38,10 @@ final class KorailDropDownButton: UIButton {
         self.dropDownButtonType = dropDownType
         self.titleText = titleText
         switch dropDownType {
-        case .enanbleForDiscount, .enanbleForSeat:
+        case .enableForDiscount, .enableForSeat:
             self.optionText = optionText ?? ""
+        case .enableForNoneCard, .enableForCard:
+            self.optionText = optionText ?? "등록된 카드가 없습니다"
         case .disable:
             self.optionText = optionText ?? "적용대상 없음"
         }
@@ -80,13 +84,17 @@ extension KorailDropDownButton {
             $0.text = optionText
 
             switch dropDownButtonType {
-            case .enanbleForDiscount:
+            case .enableForDiscount:
                 $0.font = .korailCaption(.caption2m12)
                 $0.textColor = .korailPurple(.purple03)
                 $0.isHidden = true
-            case .enanbleForSeat:
+            case .enableForSeat, .enableForCard:
                 $0.font = .korailBody(.body2m14)
                 $0.textColor = .korailBlue(.blue01)
+                $0.isHidden = false
+            case .enableForNoneCard:
+                $0.font = .korailBody(.body2m14)
+                $0.textColor = .korailGrayscale(.gray400)
                 $0.isHidden = false
             case .disable:
                 $0.font = .korailCaption(.caption2m12)
@@ -112,7 +120,12 @@ extension KorailDropDownButton {
     private func setLayout() {
         couponTitleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(16)
+            switch dropDownButtonType {
+            case .enableForDiscount, .disable:
+                $0.leading.equalToSuperview().inset(16)
+            default:
+                $0.leading.equalToSuperview().inset(12)
+            }
         }
         
         optionLabel.snp.makeConstraints {
@@ -128,8 +141,16 @@ extension KorailDropDownButton {
     
     //MARK: - Func
     
-    func isHiddenOptionLabel(isHidden: Bool, text: String) {
+    func changeOptionLabelState(isHidden: Bool, text: String, font: UIFont? = nil, textColor: UIColor? = nil) {
         optionLabel.isHidden = isHidden
         optionLabel.text = text
+        
+        if let font {
+            optionLabel.font = font
+        }
+        
+        if let textColor {
+            optionLabel.textColor = textColor
+        }
     }
 }
