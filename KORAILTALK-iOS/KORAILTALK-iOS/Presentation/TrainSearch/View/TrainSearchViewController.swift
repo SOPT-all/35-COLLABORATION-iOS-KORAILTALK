@@ -38,6 +38,7 @@ final class TrainSearchViewController: UIViewController {
     private let today = Date()
     private var selectedDateIndexPath = IndexPath(row: 0, section: 0)
     private var selectedTrainInfoIndexPath: IndexPath?
+    private var selectedTrain: TrainInformation?
     
     //MARK: - Life Cycle
     
@@ -133,7 +134,7 @@ extension TrainSearchViewController {
             $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         }
     }
-    //TODO: 서울 -> 부산 헤더 넣기
+
     private func setHierachy() {
         
         view.addSubviews(
@@ -286,11 +287,11 @@ extension TrainSearchViewController {
     @objc
     private func standardButtonTapped() {
         let viewController = TrainDetailBottomSheetViewController(
-            dateText: "2024.11.16 (토)",
-            trainName: "KTX 001",
-            departureTime: "05:27",
-            arrivalTime: "08:15",
-            time: "2시간 48분"
+            dateText: trainSearchFilterView.todayText,
+            trainName: selectedTrain?.trainName ?? "KTX 001",
+            departureTime: selectedTrain?.departureTime ?? "05:00",
+            arrivalTime: selectedTrain?.arrivalTime ?? "06:00",
+            time: selectedTrain?.travelTime ?? 50
         )
         viewController.delegate = self
         present(viewController, animated: false)
@@ -369,7 +370,6 @@ extension TrainSearchViewController: UICollectionViewDelegate {
         trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         trainSearchFilterView.getToday(index: selectedDateIndexPath)
         
-        //TODO: 날짜에 따른 기차시간표 API 호출
         loadTimetables()
     }
     
@@ -418,6 +418,7 @@ extension TrainSearchViewController: UITableViewDataSource {
             cell.bindData(train: trainInfoList[indexPath.row])
             cell.tapAction = { [weak self] in
                 self?.selectedTrainInfoIndexPath = indexPath
+                self?.selectedTrain = self?.trainInfoList[indexPath.row]
                 self?.standardButtonTapped()
                 cell.standardButton.isSelected = true
             }
@@ -437,12 +438,16 @@ extension TrainSearchViewController: BottomSheetDelegate {
     }
     
     func didDismissAndNavigateToSeat() {
+        //TODO: 파라미터로 timetableId 넘겨주기
         let viewController = SeatSelectionViewController()
+//        let viewController = SeatSelectionViewController(timetableId: selectedTrain?.timetableId ?? 1)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func didDismissAndnavigateToCheck() {
+        //TODO: 파라미터로 timetableId 넘겨주기
         let viewController = TrainCheckViewController()
+//        let viewController = TrainCheckViewController(timetableId: selectedTrain?.timetableId ?? 1)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
