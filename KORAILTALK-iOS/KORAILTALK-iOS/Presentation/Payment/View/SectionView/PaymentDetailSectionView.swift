@@ -20,8 +20,8 @@ final class PaymentDetailSectionView: UIView {
     private let discountAndPointTextLabel = UILabel()
     private let totalPaymentAmountTextLabel = UILabel()
     private let usageAmountLabel = UILabel()
-    private let discountAndPointLabel = UILabel()
-    private let totalPaymentAmountLabel = UILabel()
+    let discountAndPointLabel = UILabel()
+    let totalPaymentAmountLabel = UILabel()
     private let titleStackView = UIStackView()
     private let usageAmountStackView = UIStackView()
     private let discountAndPointStackView = UIStackView()
@@ -93,7 +93,6 @@ extension PaymentDetailSectionView {
         }
         
         discountAndPointLabel.do {
-            $0.text = "500원"
             $0.textColor = .korailBasic(.black)
             $0.textAlignment = .center
             $0.font = .korailTitle(.title3m16)

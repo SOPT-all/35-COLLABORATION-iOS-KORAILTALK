@@ -15,6 +15,12 @@ final class PaymentViewController: UIViewController {
     
     private let rootView = PaymentView()
     
+    private var discountAmount = 0 {
+        didSet {
+            rootView.updatePaymentInfo(discountAmount: discountAmount)
+        }
+    }
+    
     // MARK: - Life Cycle
     
     override func loadView() {
@@ -93,6 +99,7 @@ extension PaymentViewController {
     //MARK: - @objc
     
     @objc private func discountSectionRadioButtonTapped(_ sender: UIButton) {
+        discountAmount = 0
         rootView.discountSectionView.toggleDropDownState(sender: sender)
     }
     
@@ -101,6 +108,8 @@ extension PaymentViewController {
     }
     
     @objc private func toolbarButtonTapped() {
+        let discountAndPointText = rootView.discountSectionView.mileageDetailView.mileageTextField.text ?? ""
+        discountAmount = Int(discountAndPointText) ?? 0
         rootView.endEditing(true)
     }
     
@@ -153,12 +162,14 @@ extension PaymentViewController {
 extension PaymentViewController: DiscountDelegate {
     func applyDiscount() {
         rootView.discountSectionView.couponDetailView.applyVeteranDiscount(true)
+        discountAmount = 500
     }
 }
 
 extension PaymentViewController: PointDelegate {
-    func applyPoint(pointText: String) {
-        rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: pointText)
+    func applyPoint(pointAmount: Int) {
+        rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: String(pointAmount))
+        discountAmount = pointAmount
     }
 }
 

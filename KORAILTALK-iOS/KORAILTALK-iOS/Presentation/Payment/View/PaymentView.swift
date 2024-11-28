@@ -11,6 +11,10 @@ import SnapKit
 import Then
 
 final class PaymentView: UIView {
+    
+    //MARK: - Properties
+    
+    private let totalAmount = 12500
 
     //MARK: - UI Properties
     
@@ -143,5 +147,16 @@ extension PaymentView {
             $0.top.horizontalEdges.equalToSuperview().inset(10)
             $0.bottom.equalToSuperview().inset(42)
         }
+    }
+    
+    //MARK: - Func
+    
+    func updatePaymentInfo(discountAmount: Int) {
+        let totalString = "\(formatNumberWithComma(totalAmount - discountAmount))원"
+        let discountString = "\(formatNumberWithComma(discountAmount))원"
+        
+        totalPriceLabel.text = totalString
+        paymentDetailSectionView.totalPaymentAmountLabel.text = totalString
+        paymentDetailSectionView.discountAndPointLabel.text = discountString
     }
 }

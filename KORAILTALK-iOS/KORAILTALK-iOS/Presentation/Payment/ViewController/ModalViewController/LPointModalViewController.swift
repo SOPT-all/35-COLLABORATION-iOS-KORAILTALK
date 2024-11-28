@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PointDelegate: AnyObject {
-    func applyPoint(pointText: String)
+    func applyPoint(pointAmount: Int)
 }
 
 final class LPointModalViewController: UIViewController {
@@ -19,7 +19,7 @@ final class LPointModalViewController: UIViewController {
     
     weak var delegate: PointDelegate?
     
-    var userPointInfo: LPointData?
+    var userLPointValue = 1000
     
     // MARK: - Life Cycle
     
@@ -32,15 +32,15 @@ final class LPointModalViewController: UIViewController {
         
         setAddTarget()
         
-        NetworkService.shared.userService.getUserLPoint(parameter: 123456) { [weak self] response in
-            guard let self else { return }
-            switch response {
-            case .success(let data):
-                userPointInfo = data?.data
-            default:
-                break
-            }
-        }
+//        NetworkService.shared.userService.getUserLPoint(parameter: 123456) { [weak self] response in
+//            guard let self else { return }
+//            switch response {
+//            case .success(let data):
+//                userLPointValue = data?.data.point
+//            default:
+//                break
+//            }
+//        }
     }
 }
 
@@ -86,7 +86,8 @@ extension LPointModalViewController {
     }
 
     @objc private func toolbarButtonTapped() {
-        delegate?.applyPoint(pointText: rootView.pointTextField.text ?? "")
+        let pointAmount = Int(rootView.pointTextField.text ?? "") ?? 0
+        delegate?.applyPoint(pointAmount: pointAmount)
         self.dismiss(animated: true)
     }
 }
@@ -110,8 +111,8 @@ extension LPointModalViewController: UITextFieldDelegate {
             }
         case rootView.pointTextField:
             if let inputNum = textField.text {
-                if Int(inputNum) ?? 0 >= Int(rootView.pointAmouunt) ?? 0 {
-                    textField.text = rootView.pointAmouunt
+                if Int(inputNum) ?? 0 >= userLPointValue {
+                    textField.text = String(userLPointValue)
                 } else if Int(inputNum) == 0 {
                     textField.text = "0"
                 } else if inputNum.first == "0" && inputNum.count > 1 {
