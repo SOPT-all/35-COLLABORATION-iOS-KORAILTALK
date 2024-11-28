@@ -96,6 +96,11 @@ extension PaymentViewController {
         rootView.paymentMethodSectionView.simplePayDetailView.simplePayCollectionView.dataSource = self
     }
     
+    private func isPossibleTicketing(_ bool: Bool) {
+        rootView.ticketingButton.isEnabled = bool
+        rootView.ticketingButton.backgroundColor = bool ? .korailPurple(.purple03) : .korailGrayscale(.gray200)
+    }
+    
     //MARK: - @objc
     
     @objc private func discountSectionRadioButtonTapped(_ sender: UIButton) {
@@ -135,6 +140,7 @@ extension PaymentViewController {
     
     @objc private func paymentMethodSectionRadioButtonTapped(_ sender: UIButton) {
         rootView.paymentMethodSectionView.toggleDropDownState(sender: sender)
+        isPossibleTicketing(false)
     }
     
     @objc private func cardPayDetailViewDropDownButtonTapped(_ sender: UIButton) {
@@ -156,6 +162,7 @@ extension PaymentViewController {
     
     @objc private func cardPayDetailViewCheckBoxButtonTapped() {
         rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected.toggle()
+        rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected ? isPossibleTicketing(true) : isPossibleTicketing(false)
     }
 }
 
@@ -205,5 +212,6 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.isSelected.toggle()
+        isPossibleTicketing(true)
     }
 }

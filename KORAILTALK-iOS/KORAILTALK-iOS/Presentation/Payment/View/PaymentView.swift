@@ -27,7 +27,7 @@ final class PaymentView: UIView {
     private let ticketPriceView = UIView()
     private let totalQuantityLabel = UILabel()
     private let totalPriceLabel = UILabel()
-    private let ticketingButton = UIButton()
+    let ticketingButton = UIButton()
     private let buttonBackgroundView = UIView()
         
     // MARK: - Life Cycle
