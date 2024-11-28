@@ -82,11 +82,11 @@ final class MyTicketView: UIView {
     private let toastView = UIView()
     private let toastLabel = UILabel()
     
-    private let serviceButton = MyTicketRoundedStrokeButton(title: "부가서비스 더보기")
-    
     //MARK: - Properties
     
-    //    private var buttonConfiguration = UIButton.Configuration.plain()
+    private let serviceButton = MyTicketRoundedStrokeButton(title: "부가서비스 더보기")
+    private var ticket: Ticket?
+    
     
     //MARK: - Life Cycle
     
@@ -121,7 +121,7 @@ final class MyTicketView: UIView {
             $0.layer.cornerRadius = 12
         }
         dateLabel.do {
-            $0.text = "2024년 10월 30일 (수)"
+//            $0.text = "2024년 10월 30일 (수)"
             $0.font = .korailTitle(.title3m16)
             $0.textColor = .korailBasic(.white)
         }
@@ -130,7 +130,7 @@ final class MyTicketView: UIView {
             $0.makeCornerRadius(cornerRadius: 10)
         }
         trainNameLabel.do {
-            $0.text = "KTX 001"
+//            $0.text = "KTX 001"
             $0.font = .korailCaption(.caption2m12)
             $0.textColor = .korailBasic(.white)
         }
@@ -153,13 +153,12 @@ final class MyTicketView: UIView {
             $0.font = .korailHead(.head3m26)
         }
         departureTimeLabel.do {
-            $0.text = "19:54"
+//            $0.text = "19:54"
             $0.font = .korailTitle(.title3m16)
             $0.textColor = .korailGrayscale(.gray600)
         }
         arrowImageView.do {
-            //TODO: 화살표가 좀 이상함 ㅋㅋㅋ ㅠ
-            $0.image = .icnArrowCircle.resized(CGSize(width: 26, height: 26))
+            $0.image = .icnArrowCircle
         }
         arrivalStackView.do {
             $0.axis = .vertical
@@ -171,7 +170,7 @@ final class MyTicketView: UIView {
             $0.font = .korailHead(.head3m26)
         }
         arrivalTimeLabel.do {
-            $0.text = "19:54"
+//            $0.text = "19:54"
             $0.font = .korailTitle(.title3m16)
             $0.textColor = .korailGrayscale(.gray600)
         }
@@ -229,7 +228,7 @@ final class MyTicketView: UIView {
         }
         
         seatLabel.do {
-            $0.text = "16A"
+//            $0.text = "16A"
             $0.font = .korailHead(.head2m28)
             $0.textColor = .korailBlue(.blue02)
         }
@@ -593,6 +592,10 @@ final class MyTicketView: UIView {
             $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
         }
+        
+        arrowImageView.snp.makeConstraints {
+            $0.size.equalTo(26)
+        }
     }
     
 }
@@ -613,5 +616,27 @@ extension MyTicketView {
         }
     }
     
+    private func bindData() {
+        guard let ticket else { return }
+        
+        //TODO: date format 맞추기
+        dateLabel.text = ticket.date
+        departureTimeLabel.text = ticket.departureTime
+        arrivalTimeLabel.text = ticket.arrivalTime
+        trainNameLabel.text = ticket.trainName
+        seatLabel.text = ticket.seatName
+    }
+    
+//    func getToday(date: String){
+//
+//        guard let today = Calendar.current.date(byAdding: .day, value: index.row, to: Date()) else { return }
+//        
+//        let modifedYear = Calendar.current.component(.year, from: modifiedDate)
+//        let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
+//        let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
+//        let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
+//        
+//        todayText = "\(modifedYear).\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))"
+//    }
 }
 
