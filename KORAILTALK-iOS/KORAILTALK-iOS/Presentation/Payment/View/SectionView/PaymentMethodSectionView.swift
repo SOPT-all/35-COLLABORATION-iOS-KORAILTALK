@@ -18,7 +18,7 @@ final class PaymentMethodSectionView: UIView {
     let simplePayRadioButton = KorailRadioButton(buttonType: .simplePay)
     let cardPayRadioButton = KorailRadioButton(buttonType: .cardPay)
     lazy var simplePayDetailView = SimplePayView()
-    lazy var cardPayDetailView = UIView()
+    lazy var cardPayDetailView = CardPayView()
     private let simplePayStackView = UIStackView()
     private let cardPayStackView = UIStackView()
 

@@ -84,6 +84,6 @@ extension DiscountCouponView {
     //MARK: - Func
     
     func applyVeteranDiscount(_ bool: Bool) {
-        veteranDiscountButton.isHiddenOptionLabel(isHidden: !bool, text: "500원 할인")
+        veteranDiscountButton.changeOptionLabelState(isHidden: !bool, text: "500원 할인")
     }
 }
