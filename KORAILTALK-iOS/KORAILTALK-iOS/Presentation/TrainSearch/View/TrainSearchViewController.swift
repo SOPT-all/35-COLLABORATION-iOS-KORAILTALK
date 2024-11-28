@@ -398,4 +398,9 @@ extension TrainSearchViewController: BottomSheetDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func didDismissAndnavigateToCheck() {
+        let viewController = TrainCheckViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
