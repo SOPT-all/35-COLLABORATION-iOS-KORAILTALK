@@ -14,4 +14,5 @@ final class NetworkService {
     private init() {}
     
     let userService: UserServiceProtocol = UserService()
+    let timetableService: TimetableServiceProtocol = TimetableService()
 }
