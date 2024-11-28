@@ -19,6 +19,8 @@ final class LPointModalViewController: UIViewController {
     
     weak var delegate: PointDelegate?
     
+    var userPointInfo: LPointData?
+    
     // MARK: - Life Cycle
     
     override func loadView() {
@@ -29,6 +31,16 @@ final class LPointModalViewController: UIViewController {
         super.viewDidLoad()
         
         setAddTarget()
+        
+        NetworkService.shared.userService.getUserLPoint(parameter: 123456) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success(let data):
+                userPointInfo = data?.data
+            default:
+                break
+            }
+        }
     }
 }
 

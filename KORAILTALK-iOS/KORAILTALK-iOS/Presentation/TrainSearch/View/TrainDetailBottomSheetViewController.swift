@@ -114,7 +114,7 @@ extension TrainDetailBottomSheetViewController {
         timetableButtonConfiguration.imagePadding = 238
         timetableButtonConfiguration.imagePlacement = .trailing
         timetableButtonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-        timetableButtonConfiguration.attributedTitle = AttributedString("시간표", attributes: timetableContainer)
+        timetableButtonConfiguration.attributedTitle = setButtonLabel(title: "시간표", image: .icnTrainSearchTimetable)
         
         var priceContainer = AttributeContainer()
         priceContainer.font = .korailBody(.body2m14)
@@ -126,7 +126,8 @@ extension TrainDetailBottomSheetViewController {
         priceButtonConfiguration.imagePadding = 226
         priceButtonConfiguration.imagePlacement = .trailing
         priceButtonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-        priceButtonConfiguration.attributedTitle = AttributedString("운임요금", attributes: priceContainer)
+        
+        priceButtonConfiguration.attributedTitle = setButtonLabel(title: "운임요금", image: .icnTrainSearchMoney)
         
         var selectContainer = AttributeContainer()
         selectContainer.font = .korailTitle(.title3m16)
@@ -247,7 +248,9 @@ extension TrainDetailBottomSheetViewController {
         }
         selectSeatButton.do {
             $0.configuration = selectButtonConfiguration
+            $0.addTarget(self, action: #selector(selectButtonTapped), for: .touchUpInside)
         }
+        //TODO: 승차권 정보 확인 view로 넘어가게 하기
         autoButton.do {
             $0.configuration = autoButtonConfiguration
         }
@@ -356,6 +359,34 @@ extension TrainDetailBottomSheetViewController {
             $0.height.equalTo(50)
             $0.width.equalTo(174)
         }
+    }
+    
+    private func setButtonLabel(title: String, image: UIImage) -> AttributedString {
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image
+        imageAttachment.bounds = CGRect(x: 0, y: -4, width: 18, height: 18)
+        
+        let attributedString = NSMutableAttributedString()
+        
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.korailBody(.body2m14),
+            .foregroundColor: UIColor.korailBasic(.black)
+        ]
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        let spacingString = NSAttributedString(
+            string: " ",
+            attributes: [.kern: 1]
+        )
+
+        let textString = NSAttributedString(string: title, attributes: textAttributes)
+        
+        attributedString.append(imageString)
+        attributedString.append(spacingString)
+        attributedString.append(textString)
+        
+        return AttributedString(attributedString)
     }
     
 }
@@ -527,8 +558,29 @@ extension TrainDetailBottomSheetViewController {
         isPriceImageHidden.toggle()
     }
     
+    @objc
+    private func selectButtonTapped() {
+        
+        UIView.animate(withDuration: 0.1, animations: { [weak self] in
+            self?.dimmedBackView.backgroundColor = .clear
+            self?.bottomSheetView.snp.updateConstraints {
+                $0.bottom.equalToSuperview().offset(702)
+            }
+            self?.view.layoutIfNeeded()
+            
+            self?.delegate?.bottomSheetDidDismiss()
+            
+        }, completion: { _ in
+            self.dismiss(animated: false) { [weak self] in
+                self?.delegate?.didDismissAndNavigateToSeat()
+            }
+        })
+        
+    }
+    
 }
 
 protocol BottomSheetDelegate: AnyObject {
     func bottomSheetDidDismiss()
+    func didDismissAndNavigateToSeat()
 }

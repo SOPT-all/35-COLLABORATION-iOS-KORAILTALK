@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */; };
 		CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */; };
-		CB390AF32CEC91C600BBD66F /* SelectBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */; };
-		CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */; };
 		CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */; };
 		CB390B832CEF912300BBD66F /* TrainInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */; };
-		CB390BCA2CF0472900BBD66F /* TrainPriceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390BC92CF0472900BBD66F /* TrainPriceButton.swift */; };
 		CB39124D2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */; };
+		CB39132B2CF6D3F300BBD66F /* MyTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39132A2CF6D3F300BBD66F /* MyTicketView.swift */; };
+		CB39132D2CF6D41800BBD66F /* MyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39132C2CF6D40D00BBD66F /* MyTicketViewController.swift */; };
+		CB3913302CF6D46000BBD66F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CB39132F2CF6D46000BBD66F /* Lottie */; };
+		CB3913342CF6E0F900BBD66F /* ios_korail.json in Resources */ = {isa = PBXBuildFile; fileRef = CB3913332CF6E0F900BBD66F /* ios_korail.json */; };
+		CB39133E2CF6F39A00BBD66F /* MyTicketBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39133D2CF6F39A00BBD66F /* MyTicketBlueButton.swift */; };
+		CB3913412CF6F8C900BBD66F /* SelectBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913402CF6F8C900BBD66F /* SelectBottomSheetController.swift */; };
+		CB3913432CF6F8F900BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913422CF6F8F900BBD66F /* SelectBottomSheetTableViewCell.swift */; };
+		CB3913452CF6F91700BBD66F /* TrainPriceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913442CF6F91700BBD66F /* TrainPriceButton.swift */; };
+		CB3913472CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3913462CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift */; };
 		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
 		D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */; };
@@ -47,6 +53,15 @@
 		D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */; };
 		D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */; };
 		D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */; };
+		D0E937AC2CF76B420061782D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A72CF76B420061782D /* BaseService.swift */; };
+		D0E937AD2CF76B420061782D /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A82CF76B420061782D /* MoyaPlugin.swift */; };
+		D0E937AE2CF76B420061782D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A62CF76B420061782D /* BaseTargetType.swift */; };
+		D0E937AF2CF76B420061782D /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937AA2CF76B420061782D /* NetworkResult.swift */; };
+		D0E937B02CF76B420061782D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A92CF76B420061782D /* NetworkService.swift */; };
+		D0E937B32CF76BA40061782D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D0E937B22CF76BA40061782D /* Config.xcconfig */; };
+		D0E937B72CF76E840061782D /* LPointResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937B62CF76E780061782D /* LPointResponseDTO.swift */; };
+		D0E937B92CF76F150061782D /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937B82CF76F100061782D /* UserAPI.swift */; };
+		D0E937BB2CF76F1F0061782D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937BA2CF76F1A0061782D /* UserService.swift */; };
 		D0F41C712CEF2A5600689EBC /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */; };
 		D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C742CEF2A7B00689EBC /* PaymentView.swift */; };
 		D0F41C782CEF3B1A00689EBC /* TicketSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */; };
@@ -54,7 +69,6 @@
 		D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */; };
 		D0F41C8D2CEFAB8900689EBC /* KTXMileageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */; };
 		D0F41C8F2CF07A1200689EBC /* DiscountCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */; };
-		D0F41C912CF082F600689EBC /* KorailDiscountCouponButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C902CF082E600689EBC /* KorailDiscountCouponButton.swift */; };
 		D0F41C912CF082F600689EBC /* KorailDropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41C902CF082E600689EBC /* KorailDropDownButton.swift */; };
 		D61E9A332CECC0F40005D772 /* SeatInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */; };
 		D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */; };
@@ -71,6 +85,10 @@
 		D61E9E652CF5B5860005D772 /* OutletPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E642CF5B5860005D772 /* OutletPopupViewController.swift */; };
 		D61E9E682CF5BEBA0005D772 /* BottomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E672CF5BEBA0005D772 /* BottomSelectionView.swift */; };
 		D61E9E6A2CF600EB0005D772 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E692CF600EA0005D772 /* CALayer+.swift */; };
+		D61E9E6C2CF64AE70005D772 /* TrainCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E6B2CF64AE70005D772 /* TrainCheckView.swift */; };
+		D61E9E6E2CF710800005D772 /* TrainCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E6D2CF710800005D772 /* TrainCheckViewController.swift */; };
+		D61E9E702CF711150005D772 /* PaymentActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E6F2CF711150005D772 /* PaymentActionsView.swift */; };
+		D61E9E722CF74D690005D772 /* TrainCheckPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61E9E712CF74D690005D772 /* TrainCheckPopupViewController.swift */; };
 		D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */; };
 		D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */; };
 		D62EAC522CEC9FC9005F622B /* CoachHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */; };
@@ -80,12 +98,17 @@
 /* Begin PBXFileReference section */
 		CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchViewController.swift; sourceTree = "<group>"; };
 		CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSearchFilterView.swift; sourceTree = "<group>"; };
-		CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectBottomSheetViewController.swift; path = "KORAILTALK-iOS/Global/Extensions/SelectBottomSheetViewController.swift"; sourceTree = SOURCE_ROOT; };
-		CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectBottomSheetTableViewCell.swift; path = "KORAILTALK-iOS/Global/SelectBottomSheetTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainInfoTableViewCell.swift; sourceTree = "<group>"; };
-		CB390BC92CF0472900BBD66F /* TrainPriceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrainPriceButton.swift; path = "KORAILTALK-iOS/Presentation/TrainSearch/TrainPriceButton.swift"; sourceTree = SOURCE_ROOT; };
 		CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		CB39132A2CF6D3F300BBD66F /* MyTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketView.swift; sourceTree = "<group>"; };
+		CB39132C2CF6D40D00BBD66F /* MyTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewController.swift; sourceTree = "<group>"; };
+		CB3913332CF6E0F900BBD66F /* ios_korail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ios_korail.json; sourceTree = "<group>"; };
+		CB39133D2CF6F39A00BBD66F /* MyTicketBlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketBlueButton.swift; sourceTree = "<group>"; };
+		CB3913402CF6F8C900BBD66F /* SelectBottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBottomSheetController.swift; sourceTree = "<group>"; };
+		CB3913422CF6F8F900BBD66F /* SelectBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBottomSheetTableViewCell.swift; sourceTree = "<group>"; };
+		CB3913442CF6F91700BBD66F /* TrainPriceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainPriceButton.swift; sourceTree = "<group>"; };
+		CB3913462CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketRoundedStrokeButton.swift; sourceTree = "<group>"; };
 		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
 		D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailToolBarButton.swift; sourceTree = "<group>"; };
@@ -116,6 +139,15 @@
 		D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+.swift"; sourceTree = "<group>"; };
+		D0E937A62CF76B420061782D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		D0E937A72CF76B420061782D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		D0E937A82CF76B420061782D /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		D0E937A92CF76B420061782D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D0E937AA2CF76B420061782D /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		D0E937B22CF76BA40061782D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D0E937B62CF76E780061782D /* LPointResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPointResponseDTO.swift; sourceTree = "<group>"; };
+		D0E937B82CF76F100061782D /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		D0E937BA2CF76F1A0061782D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		D0F41C742CEF2A7B00689EBC /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		D0F41C772CEF3B1000689EBC /* TicketSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSectionView.swift; sourceTree = "<group>"; };
@@ -123,7 +155,6 @@
 		D0F41C882CEFA8AB00689EBC /* KorailRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailRadioButton.swift; sourceTree = "<group>"; };
 		D0F41C8C2CEFAB7D00689EBC /* KTXMileageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTXMileageView.swift; sourceTree = "<group>"; };
 		D0F41C8E2CF07A0C00689EBC /* DiscountCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCouponView.swift; sourceTree = "<group>"; };
-		D0F41C902CF082E600689EBC /* KorailDiscountCouponButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailDiscountCouponButton.swift; sourceTree = "<group>"; };
 		D0F41C902CF082E600689EBC /* KorailDropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailDropDownButton.swift; sourceTree = "<group>"; };
 		D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatInfoCell.swift; sourceTree = "<group>"; };
 		D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
@@ -140,6 +171,10 @@
 		D61E9E642CF5B5860005D772 /* OutletPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletPopupViewController.swift; sourceTree = "<group>"; };
 		D61E9E672CF5BEBA0005D772 /* BottomSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSelectionView.swift; sourceTree = "<group>"; };
 		D61E9E692CF600EA0005D772 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		D61E9E6B2CF64AE70005D772 /* TrainCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCheckView.swift; sourceTree = "<group>"; };
+		D61E9E6D2CF710800005D772 /* TrainCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCheckViewController.swift; sourceTree = "<group>"; };
+		D61E9E6F2CF711150005D772 /* PaymentActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentActionsView.swift; sourceTree = "<group>"; };
+		D61E9E712CF74D690005D772 /* TrainCheckPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCheckPopupViewController.swift; sourceTree = "<group>"; };
 		D62EAC1F2CEBAF69005F622B /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionViewController.swift; sourceTree = "<group>"; };
 		D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachHeaderCell.swift; sourceTree = "<group>"; };
@@ -151,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB3913302CF6D46000BBD66F /* Lottie in Frameworks */,
 				D03DF2072CEB6E8600BE7CAE /* Kingfisher in Frameworks */,
 				D03DF1FE2CEB6DC500BE7CAE /* SnapKit in Frameworks */,
 				D03DF2012CEB6DD400BE7CAE /* Then in Frameworks */,
@@ -164,13 +200,82 @@
 		CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */ = {
 			isa = PBXGroup;
 			children = (
-				CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */,
-				CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */,
-				CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */,
-				CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */,
-				CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */,
+				CB39134A2CF7345700BBD66F /* Component */,
+				CB3913492CF7344B00BBD66F /* ViewController */,
+				CB3913482CF7344100BBD66F /* View */,
 			);
 			path = TrainSearch;
+			sourceTree = "<group>";
+		};
+		CB3913202CF5FE0600BBD66F /* MyTicket */ = {
+			isa = PBXGroup;
+			children = (
+				CB39134D2CF7347200BBD66F /* Component */,
+				CB39134C2CF7346800BBD66F /* ViewController */,
+				CB39134B2CF7346200BBD66F /* View */,
+			);
+			path = MyTicket;
+			sourceTree = "<group>";
+		};
+		CB39133F2CF6F85E00BBD66F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB3913402CF6F8C900BBD66F /* SelectBottomSheetController.swift */,
+				CB3913422CF6F8F900BBD66F /* SelectBottomSheetTableViewCell.swift */,
+				CB3913442CF6F91700BBD66F /* TrainPriceButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CB3913482CF7344100BBD66F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE6902CEBA81D006E1B53 /* TrainSearchFilterView.swift */,
+				CB1EE68E2CEBA7D3006E1B53 /* TrainSearchViewController.swift */,
+				CB39124C2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB3913492CF7344B00BBD66F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB39134A2CF7345700BBD66F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CB390B322CEDAF7F00BBD66F /* DateCollectionViewCell.swift */,
+				CB390B822CEF912300BBD66F /* TrainInfoTableViewCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		CB39134B2CF7346200BBD66F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB39132A2CF6D3F300BBD66F /* MyTicketView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB39134C2CF7346800BBD66F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB39132C2CF6D40D00BBD66F /* MyTicketViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB39134D2CF7347200BBD66F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				CB39133D2CF6F39A00BBD66F /* MyTicketBlueButton.swift */,
+				CB3913462CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		D022CDD92CF458AC00A21713 /* ModalView */ = {
@@ -195,6 +300,7 @@
 		D03DF1DB2CEB6A9400BE7CAE = {
 			isa = PBXGroup;
 			children = (
+				D0E937B22CF76BA40061782D /* Config.xcconfig */,
 				D03DF20F2CEB6EC000BE7CAE /* KORAILTALK-iOS */,
 				D03DF1E52CEB6A9400BE7CAE /* Products */,
 			);
@@ -222,6 +328,7 @@
 		D03DF2162CEB6EC800BE7CAE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CB3913202CF5FE0600BBD66F /* MyTicket */,
 				CB1EE68D2CEBA7A9006E1B53 /* TrainSearch */,
 				D03DF20E2CEB6EC000BE7CAE /* ViewController.swift */,
 				D62EAC232CEBAFCC005F622B /* SeatSelection */,
@@ -233,8 +340,8 @@
 		D03DF2182CEB6EDD00BE7CAE /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CB39133F2CF6F85E00BBD66F /* Components */,
 				D03DF21F2CEB6F7800BE7CAE /* Extensions */,
-				D03DF21E2CEB6F7000BE7CAE /* Components */,
 				D03DF21D2CEB6F6600BE7CAE /* Literals */,
 				D03DF21C2CEB6F5C00BE7CAE /* Protocols */,
 				D03DF21B2CEB6F5400BE7CAE /* Resources */,
@@ -263,6 +370,7 @@
 		D03DF21B2CEB6F5400BE7CAE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB3913332CF6E0F900BBD66F /* ios_korail.json */,
 				D0E6BE6C2CEBA44C006CDAA8 /* Fonts */,
 				D03DF2092CEB6EC000BE7CAE /* Assets.xcassets */,
 				D03DF20C2CEB6EC000BE7CAE /* LaunchScreen.storyboard */,
@@ -284,16 +392,6 @@
 				D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */,
 			);
 			path = Literals;
-			sourceTree = "<group>";
-		};
-		D03DF21E2CEB6F7000BE7CAE /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				CB390AF22CEC91C600BBD66F /* SelectBottomSheetViewController.swift */,
-				CB390AF82CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift */,
-				CB390BC92CF0472900BBD66F /* TrainPriceButton.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		D03DF21F2CEB6F7800BE7CAE /* Extensions */ = {
@@ -331,6 +429,36 @@
 				D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D0E937AB2CF76B420061782D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D0E937A62CF76B420061782D /* BaseTargetType.swift */,
+				D0E937A72CF76B420061782D /* BaseService.swift */,
+				D0E937A82CF76B420061782D /* MoyaPlugin.swift */,
+				D0E937A92CF76B420061782D /* NetworkService.swift */,
+				D0E937AA2CF76B420061782D /* NetworkResult.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D0E937B42CF76E540061782D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D0E937B52CF76E5E0061782D /* DTO */,
+				D0E937B82CF76F100061782D /* UserAPI.swift */,
+				D0E937BA2CF76F1A0061782D /* UserService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D0E937B52CF76E5E0061782D /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				D0E937B62CF76E780061782D /* LPointResponseDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		D0F41C682CEF29E400689EBC /* Payment */ = {
@@ -426,51 +554,8 @@
 		D61E9A3F2CECFD430005D772 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D61E9A402CECFD870005D772 /* SeatSelectionMock */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		D61E9A402CECFD870005D772 /* SeatSelectionMock */ = {
-			isa = PBXGroup;
-			children = (
-				D61E9A4C2CECFE380005D772 /* SeatsResponse.swift */,
-			);
-			path = SeatSelectionMock;
-			sourceTree = "<group>";
-		};
-		D61E9A6A2CEFB3870005D772 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				D61E9A622CEFB36F0005D772 /* CoachDataSource.swift */,
-				D61E9B692CF210050005D772 /* SeatSelectionDataSource.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
-		D61E9A362CECFA8F0005D772 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				D61E9A4E2CED06A30005D772 /* SeatRowHeaderView.swift */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		D61E9A392CECFAAB0005D772 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				D62EAC512CEC9FC9005F622B /* CoachHeaderCell.swift */,
-				D61E9A322CECC0F40005D772 /* SeatInfoCell.swift */,
-				D61E9A372CECFAA50005D772 /* CoachCell.swift */,
-				D61E9A582CEFA9360005D772 /* SeatCell.swift */,
-				D61E9A5A2CEFAA320005D772 /* WindowCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		D61E9A3F2CECFD430005D772 /* Network */ = {
-			isa = PBXGroup;
-			children = (
+				D0E937AB2CF76B420061782D /* Base */,
+				D0E937B42CF76E540061782D /* User */,
 				D61E9A402CECFD870005D772 /* SeatSelectionMock */,
 			);
 			path = Network;
@@ -498,6 +583,7 @@
 			children = (
 				D61E9E622CF5AE200005D772 /* BasePopupViewController.swift */,
 				D61E9E642CF5B5860005D772 /* OutletPopupViewController.swift */,
+				D61E9E712CF74D690005D772 /* TrainCheckPopupViewController.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -506,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				D62EAC212CEBAFC4005F622B /* SeatSelectionViewController.swift */,
+				D61E9E6D2CF710800005D772 /* TrainCheckViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -529,6 +616,8 @@
 				D61E9A502CEE41260005D772 /* SeatRowView.swift */,
 				D61E9AB52CF0B41E0005D772 /* CoachBackgroundView.swift */,
 				D61E9E672CF5BEBA0005D772 /* BottomSelectionView.swift */,
+				D61E9E6B2CF64AE70005D772 /* TrainCheckView.swift */,
+				D61E9E6F2CF711150005D772 /* PaymentActionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -562,6 +651,7 @@
 				D03DF2002CEB6DD400BE7CAE /* Then */,
 				D03DF2032CEB6E5300BE7CAE /* Moya */,
 				D03DF2062CEB6E8600BE7CAE /* Kingfisher */,
+				CB39132F2CF6D46000BBD66F /* Lottie */,
 			);
 			productName = "KORAILTALK-iOS";
 			productReference = D03DF1E42CEB6A9400BE7CAE /* KORAILTALK-iOS.app */;
@@ -596,6 +686,7 @@
 				D03DF1FF2CEB6DD400BE7CAE /* XCRemoteSwiftPackageReference "Then" */,
 				D03DF2022CEB6E5300BE7CAE /* XCRemoteSwiftPackageReference "Moya" */,
 				D03DF2052CEB6E8600BE7CAE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CB39132E2CF6D46000BBD66F /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D03DF1E52CEB6A9400BE7CAE /* Products */;
@@ -616,7 +707,9 @@
 				D03DF2122CEB6EC000BE7CAE /* LaunchScreen.storyboard in Resources */,
 				D0E6BE702CEBA8D6006CDAA8 /* Pretendard-Medium.otf in Resources */,
 				D0E6BE712CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf in Resources */,
+				D0E937B32CF76BA40061782D /* Config.xcconfig in Resources */,
 				D0E6BE722CEBA8D6006CDAA8 /* Pretendard-Regular.otf in Resources */,
+				CB3913342CF6E0F900BBD66F /* ios_korail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,12 +720,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB39132B2CF6D3F300BBD66F /* MyTicketView.swift in Sources */,
 				D61E9A382CECFAA50005D772 /* CoachCell.swift in Sources */,
+				CB3913412CF6F8C900BBD66F /* SelectBottomSheetController.swift in Sources */,
 				D61E9A332CECC0F40005D772 /* SeatInfoCell.swift in Sources */,
 				D61E9B6A2CF210050005D772 /* SeatSelectionDataSource.swift in Sources */,
 				D03DF2232CEB845500BE7CAE /* UIStackView+.swift in Sources */,
 				D0F41C8D2CEFAB8900689EBC /* KTXMileageView.swift in Sources */,
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
+				D0E937BB2CF76F1F0061782D /* UserService.swift in Sources */,
 				D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */,
 				D07C21342CF595D600C06522 /* SimplePayView.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
@@ -644,24 +740,29 @@
 				D61E9E6A2CF600EB0005D772 /* CALayer+.swift in Sources */,
 				D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */,
 				D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */,
-				CB390AF92CECEE5400BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */,
 				D0F41C912CF082F600689EBC /* KorailDropDownButton.swift in Sources */,
 				D0F41C7B2CEF453C00689EBC /* DiscountSectionView.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
-				CB390BCA2CF0472900BBD66F /* TrainPriceButton.swift in Sources */,
+				CB3913432CF6F8F900BBD66F /* SelectBottomSheetTableViewCell.swift in Sources */,
 				CB390B332CEDAF7F00BBD66F /* DateCollectionViewCell.swift in Sources */,
 				CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */,
 				D61E9E632CF5AE200005D772 /* BasePopupViewController.swift in Sources */,
 				D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */,
+				D0E937B72CF76E840061782D /* LPointResponseDTO.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
+				D61E9E722CF74D690005D772 /* TrainCheckPopupViewController.swift in Sources */,
+				D61E9E6C2CF64AE70005D772 /* TrainCheckView.swift in Sources */,
 				CB1EE6912CEBA81D006E1B53 /* TrainSearchFilterView.swift in Sources */,
 				D07C212F2CF5900B00C06522 /* PaymentMethodSectionView.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
 				D07C213C2CF5ADFB00C06522 /* SimplePayModel.swift in Sources */,
 				D022CDDD2CF45AB300A21713 /* VeteranDiscountView.swift in Sources */,
 				CB1EE68F2CEBA7D3006E1B53 /* TrainSearchViewController.swift in Sources */,
+				CB3913472CF71BD200BBD66F /* MyTicketRoundedStrokeButton.swift in Sources */,
 				CB39124D2CF2813F00BBD66F /* TrainDetailBottomSheetViewController.swift in Sources */,
 				D62EAC222CEBAFC4005F622B /* SeatSelectionViewController.swift in Sources */,
+				CB39133E2CF6F39A00BBD66F /* MyTicketBlueButton.swift in Sources */,
+				D0E937B92CF76F150061782D /* UserAPI.swift in Sources */,
 				D07C21262CF5216400C06522 /* LPointModalView.swift in Sources */,
 				D07C21282CF5275D00C06522 /* LPointModalViewController.swift in Sources */,
 				D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */,
@@ -671,6 +772,7 @@
 				D0F41C782CEF3B1A00689EBC /* TicketSectionView.swift in Sources */,
 				D61E9E682CF5BEBA0005D772 /* BottomSelectionView.swift in Sources */,
 				D0F41C712CEF2A5600689EBC /* PaymentViewController.swift in Sources */,
+				CB3913452CF6F91700BBD66F /* TrainPriceButton.swift in Sources */,
 				D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */,
 				D62EAC202CEBAF69005F622B /* UIViewController+.swift in Sources */,
 				D03DF2142CEB6EC000BE7CAE /* SceneDelegate.swift in Sources */,
@@ -678,15 +780,22 @@
 				D03DF2152CEB6EC000BE7CAE /* ViewController.swift in Sources */,
 				D61E9A5B2CEFAA320005D772 /* WindowCell.swift in Sources */,
 				D07C213A2CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift in Sources */,
+				CB39132D2CF6D41800BBD66F /* MyTicketViewController.swift in Sources */,
 				D03DF2292CEB863900BE7CAE /* UITextField+.swift in Sources */,
+				D61E9E702CF711150005D772 /* PaymentActionsView.swift in Sources */,
+				D0E937AC2CF76B420061782D /* BaseService.swift in Sources */,
+				D0E937AD2CF76B420061782D /* MoyaPlugin.swift in Sources */,
+				D0E937AE2CF76B420061782D /* BaseTargetType.swift in Sources */,
+				D0E937AF2CF76B420061782D /* NetworkResult.swift in Sources */,
+				D0E937B02CF76B420061782D /* NetworkService.swift in Sources */,
 				D0F41C8F2CF07A1200689EBC /* DiscountCouponView.swift in Sources */,
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */,
 				D61E9E652CF5B5860005D772 /* OutletPopupViewController.swift in Sources */,
 				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
 				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
+				D61E9E6E2CF710800005D772 /* TrainCheckViewController.swift in Sources */,
 				D022CDE22CF45E8E00A21713 /* VeteranDiscountViewController.swift in Sources */,
-				CB390AF32CEC91C600BBD66F /* SelectBottomSheetViewController.swift in Sources */,
 				CB390B832CEF912300BBD66F /* TrainInfoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,6 +872,7 @@
 		};
 		D03DF1FA2CEB6A9800BE7CAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0E937B22CF76BA40061782D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -826,6 +936,7 @@
 		};
 		D03DF1FB2CEB6A9800BE7CAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0E937B22CF76BA40061782D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -904,6 +1015,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CB39132E2CF6D46000BBD66F /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		D03DF1FC2CEB6DC500BE7CAE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -939,6 +1058,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CB39132F2CF6D46000BBD66F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB39132E2CF6D46000BBD66F /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		D03DF1FD2CEB6DC500BE7CAE /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D03DF1FC2CEB6DC500BE7CAE /* XCRemoteSwiftPackageReference "SnapKit" */;
