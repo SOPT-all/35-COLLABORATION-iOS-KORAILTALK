@@ -80,7 +80,6 @@ extension CardPayView {
     
     private func setStyle() {
         backgroundColor = .korailBasic(.white)
-        expirationDateTextField.becomeFirstResponder()
         
         [cardNumberTextField, expirationDateTextField, passwordTextField, verificationCodeTextField].enumerated().forEach { i, textField in
             let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 54, height: 40)).then {
