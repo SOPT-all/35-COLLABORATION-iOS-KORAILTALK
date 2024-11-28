@@ -481,8 +481,8 @@
 		D0F41C692CEF2A0F00689EBC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */,
 				D022CDDE2CF45E6200A21713 /* ModalViewController */,
+				D0F41C702CEF2A5000689EBC /* PaymentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

@@ -37,6 +37,7 @@ class SelectBottomSheetViewController: UIViewController {
     private var pointTextColor = UIColor()
     private var pointBackgroundColor = UIColor()
     private var selectList: [String] = []
+    var selectedIndex = 0
     
     //MARK: - Life Cycle
     
@@ -176,8 +177,7 @@ extension SelectBottomSheetViewController {
         hideBottomSheet()
     }
     
-    @objc
-    private func hideBottomSheet() {
+    @objc func hideBottomSheet() {
         UIView.animate(withDuration: 0.1, animations: {
             self.dimmedBackView.backgroundColor = .clear
             self.bottomSheetView.snp.updateConstraints {
@@ -214,6 +214,7 @@ extension SelectBottomSheetViewController {
 extension SelectBottomSheetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         contentTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        selectedIndex = indexPath.row
     }
 }
 

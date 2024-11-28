@@ -130,14 +130,15 @@ extension PaymentViewController {
     @objc private func cardPayDetailViewDropDownButtonTapped(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-           let mostUsedCardBottomSheetViewController = MostUsedCardBottomSheetViewController()
+            let mostUsedCardBottomSheetViewController = MostUsedCardBottomSheetViewController()
+            mostUsedCardBottomSheetViewController.delegate = self
             present(mostUsedCardBottomSheetViewController, animated: true)
         case 1:
             let cardTypeBottomSheetViewController = SelectBottomSheetViewController(title: "카드종류", bottomType: .purple, listType: ["개인", "법인"])
-             present(cardTypeBottomSheetViewController, animated: true)
+            present(cardTypeBottomSheetViewController, animated: true)
         case 2:
             let installmentPeriodBottomSheetViewController = SelectBottomSheetViewController(title: "할부기간", bottomType: .purple, listType: ["일시불", "3개월", "6개월"])
-             present(installmentPeriodBottomSheetViewController, animated: true)
+            present(installmentPeriodBottomSheetViewController, animated: true)
         default:
             return
         }
@@ -153,6 +154,12 @@ extension PaymentViewController: DiscountDelegate {
 extension PaymentViewController: PointDelegate {
     func applyPoint(pointText: String) {
         rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: pointText)
+    }
+}
+
+extension PaymentViewController: SelectCardDelegate {
+    func didSelectHyundaiCard(_ bool: Bool) {
+        rootView.paymentMethodSectionView.cardPayDetailView.isHyundaiCardSelected(bool)
     }
 }
 

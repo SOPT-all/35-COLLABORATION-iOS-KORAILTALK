@@ -88,17 +88,13 @@ extension KorailDropDownButton {
                 $0.font = .korailCaption(.caption2m12)
                 $0.textColor = .korailPurple(.purple03)
                 $0.isHidden = true
-            case .enableForSeat:
+            case .enableForSeat, .enableForCard:
                 $0.font = .korailBody(.body2m14)
                 $0.textColor = .korailBlue(.blue01)
                 $0.isHidden = false
             case .enableForNoneCard:
                 $0.font = .korailBody(.body2m14)
                 $0.textColor = .korailGrayscale(.gray400)
-                $0.isHidden = false
-            case .enableForCard:
-                $0.font = .korailBody(.body2m14)
-                $0.textColor = .korailBlue(.blue01)
                 $0.isHidden = false
             case .disable:
                 $0.font = .korailCaption(.caption2m12)
@@ -145,8 +141,16 @@ extension KorailDropDownButton {
     
     //MARK: - Func
     
-    func changeOptionLabelState(isHidden: Bool, text: String) {
+    func changeOptionLabelState(isHidden: Bool, text: String, font: UIFont? = nil, textColor: UIColor? = nil) {
         optionLabel.isHidden = isHidden
         optionLabel.text = text
+        
+        if let font {
+            optionLabel.font = font
+        }
+        
+        if let textColor {
+            optionLabel.textColor = textColor
+        }
     }
 }

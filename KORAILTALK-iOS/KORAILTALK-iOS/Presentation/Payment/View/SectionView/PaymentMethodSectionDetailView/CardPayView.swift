@@ -102,7 +102,29 @@ extension CardPayView {
             textField.makeCornerRadius(cornerRadius: 8)
             textField.leftView = leftView
             textField.leftViewMode = .always
-            textField.addPadding(right: 12)
+            
+            switch textField {
+            case passwordTextField:
+                
+                let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 40)).then{
+                    let rightTextLabel = UILabel(frame: CGRect(x: 4, y: 0, width: 28, height: 40)).then {
+                        $0.text = "••"
+                        $0.textColor = .korailGrayscale(.gray800)
+                        $0.font = .korailBody(.body2m14)
+                    }
+                    
+                    $0.addSubview(rightTextLabel)
+                }
+                
+                textField.isSecureTextEntry = true
+                textField.rightView = rightView
+                textField.rightViewMode = .always
+            case verificationCodeTextField:
+                textField.isSecureTextEntry = true
+                textField.addPadding(right: 12)
+            default:
+                textField.addPadding(right: 12)
+            }
         }
         
         [mostUsedCardButton, cardTypeButton, installmentPeriodButton].enumerated().forEach { i, button in
@@ -152,5 +174,34 @@ extension CardPayView {
             $0.top.equalTo(verticalStackView.snp.bottom).offset(16)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Func
+    
+    func highlightText(_ text: String, targetText: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: text)
+
+        let regex = try? NSRegularExpression(pattern: NSRegularExpression.escapedPattern(for: targetText), options: [])
+        let matches = regex?.matches(in: text, options: [], range: NSRange(location: 0, length: text.count))
+        
+        matches?.forEach { match in
+            attributedString.addAttribute(.foregroundColor, value: UIColor.korailGrayscale(.gray400), range: match.range)
+        }
+        
+        return attributedString
+    }
+    
+    func isHyundaiCardSelected(_ bool: Bool) {
+        if bool {
+            mostUsedCardButton.changeOptionLabelState(isHidden: false, text: "내 현대카드", textColor: .korailBlue(.blue01))
+            cardNumberTextField.attributedText = highlightText("5702 - **** - **** - 5702", targetText: "-")
+            expirationDateTextField.attributedText = highlightText("03 / 28", targetText: "/")
+        } else {
+            mostUsedCardButton.changeOptionLabelState(isHidden: false, text: "등록된 카드가 없습니다.", textColor: .korailGrayscale(.gray400))
+            cardNumberTextField.text = ""
+            expirationDateTextField.text = ""
+        }
+        passwordTextField.text = bool ? "**" : ""
+        verificationCodeTextField.text = bool ? "******" : ""
     }
 }
