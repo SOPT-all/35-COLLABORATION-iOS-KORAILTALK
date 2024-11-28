@@ -54,7 +54,7 @@
 		D0E6BE722CEBA8D6006CDAA8 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */; };
 		D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */; };
 		D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */; };
-		D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */; };
+		D0E6BE782CEBBAA1006CDAA8 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* String+.swift */; };
 		D0E937AC2CF76B420061782D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A72CF76B420061782D /* BaseService.swift */; };
 		D0E937AD2CF76B420061782D /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A82CF76B420061782D /* MoyaPlugin.swift */; };
 		D0E937AE2CF76B420061782D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A62CF76B420061782D /* BaseTargetType.swift */; };
@@ -143,7 +143,7 @@
 		D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
-		D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+.swift"; sourceTree = "<group>"; };
+		D0E6BE772CEBBA9B006CDAA8 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D0E937A62CF76B420061782D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		D0E937A72CF76B420061782D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D0E937A82CF76B420061782D /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
 				D03DF2262CEB859600BE7CAE /* UILabel+.swift */,
 				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
-				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
+				D0E6BE772CEBBA9B006CDAA8 /* String+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
 				D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */,
 				CB9473972CEC5F88002B4D25 /* UIImage+.swift */,
@@ -804,7 +804,7 @@
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */,
 				D61E9E652CF5B5860005D772 /* OutletPopupViewController.swift in Sources */,
-				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
+				D0E6BE782CEBBAA1006CDAA8 /* String+.swift in Sources */,
 				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
 				D61E9E6E2CF710800005D772 /* TrainCheckViewController.swift in Sources */,
 				D022CDE22CF45E8E00A21713 /* VeteranDiscountViewController.swift in Sources */,
