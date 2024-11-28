@@ -43,7 +43,7 @@ final class MyTicketView: UIView {
     private let firstInfoLabel = UILabel()
     private let reloadImageView = UIImageView()
     private let timeDescriptionLabel = UILabel()
-
+    
     private let secondInfoView = UIView()
     private let secondInfoLabel = UILabel()
     private let trainNumberLabel = UILabel()
@@ -79,11 +79,14 @@ final class MyTicketView: UIView {
     private let smsImageView = UIImageView()
     private let smslLabel = UILabel()
     
+    private let toastView = UIView()
+    private let toastLabel = UILabel()
+    
     private let serviceButton = MyTicketRoundedStrokeButton(title: "부가서비스 더보기")
     
     //MARK: - Properties
     
-//    private var buttonConfiguration = UIButton.Configuration.plain()
+    //    private var buttonConfiguration = UIButton.Configuration.plain()
     
     //MARK: - Life Cycle
     
@@ -93,6 +96,8 @@ final class MyTicketView: UIView {
         setStyle()
         setHierarchy()
         setLayout()
+        
+        toast()
     }
     
     required init?(coder: NSCoder) {
@@ -170,7 +175,7 @@ final class MyTicketView: UIView {
             $0.font = .korailTitle(.title3m16)
             $0.textColor = .korailGrayscale(.gray600)
         }
-
+        
         btnImageView.do {
             $0.image = .btnTicketShare.resized(CGSize(width: 44, height: 44))
         }
@@ -301,7 +306,7 @@ final class MyTicketView: UIView {
             $0.font = .korailCaption(.caption1sb12)
             $0.textColor = .korailGrayscale(.gray300)
         }
-
+        
         //TODO: 쪼끔 흐르다가 멈춤;;; ㅠㅠ 어케 하지
         animationView.do {
             // 루프모드가 작동을 아예 안함
@@ -312,6 +317,17 @@ final class MyTicketView: UIView {
             $0.image = .cmpMyTicketBtmNavbar
         }
         
+        toastView.do {
+            $0.isHidden = true
+            $0.makeCornerRadius(cornerRadius: 8)
+            $0.backgroundColor = .korailBlue(.blue01)
+        }
+        toastLabel.do {
+            $0.text = "승차권 상세정보를 로딩중입니다"
+            $0.font = .korailTitle(.title3m16)
+            $0.textColor = .korailBasic(.white)
+        }
+        
     }
     
     private func setHierarchy() {
@@ -319,6 +335,7 @@ final class MyTicketView: UIView {
         addSubviews(
             headerImageView,
             scrollView,
+            toastView,
             animationView,
             navbarImageView
         )
@@ -391,6 +408,7 @@ final class MyTicketView: UIView {
         reportStackView.addArrangedSubviews(reportImageView, reportLabel)
         helperStackView.addArrangedSubviews(helperImageView, helperLabel)
         smsStackView.addArrangedSubviews(smsImageView, smslLabel)
+        toastView.addSubview(toastLabel)
         
     }
     
@@ -446,7 +464,7 @@ final class MyTicketView: UIView {
         departureStackview.snp.makeConstraints {
             $0.width.equalTo(109)
         }
-
+        
         arrivalStackView.snp.makeConstraints {
             $0.width.equalTo(109)
         }
@@ -476,7 +494,7 @@ final class MyTicketView: UIView {
             $0.top.equalTo(reloadImageView.snp.bottom).offset(4)
             $0.centerX.equalToSuperview()
         }
-    
+        
         secondInfoView.snp.makeConstraints {
             $0.top.equalTo(infoButton.snp.bottom).offset(52)
             $0.leading.equalTo(firstInfoView.snp.trailing)
@@ -490,7 +508,7 @@ final class MyTicketView: UIView {
             $0.top.equalTo(secondInfoLabel.snp.bottom).offset(23.5 + 9)
             $0.leading.equalTo(trainNumberLabel.snp.trailing)
         }
-
+        
         thirdInfoView.snp.makeConstraints {
             $0.top.equalTo(infoButton.snp.bottom).offset(52)
             $0.leading.equalTo(secondInfoView.snp.trailing)
@@ -556,6 +574,15 @@ final class MyTicketView: UIView {
             $0.width.equalTo(323)
             $0.height.equalTo(44)
         }
+        toastView.snp.makeConstraints {
+            $0.bottom.equalTo(animationView.snp.top).offset(-13)
+            $0.horizontalEdges.equalToSuperview().inset(72)
+            $0.height.equalTo(34)
+            $0.width.equalTo(230)
+        }
+        toastLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
         
         animationView.snp.makeConstraints {
             $0.bottom.equalTo(navbarImageView.snp.top)
@@ -567,6 +594,24 @@ final class MyTicketView: UIView {
             $0.horizontalEdges.equalToSuperview()
         }
     }
+    
+}
 
+extension MyTicketView {
+    
+    private func toast() {
+        
+        UIView.animate(withDuration: 0.3) {
+            self.toastView.isHidden = false
+            self.toastView.alpha = 0.9
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3, delay: 3) {
+                self.toastView.alpha = 0
+            } completion: { _ in
+                self.toastView.isHidden = true
+            }
+        }
+    }
+    
 }
 
