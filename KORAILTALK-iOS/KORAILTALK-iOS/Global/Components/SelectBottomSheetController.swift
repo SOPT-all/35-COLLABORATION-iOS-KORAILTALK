@@ -18,7 +18,7 @@ enum BottomType {
 /// listType: trainList
 /// )
 
-final class SelectBottomSheetViewController: UIViewController {
+class SelectBottomSheetViewController: UIViewController {
     
     //MARK: - UI Properties
     
@@ -213,7 +213,7 @@ extension SelectBottomSheetViewController {
 
 extension SelectBottomSheetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        hideBottomSheet()
+        contentTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
     }
 }
 
