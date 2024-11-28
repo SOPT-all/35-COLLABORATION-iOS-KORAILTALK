@@ -238,8 +238,7 @@ class TrainInfoTableViewCell: UITableViewCell {
             drawCell()
         }
     }
-    
-    //TODO: 아예 없는 경우는 - 처리 해야 함
+
     func bindData(train: TrainInformation) {
         
         trainNameLabel.text = train.trainName

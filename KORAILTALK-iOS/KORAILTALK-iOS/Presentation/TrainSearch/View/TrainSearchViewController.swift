@@ -14,6 +14,11 @@ final class TrainSearchViewController: UIViewController {
     
     //MARK: - UI Properties
     
+    private let headerView = UIView()
+    private let departureLabel = UILabel()
+    private let arrowImageView = UIImageView()
+    private let arrivalLabel = UILabel()
+    
     private let trainSearchFilterView = TrainSearchFilterView()
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let trainInfoTableView = UITableView()
@@ -102,6 +107,22 @@ extension TrainSearchViewController {
     
     private func setStyle() {
         
+        departureLabel.do {
+            $0.text = "서울"
+            $0.font = .korailHead(.head5m20)
+            $0.textAlignment = .center
+        }
+        
+        arrowImageView.do {
+            $0.image = .icnArrowCircle.withRenderingMode(.alwaysOriginal)
+        }
+        
+        arrivalLabel.do {
+            $0.text = "부산"
+            $0.font = .korailHead(.head5m20)
+            $0.textAlignment = .center
+        }
+        
         trainInfoTableView.do {
             $0.register(TrainInfoTableViewCell.self, forCellReuseIdentifier: TrainInfoTableViewCell.className)
             $0.rowHeight = 94
@@ -114,17 +135,50 @@ extension TrainSearchViewController {
     }
     //TODO: 서울 -> 부산 헤더 넣기
     private func setHierachy() {
+        
         view.addSubviews(
+            headerView,
             trainSearchFilterView,
             dateCollectionView,
             trainInfoTableView
+        )
+        headerView.addSubviews(
+            departureLabel,
+            arrowImageView,
+            arrivalLabel
         )
     }
     
     private func setLayout() {
         
-        trainSearchFilterView.snp.makeConstraints {
+        headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(73)
+        }
+    
+        arrowImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(23)
+            $0.size.equalTo(26)
+            $0.centerX.equalToSuperview()
+        }
+        
+        departureLabel.snp.makeConstraints {
+            $0.centerY.equalTo(arrowImageView)
+            $0.trailing.equalTo(arrowImageView.snp.leading).offset(-26)
+            $0.width.equalTo(109)
+            $0.height.equalTo(26)
+        }
+        
+        arrivalLabel.snp.makeConstraints {
+            $0.centerY.equalTo(arrowImageView)
+            $0.leading.equalTo(arrowImageView.snp.trailing).offset(26)
+            $0.width.equalTo(109)
+            $0.height.equalTo(26)
+        }
+        
+        trainSearchFilterView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(48)
         }
         dateCollectionView.snp.makeConstraints {
