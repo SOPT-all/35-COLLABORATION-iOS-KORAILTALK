@@ -48,6 +48,7 @@
 		D07C21362CF595DF00C06522 /* CardPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21352CF595DA00C06522 /* CardPayView.swift */; };
 		D07C213A2CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */; };
 		D07C213C2CF5ADFB00C06522 /* SimplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */; };
+		D0914AF92CF8F76500B3693B /* PaymentDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */; };
 		D0E6BE702CEBA8D6006CDAA8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6D2CEBA8D6006CDAA8 /* Pretendard-Medium.otf */; };
 		D0E6BE712CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */; };
 		D0E6BE722CEBA8D6006CDAA8 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */; };
@@ -136,6 +137,7 @@
 		D07C21352CF595DA00C06522 /* CardPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPayView.swift; sourceTree = "<group>"; };
 		D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayCollectionViewCell.swift; sourceTree = "<group>"; };
 		D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayModel.swift; sourceTree = "<group>"; };
+		D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailSectionView.swift; sourceTree = "<group>"; };
 		D0E6BE6D2CEBA8D6006CDAA8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				D0F41C7E2CEF47D400689EBC /* DiscountSectionDetailView */,
 				D022CDD92CF458AC00A21713 /* ModalView */,
 				D07C212E2CF58FE800C06522 /* PaymentMethodSectionView.swift */,
+				D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */,
 				D07C21302CF595AB00C06522 /* PaymentMethodSectionDetailView */,
 			);
 			path = SectionView;
@@ -736,6 +739,7 @@
 				D03DF2252CEB846500BE7CAE /* NSObject+.swift in Sources */,
 				D0E937BB2CF76F1F0061782D /* UserService.swift in Sources */,
 				D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */,
+				D0914AF92CF8F76500B3693B /* PaymentDetailSectionView.swift in Sources */,
 				D07C21362CF595DF00C06522 /* CardPayView.swift in Sources */,
 				D07C21342CF595D600C06522 /* SimplePayView.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
