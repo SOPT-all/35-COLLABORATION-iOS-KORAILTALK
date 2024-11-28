@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyTicketRoundedStrokeButton: UIButton {
+final class MyTicketRoundedStrokeButton: UIButton {
 
     private var buttonConfiguration = UIButton.Configuration.filled()
     private var title: String = ""

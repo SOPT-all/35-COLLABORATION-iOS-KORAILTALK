@@ -10,11 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-// 임시
-public struct TrainInfo {
-    let name: String
-}
-
 final class TrainSearchViewController: UIViewController {
     
     //MARK: - UI Properties
@@ -23,19 +18,11 @@ final class TrainSearchViewController: UIViewController {
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let trainInfoTableView = UITableView()
     
-    //임시
-    private let trainInfoList: [TrainInfo] = [
-        TrainInfo(name: "KTX1"),
-        TrainInfo(name: "KTX2"),
-        TrainInfo(name: "KTX3"),
-        TrainInfo(name: "KTX4"),
-        TrainInfo(name: "KTX5"),
-        TrainInfo(name: "KTX6"),
-        TrainInfo(name: "KTX7"),
-        TrainInfo(name: "KTX8"),
-        TrainInfo(name: "KTX9"),
-    ]
-    
+    private var trainInfoList: [TrainInformation] = [] {
+        didSet {
+            trainInfoTableView.reloadData()
+        }
+    }
     private var dayList: [String] = []
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
@@ -43,6 +30,7 @@ final class TrainSearchViewController: UIViewController {
     
     private var isDateShow: Bool = false
     private var tomorrow: String = ""
+    private let today = Date()
     private var selectedDateIndexPath = IndexPath(row: 0, section: 0)
     private var selectedTrainInfoIndexPath: IndexPath?
     
@@ -65,7 +53,8 @@ final class TrainSearchViewController: UIViewController {
         setAddTarget()
         
         dateCollectionView.selectItem(at: selectedDateIndexPath, animated: true, scrollPosition: .left)
-        
+       
+        loadTimetables()
     }
 
 }
@@ -123,7 +112,7 @@ extension TrainSearchViewController {
             $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         }
     }
-    
+    //TODO: 서울 -> 부산 헤더 넣기
     private func setHierachy() {
         view.addSubviews(
             trainSearchFilterView,
@@ -223,8 +212,7 @@ extension TrainSearchViewController {
     
     @objc
     private func nextDayButtonTapped() {
-        
-        //TODO: 왜 첫번째 버튼은 동작을 하지 않는 걸까...
+    
         let nextItem = selectedDateIndexPath.item + 1
         if nextItem < dateCollectionView.numberOfItems(inSection: 0) {
             let nextIndexPath = IndexPath(row: nextItem, section: 0)
@@ -237,7 +225,8 @@ extension TrainSearchViewController {
             // 테이블뷰 스크롤 위로 올리기
             trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
-        
+        //TODO: 날짜 넣어서 호출하기
+        loadTimetables()
     }
     
     @objc
@@ -267,7 +256,7 @@ extension TrainSearchViewController {
     
     private func getDayList() {
         
-        let today = Date()
+        print(today)
         
         for i in 0..<14 {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return }
@@ -327,7 +316,7 @@ extension TrainSearchViewController: UICollectionViewDelegate {
         trainSearchFilterView.getToday(index: selectedDateIndexPath)
         
         //TODO: 날짜에 따른 기차시간표 API 호출
-        
+        loadTimetables()
     }
     
 }
@@ -401,6 +390,29 @@ extension TrainSearchViewController: BottomSheetDelegate {
     func didDismissAndnavigateToCheck() {
         let viewController = TrainCheckViewController()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+extension TrainSearchViewController {
+    
+    func loadTimetables() {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let dayString = formatter.string(from: today)
+        print(dayString)
+        
+        NetworkService.shared.timetableService.getTimetables(date: dayString) { [weak self] response in
+            switch response {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.trainInfoList = data?.data.timetables ?? []
+                }
+            default:
+                break
+            }
+        }
     }
     
 }
