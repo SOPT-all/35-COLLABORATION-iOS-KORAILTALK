@@ -247,6 +247,8 @@ class TrainInfoTableViewCell: UITableViewCell {
         standardButton.price = train.standardPrice
         premiumButton.price = train.premiumPrice
         
+        isPremiumEmpty = train.premiumPrice == 0
+        
         if train.isStandardSold {
             standardButton.type = .standardSoldOut
         } else {
@@ -257,8 +259,6 @@ class TrainInfoTableViewCell: UITableViewCell {
         } else {
             premiumButton.type = .premiumSell
         }
-        
-        isPremiumEmpty = train.premiumPrice == 0
         
     }
 }
