@@ -24,6 +24,9 @@
 		CB5263802CF8AA3B0064B311 /* TimetableResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52637F2CF8AA3B0064B311 /* TimetableResponseDTO.swift */; };
 		CB5263822CF8AAAF0064B311 /* TimetableAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5263812CF8AAAF0064B311 /* TimetableAPI.swift */; };
 		CB5263842CF8AB500064B311 /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5263832CF8AB500064B311 /* TimetableService.swift */; };
+		CB5263872CF8FDE90064B311 /* TicketsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5263862CF8FDE90064B311 /* TicketsResponseDTO.swift */; };
+		CB5263892CF8FE460064B311 /* TicketsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5263882CF8FE410064B311 /* TicketsAPI.swift */; };
+		CB52638B2CF900C40064B311 /* TicketsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52638A2CF900C40064B311 /* TicketsService.swift */; };
 		CB9473982CEC5F88002B4D25 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9473972CEC5F88002B4D25 /* UIImage+.swift */; };
 		D022CDCF2CF3A02A00A21713 /* PointUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDCE2CF3A02000A21713 /* PointUsageView.swift */; };
 		D022CDD62CF43F2F00A21713 /* KorailToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */; };
@@ -51,12 +54,13 @@
 		D07C21362CF595DF00C06522 /* CardPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21352CF595DA00C06522 /* CardPayView.swift */; };
 		D07C213A2CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */; };
 		D07C213C2CF5ADFB00C06522 /* SimplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */; };
+		D0914AF92CF8F76500B3693B /* PaymentDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */; };
 		D0E6BE702CEBA8D6006CDAA8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6D2CEBA8D6006CDAA8 /* Pretendard-Medium.otf */; };
 		D0E6BE712CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */; };
 		D0E6BE722CEBA8D6006CDAA8 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */; };
 		D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */; };
 		D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */; };
-		D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */; };
+		D0E6BE782CEBBAA1006CDAA8 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6BE772CEBBA9B006CDAA8 /* String+.swift */; };
 		D0E937AC2CF76B420061782D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A72CF76B420061782D /* BaseService.swift */; };
 		D0E937AD2CF76B420061782D /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A82CF76B420061782D /* MoyaPlugin.swift */; };
 		D0E937AE2CF76B420061782D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E937A62CF76B420061782D /* BaseTargetType.swift */; };
@@ -122,6 +126,9 @@
 		CB52637F2CF8AA3B0064B311 /* TimetableResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableResponseDTO.swift; sourceTree = "<group>"; };
 		CB5263812CF8AAAF0064B311 /* TimetableAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableAPI.swift; sourceTree = "<group>"; };
 		CB5263832CF8AB500064B311 /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
+		CB5263862CF8FDE90064B311 /* TicketsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsResponseDTO.swift; sourceTree = "<group>"; };
+		CB5263882CF8FE410064B311 /* TicketsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPI.swift; sourceTree = "<group>"; };
+		CB52638A2CF900C40064B311 /* TicketsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsService.swift; sourceTree = "<group>"; };
 		CB9473972CEC5F88002B4D25 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		D022CDCE2CF3A02000A21713 /* PointUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUsageView.swift; sourceTree = "<group>"; };
 		D022CDD52CF43EF200A21713 /* KorailToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorailToolBarButton.swift; sourceTree = "<group>"; };
@@ -147,12 +154,13 @@
 		D07C21352CF595DA00C06522 /* CardPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPayView.swift; sourceTree = "<group>"; };
 		D07C21392CF5A5AD00C06522 /* SimplePayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayCollectionViewCell.swift; sourceTree = "<group>"; };
 		D07C213B2CF5ADF600C06522 /* SimplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePayModel.swift; sourceTree = "<group>"; };
+		D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailSectionView.swift; sourceTree = "<group>"; };
 		D0E6BE6D2CEBA8D6006CDAA8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		D0E6BE6E2CEBA8D6006CDAA8 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		D0E6BE6F2CEBA8D6006CDAA8 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		D0E6BE732CEBAA29006CDAA8 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 		D0E6BE752CEBB3EA006CDAA8 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
-		D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+.swift"; sourceTree = "<group>"; };
+		D0E6BE772CEBBA9B006CDAA8 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D0E937A62CF76B420061782D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		D0E937A72CF76B420061782D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D0E937A82CF76B420061782D /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
@@ -306,6 +314,16 @@
 				CB5263832CF8AB500064B311 /* TimetableService.swift */,
 			);
 			path = Timetables;
+            sourceTree = "<group>";
+        };
+		CB5263852CF8FDC40064B311 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				CB5263882CF8FE410064B311 /* TicketsAPI.swift */,
+				CB5263862CF8FDE90064B311 /* TicketsResponseDTO.swift */,
+				CB52638A2CF900C40064B311 /* TicketsService.swift */,
+			);
+			path = Tickets;
 			sourceTree = "<group>";
 		};
 		D022CDD92CF458AC00A21713 /* ModalView */ = {
@@ -435,7 +453,7 @@
 				D03DF2222CEB844D00BE7CAE /* UIStackView+.swift */,
 				D03DF2262CEB859600BE7CAE /* UILabel+.swift */,
 				D03DF2282CEB863300BE7CAE /* UITextField+.swift */,
-				D0E6BE772CEBBA9B006CDAA8 /* UIString+.swift */,
+				D0E6BE772CEBBA9B006CDAA8 /* String+.swift */,
 				D03DF2242CEB845E00BE7CAE /* NSObject+.swift */,
 				D61E9A342CECDBAF0005D772 /* NSAttributedString+.swift */,
 				CB9473972CEC5F88002B4D25 /* UIImage+.swift */,
@@ -539,6 +557,7 @@
 				D0F41C7E2CEF47D400689EBC /* DiscountSectionDetailView */,
 				D022CDD92CF458AC00A21713 /* ModalView */,
 				D07C212E2CF58FE800C06522 /* PaymentMethodSectionView.swift */,
+				D0914AF82CF8F75C00B3693B /* PaymentDetailSectionView.swift */,
 				D07C21302CF595AB00C06522 /* PaymentMethodSectionDetailView */,
 			);
 			path = SectionView;
@@ -588,6 +607,7 @@
 			isa = PBXGroup;
 			children = (
 				CB52637D2CF8A9E50064B311 /* Timetables */,
+				CB5263852CF8FDC40064B311 /* Tickets */,
 				D0E937AB2CF76B420061782D /* Base */,
 				D0E937B42CF76E540061782D /* User */,
 				D61E9A402CECFD870005D772 /* SeatSelection */,
@@ -785,18 +805,21 @@
 				D0E937BB2CF76F1F0061782D /* UserService.swift in Sources */,
 				D61E9A4D2CECFE380005D772 /* SeatsResponseDTO.swift in Sources */,
 				D61E9A4D2CECFE380005D772 /* SeatsResponse.swift in Sources */,
+				D0914AF92CF8F76500B3693B /* PaymentDetailSectionView.swift in Sources */,
 				D07C21362CF595DF00C06522 /* CardPayView.swift in Sources */,
 				D07C21342CF595D600C06522 /* SimplePayView.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
 				D61E9A632CEFB36F0005D772 /* CoachDataSource.swift in Sources */,
 				D0E6BE762CEBB3F2006CDAA8 /* ColorLiterals.swift in Sources */,
 				D61E9A4F2CED06A30005D772 /* SeatRowHeaderView.swift in Sources */,
+				CB5263892CF8FE460064B311 /* TicketsAPI.swift in Sources */,
 				D62EAC522CEC9FC9005F622B /* CoachHeaderCell.swift in Sources */,
 				D03DF2132CEB6EC000BE7CAE /* AppDelegate.swift in Sources */,
 				D61E9E6A2CF600EB0005D772 /* CALayer+.swift in Sources */,
 				D61E9A512CEE41260005D772 /* SeatRowView.swift in Sources */,
 				D61E9AB62CF0B41E0005D772 /* CoachBackgroundView.swift in Sources */,
 				D0F41C912CF082F600689EBC /* KorailDropDownButton.swift in Sources */,
+				CB52638B2CF900C40064B311 /* TicketsService.swift in Sources */,
 				D0F41C7B2CEF453C00689EBC /* DiscountSectionView.swift in Sources */,
 				CB5263842CF8AB500064B311 /* TimetableService.swift in Sources */,
 				D03DF2212CEB844800BE7CAE /* UIView+.swift in Sources */,
@@ -828,6 +851,7 @@
 				D07C21282CF5275D00C06522 /* LPointModalViewController.swift in Sources */,
 				D6DD54B22CF8DF2800C81965 /* SeatSelectionService.swift in Sources */,
 				D0F41C892CEFA8B700689EBC /* KorailRadioButton.swift in Sources */,
+				CB5263872CF8FDE90064B311 /* TicketsResponseDTO.swift in Sources */,
 				D03DF2272CEB859A00BE7CAE /* UILabel+.swift in Sources */,
 				D62EAC542CECACCC005F622B /* UIView+Preview.swift in Sources */,
 				D61E9A592CEFA9360005D772 /* SeatCell.swift in Sources */,
@@ -857,7 +881,7 @@
 				D0E6BE742CEBAA2F006CDAA8 /* FontLiterals.swift in Sources */,
 				D0F41C752CEF2A8000689EBC /* PaymentView.swift in Sources */,
 				D61E9E652CF5B5860005D772 /* OutletPopupViewController.swift in Sources */,
-				D0E6BE782CEBBAA1006CDAA8 /* UIString+.swift in Sources */,
+				D0E6BE782CEBBAA1006CDAA8 /* String+.swift in Sources */,
 				D61E9A352CECDBAF0005D772 /* NSAttributedString+.swift in Sources */,
 				D61E9E6E2CF710800005D772 /* TrainCheckViewController.swift in Sources */,
 				D022CDE22CF45E8E00A21713 /* VeteranDiscountViewController.swift in Sources */,
