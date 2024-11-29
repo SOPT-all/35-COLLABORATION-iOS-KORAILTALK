@@ -15,6 +15,12 @@ final class PaymentViewController: UIViewController {
     
     private let rootView = PaymentView()
     
+    private var discountAmount = 0 {
+        didSet {
+            rootView.updatePaymentInfo(discountAmount: discountAmount)
+        }
+    }
+    
     // MARK: - Life Cycle
     
     override func loadView() {
@@ -90,9 +96,15 @@ extension PaymentViewController {
         rootView.paymentMethodSectionView.simplePayDetailView.simplePayCollectionView.dataSource = self
     }
     
+    private func isPossibleTicketing(_ bool: Bool) {
+        rootView.ticketingButton.isEnabled = bool
+        rootView.ticketingButton.backgroundColor = bool ? .korailPurple(.purple03) : .korailGrayscale(.gray200)
+    }
+    
     //MARK: - @objc
     
     @objc private func discountSectionRadioButtonTapped(_ sender: UIButton) {
+        discountAmount = 0
         rootView.discountSectionView.toggleDropDownState(sender: sender)
     }
     
@@ -101,6 +113,8 @@ extension PaymentViewController {
     }
     
     @objc private func toolbarButtonTapped() {
+        let discountAndPointText = rootView.discountSectionView.mileageDetailView.mileageTextField.text ?? ""
+        discountAmount = Int(discountAndPointText) ?? 0
         rootView.endEditing(true)
     }
     
@@ -126,6 +140,7 @@ extension PaymentViewController {
     
     @objc private func paymentMethodSectionRadioButtonTapped(_ sender: UIButton) {
         rootView.paymentMethodSectionView.toggleDropDownState(sender: sender)
+        isPossibleTicketing(false)
     }
     
     @objc private func cardPayDetailViewDropDownButtonTapped(_ sender: UIButton) {
@@ -147,18 +162,21 @@ extension PaymentViewController {
     
     @objc private func cardPayDetailViewCheckBoxButtonTapped() {
         rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected.toggle()
+        rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected ? isPossibleTicketing(true) : isPossibleTicketing(false)
     }
 }
 
 extension PaymentViewController: DiscountDelegate {
     func applyDiscount() {
         rootView.discountSectionView.couponDetailView.applyVeteranDiscount(true)
+        discountAmount = 500
     }
 }
 
 extension PaymentViewController: PointDelegate {
-    func applyPoint(pointText: String) {
-        rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: pointText)
+    func applyPoint(pointAmount: Int) {
+        rootView.discountSectionView.pointDetailView.changeLPointButtonState(isApplied: true, pointText: String(pointAmount))
+        discountAmount = pointAmount
     }
 }
 
@@ -194,5 +212,6 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.isSelected.toggle()
+        isPossibleTicketing(true)
     }
 }
