@@ -18,12 +18,14 @@ final class MyTicketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadMyTicket()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setNavigationBar()
+        rootView.toast()
     }
     
     private func setNavigationBar() {
@@ -50,5 +52,23 @@ final class MyTicketViewController: UIViewController {
         
     }
      
+}
+
+extension MyTicketViewController {
+    private func loadMyTicket() {
+        
+        //TODO: ticket id 받기
+        NetworkService.shared.ticketsService.getMyTicket(ticketId: 10) { [weak self] response in
+            switch response {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.rootView.bindData(ticket: data?.data)
+                }
+            default:
+                break
+            }
+        }
+        
+    }
 }
 
