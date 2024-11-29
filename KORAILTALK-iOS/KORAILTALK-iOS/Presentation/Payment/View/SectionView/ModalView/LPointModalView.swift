@@ -37,7 +37,7 @@ final class LPointModalView: ModalBaseView {
     
     //MARK: - Properties
     
-    var pointAmount = "1000" {
+    var pointAmount = "0" {
         didSet {
             updatePointUI()
         }
@@ -204,16 +204,14 @@ extension LPointModalView {
         }
     }
     
-    //MARK: - Private Func
-    
-    private func updatePointUI() {
-        usablePointLabel.text = "사용 가능 포인트: \(pointAmount)점"
-        pointTextField.setPlaceholder(placeholder: pointAmount, fontColor: .korailGrayscale(.gray300), font: .korailBody(.body2m14))
-    }
-    
     //MARK: - Func
     
     func applyAllAmount() {
         pointTextField.text = String(pointAmount)
+    }
+    
+    func updatePointUI() {
+        usablePointLabel.text = "사용 가능 포인트: \(pointAmount)점"
+        pointTextField.setPlaceholder(placeholder: pointAmount, fontColor: .korailGrayscale(.gray300), font: .korailBody(.body2m14))
     }
 }
