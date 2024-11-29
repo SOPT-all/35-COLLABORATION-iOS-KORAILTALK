@@ -14,7 +14,7 @@ final class PaymentView: UIView {
     
     //MARK: - Properties
     
-    private let totalAmount = 12500
+    var totalAmount = 0
 
     //MARK: - UI Properties
     
@@ -63,7 +63,6 @@ extension PaymentView {
         }
         
         totalPriceLabel.do {
-            $0.text = "12,500원"
             $0.font = .korailHead(.head5m20)
             $0.textColor = .korailBasic(.white)
         }
@@ -150,6 +149,15 @@ extension PaymentView {
     }
     
     //MARK: - Func
+    
+    func setTicketPrice(price: Int) {
+        totalAmount = price
+        let priceText = "\(formatNumberWithComma(totalAmount))원"
+        ticketSectionView.priceLabel.text = priceText
+        totalPriceLabel.text = priceText
+        paymentDetailSectionView.usageAmountLabel.text = priceText
+        paymentDetailSectionView.totalPaymentAmountLabel.text = priceText
+    }
     
     func updatePaymentInfo(discountAmount: Int) {
         let totalString = "\(formatNumberWithComma(totalAmount - discountAmount))원"

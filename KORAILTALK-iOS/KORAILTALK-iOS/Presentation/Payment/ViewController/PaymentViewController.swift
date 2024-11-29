@@ -15,6 +15,8 @@ final class PaymentViewController: UIViewController {
     
     private let rootView = PaymentView()
     
+    private var ticketPrice = UserDefaultsManager.shared.getTicketPrice()
+    private var ticketID = UserDefaultsManager.shared.getTicketId()
     private var discountAmount = 0 {
         didSet {
             rootView.updatePaymentInfo(discountAmount: discountAmount)
@@ -30,6 +32,7 @@ final class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rootView.setTicketPrice(price: ticketPrice)
         hideKeyboard()
         setAddTarget()
         setCollectionView()
@@ -89,6 +92,8 @@ extension PaymentViewController {
         }
         
         rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.addTarget(self, action: #selector(cardPayDetailViewCheckBoxButtonTapped), for: .touchUpInside)
+        
+        rootView.ticketingButton.addTarget(self, action: #selector(ticketingButtonTapped), for: .touchUpInside)
     }
     
     private func setCollectionView() {
@@ -99,6 +104,18 @@ extension PaymentViewController {
     private func isPossibleTicketing(_ bool: Bool) {
         rootView.ticketingButton.isEnabled = bool
         rootView.ticketingButton.backgroundColor = bool ? .korailPurple(.purple03) : .korailGrayscale(.gray200)
+    }
+    
+    private func patchTicketing(body: TicketsRequestDTO) {
+        NetworkService.shared.ticketsService.patchTicketing(body: body) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success:
+                print("발권 완료!!!!!!")
+            default:
+                break
+            }
+        }
     }
     
     //MARK: - @objc
@@ -163,6 +180,12 @@ extension PaymentViewController {
     @objc private func cardPayDetailViewCheckBoxButtonTapped() {
         rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected.toggle()
         rootView.paymentMethodSectionView.cardPayDetailView.checkBoxButton.isSelected ? isPossibleTicketing(true) : isPossibleTicketing(false)
+    }
+    
+    @objc private func ticketingButtonTapped() {
+        let ticketID = ticketID ?? 0
+        let totalPrice = ticketPrice - discountAmount
+        patchTicketing(body: TicketsRequestDTO(ticketId: ticketID, totalPrice: totalPrice, usedPoint: discountAmount))
     }
 }
 

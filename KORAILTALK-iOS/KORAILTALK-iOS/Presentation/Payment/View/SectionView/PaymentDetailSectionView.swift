@@ -19,7 +19,7 @@ final class PaymentDetailSectionView: UIView {
     private let usageAmountTextLabel = UILabel()
     private let discountAndPointTextLabel = UILabel()
     private let totalPaymentAmountTextLabel = UILabel()
-    private let usageAmountLabel = UILabel()
+    let usageAmountLabel = UILabel()
     let discountAndPointLabel = UILabel()
     let totalPaymentAmountLabel = UILabel()
     private let titleStackView = UIStackView()
