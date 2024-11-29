@@ -16,6 +16,7 @@ final class UserDefaultsManager {
     
     private enum Keys {
         static let ticketId = "ticketId"
+        static let ticketPrice = "ticketPrice"
     }
     
     func saveTicketId(_ id: Int) {
@@ -24,6 +25,14 @@ final class UserDefaultsManager {
     
     func getTicketId() -> Int? {
         return userDefaults.object(forKey: Keys.ticketId) as? Int
+    }
+    
+    func saveTicketPrice(_ price: Int) {
+        UserDefaults.standard.set(price, forKey: Keys.ticketPrice)
+    }
+
+    func getTicketPrice() -> Int {
+        return UserDefaults.standard.integer(forKey: Keys.ticketPrice)
     }
     
     func removeTicketId() {
