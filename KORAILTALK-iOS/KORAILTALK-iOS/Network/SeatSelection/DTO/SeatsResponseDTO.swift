@@ -1,5 +1,5 @@
 //
-//  SeatsResponse.swift
+//  SeatsResponseDTO.swift
 //  KorailTalkSample
 //
 //  Created by 조호근 on 11/18/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SeatsResponse: Decodable {
+struct SeatsResponseDTO: Decodable {
     
     let data: TrainData
     

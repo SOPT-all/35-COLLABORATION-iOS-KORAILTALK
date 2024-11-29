@@ -51,8 +51,12 @@ final class MoyaPlugin: PluginType {
         var log = "=========================== 네트워크 통신 성공했는가? ==========================="
         log.append("\n3️⃣[\(statusCode)] \(url)\n======================================================\n")
         log.append("response: \n")
-        if let reString = String(bytes: response.data, encoding: String.Encoding.utf8) {
-            log.append("4️⃣\(reString)\n")
+        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .mutableContainers),
+           let prettyJsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
+           let prettyString = String(data: prettyJsonData, encoding: .utf8) {
+            log.append("4️⃣\(prettyString)\n")
+        } else if let plainString = String(bytes: response.data, encoding: .utf8) {
+            log.append("4️⃣\(plainString)\n")
         }
         log.append("=========================== END HTTP ===========================")
         print(log)
