@@ -61,6 +61,8 @@ final class MyTicketViewController: UIViewController {
         let customBarView = UIBarButtonItem(customView: rightStackView)
         navigationItem.rightBarButtonItem = customBarView
         
+       
+        
     }
      
 }
