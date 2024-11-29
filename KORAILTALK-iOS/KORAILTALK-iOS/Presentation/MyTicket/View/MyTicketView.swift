@@ -96,8 +96,7 @@ final class MyTicketView: UIView {
         setStyle()
         setHierarchy()
         setLayout()
-        
-        toast()
+
     }
     
     required init?(coder: NSCoder) {
@@ -602,7 +601,7 @@ final class MyTicketView: UIView {
 
 extension MyTicketView {
     
-    private func toast() {
+    func toast() {
         
         UIView.animate(withDuration: 0.3) {
             self.toastView.isHidden = false
@@ -616,27 +615,29 @@ extension MyTicketView {
         }
     }
     
-    private func bindData() {
+    func bindData(ticket: Ticket?) {
         guard let ticket else { return }
         
-        //TODO: date format 맞추기
-        dateLabel.text = ticket.date
+        dateLabel.text = getToday(date: ticket.date)
         departureTimeLabel.text = ticket.departureTime
         arrivalTimeLabel.text = ticket.arrivalTime
         trainNameLabel.text = ticket.trainName
         seatLabel.text = ticket.seatName
     }
     
-//    func getToday(date: String){
-//
-//        guard let today = Calendar.current.date(byAdding: .day, value: index.row, to: Date()) else { return }
-//        
-//        let modifedYear = Calendar.current.component(.year, from: modifiedDate)
-//        let modifiedMonth = Calendar.current.component(.month, from: modifiedDate)
-//        let modifiedDay = Calendar.current.component(.day, from: modifiedDate)
-//        let modifiedWeekday = Calendar.current.component(.weekday, from: modifiedDate)
-//        
-//        todayText = "\(modifedYear).\(modifiedMonth).\(modifiedDay) (\(changeWeekday(modifiedWeekday)))"
-//    }
+    func getToday(date: String) -> String{
+
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy.MM.dd"
+        inputFormatter.locale = Locale(identifier: "ko_KR")
+        
+        guard let date = inputFormatter.date(from: date) else { return "" }
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy년 MM월 dd일 (E)"
+        outputFormatter.locale = Locale(identifier: "ko_KR")
+        
+        return outputFormatter.string(from: date)
+    }
 }
 
