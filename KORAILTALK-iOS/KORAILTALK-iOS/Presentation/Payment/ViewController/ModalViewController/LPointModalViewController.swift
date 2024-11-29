@@ -19,8 +19,6 @@ final class LPointModalViewController: UIViewController {
     
     weak var delegate: PointDelegate?
     
-    var userLPointValue = 1000
-    
     // MARK: - Life Cycle
     
     override func loadView() {
@@ -31,16 +29,6 @@ final class LPointModalViewController: UIViewController {
         super.viewDidLoad()
         
         setAddTarget()
-        
-//        NetworkService.shared.userService.getUserLPoint(parameter: 123456) { [weak self] response in
-//            guard let self else { return }
-//            switch response {
-//            case .success(let data):
-//                userLPointValue = data?.data.point
-//            default:
-//                break
-//            }
-//        }
     }
 }
 
@@ -58,6 +46,28 @@ extension LPointModalViewController {
         rootView.toolBarButton.addTarget(self, action: #selector(toolbarButtonTapped), for: .touchUpInside)
     }
     
+    private func getUserLPoint(password: Int) {
+        NetworkService.shared.userService.getUserLPoint(parameter: password) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success(let data):
+                let isValid = data?.data.isValid
+                let point = data?.data.point
+                
+                if isValid == true {
+                    rootView.pointTextField.isEnabled = true
+                    rootView.pointTextField.becomeFirstResponder()
+                    rootView.applyAllAmountButton.isEnabled = true
+                    rootView.pointPasswordTextField.isEnabled = false
+                    
+                    rootView.pointAmount = String(point ?? 0)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
     //MARK: - @objc
 
     @objc private func xButtonTapped() {
@@ -65,10 +75,8 @@ extension LPointModalViewController {
     }
     
     @objc private func checkPasswordButtonTapped() {
-        rootView.pointTextField.isEnabled = true
-        rootView.pointTextField.becomeFirstResponder()
-        rootView.applyAllAmountButton.isEnabled = true
-        rootView.pointPasswordTextField.isEnabled = false
+        let password = Int(rootView.pointPasswordTextField.text ?? "") ?? 0
+        getUserLPoint(password: password)
     }
     
     @objc private func applyAllAmountButtonTapped() {
@@ -111,8 +119,8 @@ extension LPointModalViewController: UITextFieldDelegate {
             }
         case rootView.pointTextField:
             if let inputNum = textField.text {
-                if Int(inputNum) ?? 0 >= userLPointValue {
-                    textField.text = String(userLPointValue)
+                if Int(inputNum) ?? 0 >= Int(rootView.pointAmount) ?? 0 {
+                    textField.text = rootView.pointAmount
                 } else if Int(inputNum) == 0 {
                     textField.text = "0"
                 } else if inputNum.first == "0" && inputNum.count > 1 {
