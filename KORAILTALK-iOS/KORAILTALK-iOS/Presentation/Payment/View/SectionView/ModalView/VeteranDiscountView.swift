@@ -58,7 +58,7 @@ final class VeteranDiscountView: ModalBaseView {
     let verificationCodeField = UITextField()
     let checkVeteranIDButton = UIButton()
     private let verificationInputStackView = UIStackView()
-    private let applyTargetButton = KorailDropDownButton(dropDownType: .enanbleForSeat, titleText: "적용대상", optionText: "어른 - 7호차 16A / 12,500원")
+    private let applyTargetButton = KorailDropDownButton(dropDownType: .enableForSeat, titleText: "적용대상", optionText: "어른 - 7호차 16A / 12,500원")
     private let verticalStackView = UIStackView()
     lazy var toolBarButton = KorailToolBarButton(buttonType: .applyDiscpunt)
 

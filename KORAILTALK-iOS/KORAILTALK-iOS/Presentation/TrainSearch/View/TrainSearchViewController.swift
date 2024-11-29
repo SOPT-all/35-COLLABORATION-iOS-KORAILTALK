@@ -10,33 +10,25 @@ import UIKit
 import SnapKit
 import Then
 
-// 임시
-public struct TrainInfo {
-    let name: String
-}
-
 final class TrainSearchViewController: UIViewController {
     
     private let seatSelectionService = SeatSelectionService()
     //MARK: - UI Properties
     
+    private let headerView = UIView()
+    private let departureLabel = UILabel()
+    private let arrowImageView = UIImageView()
+    private let arrivalLabel = UILabel()
+    
     private let trainSearchFilterView = TrainSearchFilterView()
     private let dateCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let trainInfoTableView = UITableView()
     
-    //임시
-    private let trainInfoList: [TrainInfo] = [
-        TrainInfo(name: "KTX1"),
-        TrainInfo(name: "KTX2"),
-        TrainInfo(name: "KTX3"),
-        TrainInfo(name: "KTX4"),
-        TrainInfo(name: "KTX5"),
-        TrainInfo(name: "KTX6"),
-        TrainInfo(name: "KTX7"),
-        TrainInfo(name: "KTX8"),
-        TrainInfo(name: "KTX9"),
-    ]
-    
+    private var trainInfoList: [TrainInformation] = [] {
+        didSet {
+            trainInfoTableView.reloadData()
+        }
+    }
     private var dayList: [String] = []
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
@@ -44,8 +36,10 @@ final class TrainSearchViewController: UIViewController {
     
     private var isDateShow: Bool = false
     private var tomorrow: String = ""
+    private let today = Date()
     private var selectedDateIndexPath = IndexPath(row: 0, section: 0)
     private var selectedTrainInfoIndexPath: IndexPath?
+    private var selectedTrain: TrainInformation?
     
     //MARK: - Life Cycle
     
@@ -66,7 +60,8 @@ final class TrainSearchViewController: UIViewController {
         setAddTarget()
         
         dateCollectionView.selectItem(at: selectedDateIndexPath, animated: true, scrollPosition: .left)
-        
+       
+        loadTimetables()
     }
 
 }
@@ -114,6 +109,22 @@ extension TrainSearchViewController {
     
     private func setStyle() {
         
+        departureLabel.do {
+            $0.text = "서울"
+            $0.font = .korailHead(.head5m20)
+            $0.textAlignment = .center
+        }
+        
+        arrowImageView.do {
+            $0.image = .icnArrowCircle.withRenderingMode(.alwaysOriginal)
+        }
+        
+        arrivalLabel.do {
+            $0.text = "부산"
+            $0.font = .korailHead(.head5m20)
+            $0.textAlignment = .center
+        }
+        
         trainInfoTableView.do {
             $0.register(TrainInfoTableViewCell.self, forCellReuseIdentifier: TrainInfoTableViewCell.className)
             $0.rowHeight = 94
@@ -124,19 +135,52 @@ extension TrainSearchViewController {
             $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         }
     }
-    
+
     private func setHierachy() {
+        
         view.addSubviews(
+            headerView,
             trainSearchFilterView,
             dateCollectionView,
             trainInfoTableView
+        )
+        headerView.addSubviews(
+            departureLabel,
+            arrowImageView,
+            arrivalLabel
         )
     }
     
     private func setLayout() {
         
-        trainSearchFilterView.snp.makeConstraints {
+        headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(73)
+        }
+    
+        arrowImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(23)
+            $0.size.equalTo(26)
+            $0.centerX.equalToSuperview()
+        }
+        
+        departureLabel.snp.makeConstraints {
+            $0.centerY.equalTo(arrowImageView)
+            $0.trailing.equalTo(arrowImageView.snp.leading).offset(-26)
+            $0.width.equalTo(109)
+            $0.height.equalTo(26)
+        }
+        
+        arrivalLabel.snp.makeConstraints {
+            $0.centerY.equalTo(arrowImageView)
+            $0.leading.equalTo(arrowImageView.snp.trailing).offset(26)
+            $0.width.equalTo(109)
+            $0.height.equalTo(26)
+        }
+        
+        trainSearchFilterView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(48)
         }
         dateCollectionView.snp.makeConstraints {
@@ -224,8 +268,7 @@ extension TrainSearchViewController {
     
     @objc
     private func nextDayButtonTapped() {
-        
-        //TODO: 왜 첫번째 버튼은 동작을 하지 않는 걸까...
+    
         let nextItem = selectedDateIndexPath.item + 1
         if nextItem < dateCollectionView.numberOfItems(inSection: 0) {
             let nextIndexPath = IndexPath(row: nextItem, section: 0)
@@ -238,17 +281,18 @@ extension TrainSearchViewController {
             // 테이블뷰 스크롤 위로 올리기
             trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
-        
+        //TODO: 날짜 넣어서 호출하기
+        loadTimetables()
     }
     
     @objc
     private func standardButtonTapped() {
         let viewController = TrainDetailBottomSheetViewController(
-            dateText: "2024.11.16 (토)",
-            trainName: "KTX 001",
-            departureTime: "05:27",
-            arrivalTime: "08:15",
-            time: "2시간 48분"
+            dateText: trainSearchFilterView.todayText,
+            trainName: selectedTrain?.trainName ?? "KTX 001",
+            departureTime: selectedTrain?.departureTime ?? "05:00",
+            arrivalTime: selectedTrain?.arrivalTime ?? "06:00",
+            time: selectedTrain?.travelTime ?? 50
         )
         viewController.delegate = self
         present(viewController, animated: false)
@@ -268,7 +312,7 @@ extension TrainSearchViewController {
     
     private func getDayList() {
         
-        let today = Date()
+        print(today)
         
         for i in 0..<14 {
             guard let modifiedDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return }
@@ -327,8 +371,7 @@ extension TrainSearchViewController: UICollectionViewDelegate {
         trainInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         trainSearchFilterView.getToday(index: selectedDateIndexPath)
         
-        //TODO: 날짜에 따른 기차시간표 API 호출
-        
+        loadTimetables()
     }
     
 }
@@ -376,6 +419,7 @@ extension TrainSearchViewController: UITableViewDataSource {
             cell.bindData(train: trainInfoList[indexPath.row])
             cell.tapAction = { [weak self] in
                 self?.selectedTrainInfoIndexPath = indexPath
+                self?.selectedTrain = self?.trainInfoList[indexPath.row]
                 self?.standardButtonTapped()
                 cell.standardButton.isSelected = true
             }
@@ -419,6 +463,29 @@ extension TrainSearchViewController: BottomSheetDelegate {
                         let trainCheckVC = TrainCheckViewController()
                         self?.navigationController?.pushViewController(trainCheckVC, animated: true)
                     }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+}
+
+extension TrainSearchViewController {
+    
+    func loadTimetables() {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let dayString = formatter.string(from: today)
+        print(dayString)
+        
+        NetworkService.shared.timetableService.getTimetables(date: dayString) { [weak self] response in
+            switch response {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.trainInfoList = data?.data.timetables ?? []
                 }
             default:
                 break

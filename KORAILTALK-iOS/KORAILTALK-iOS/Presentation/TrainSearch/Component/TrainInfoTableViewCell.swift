@@ -21,6 +21,7 @@ class TrainInfoTableViewCell: UITableViewCell {
     
     let standardButton = TrainPriceButton()
     private let premiumButton = TrainPriceButton()
+    private let premiumEmptyImageView = UIImageView()
     
     private let stroke = UIView()
     
@@ -45,6 +46,14 @@ class TrainInfoTableViewCell: UITableViewCell {
     }
     
     var tapAction: (() -> Void)?
+    var isPremiumEmpty: Bool = false {
+        didSet {
+            subviews.forEach {
+                $0.removeFromSuperview()
+            }
+            drawCell()
+        }
+    }
     
     //MARK: - Life Cycle
     
@@ -88,35 +97,51 @@ class TrainInfoTableViewCell: UITableViewCell {
                 $0.spacing = 5
             }
             departureLabel.do {
-                $0.text = "05:13"
                 $0.font = .korailTitle(.title2m18)
             }
             arrowImageView.do {
                 $0.image = .icnTrainSearchArrowRight.resized(CGSize(width: 24, height: 24))
             }
             arrivalLabel.do {
-                $0.text = "07:49"
                 $0.font = .korailTitle(.title2m18)
             }
             
             standardButton.do {
                 $0.type = .standardSell
-                $0.price = 32000
                 $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             }
             premiumButton.do {
                 $0.type = .premiumSell
-                $0.price = 83700
             }
             
             stroke.do {
                 $0.backgroundColor = .korailGrayscale(.gray200)
             }
+            
+            premiumEmptyImageView.do {
+                $0.image = .icnTrainSearchDash
+            }
         }
         
         func setHierachy() {
             
-            addSubviews(trainNameView, timeStackView, stroke, standardButton, premiumButton)
+            if isPremiumEmpty {
+                addSubviews(trainNameView, timeStackView, stroke, standardButton, premiumEmptyImageView)
+                
+                premiumEmptyImageView.snp.makeConstraints {
+                    $0.leading.equalTo(standardButton.snp.trailing).offset(50)
+                    $0.top.equalToSuperview().inset(40)
+                }
+            } else {
+                addSubviews(trainNameView, timeStackView, stroke, standardButton, premiumButton)
+                
+                premiumButton.snp.makeConstraints {
+                    $0.width.equalTo(77)
+                    $0.height.equalTo(58)
+                    $0.leading.equalToSuperview().inset(282)
+                    $0.top.equalToSuperview().inset(18)
+                }
+            }
             
             trainNameView.addSubview(trainNameLabel)
             timeStackView.addArrangedSubviews(
@@ -152,18 +177,15 @@ class TrainInfoTableViewCell: UITableViewCell {
                 $0.leading.equalToSuperview().inset(193)
                 $0.top.equalToSuperview().inset(18)
             }
-            premiumButton.snp.makeConstraints {
-                $0.width.equalTo(77)
-                $0.height.equalTo(58)
-                $0.leading.equalToSuperview().inset(282)
-                $0.top.equalToSuperview().inset(18)
-            }
+            
             
             stroke.snp.makeConstraints {
                 $0.horizontalEdges.equalToSuperview()
                 $0.bottom.equalToSuperview()
                 $0.height.equalTo(1)
             }
+            
+            
         }
     }
     
@@ -216,9 +238,28 @@ class TrainInfoTableViewCell: UITableViewCell {
             drawCell()
         }
     }
-    
-    func bindData(train: TrainInfo) {
-        trainNameLabel.text = train.name
+
+    func bindData(train: TrainInformation) {
+        
+        trainNameLabel.text = train.trainName
+        departureLabel.text = train.departureTime
+        arrivalLabel.text = train.arrivalTime
+        standardButton.price = train.standardPrice
+        premiumButton.price = train.premiumPrice
+        
+        if train.isStandardSold {
+            standardButton.type = .standardSoldOut
+        } else {
+            standardButton.type = .standardSell
+        }
+        if train.isPremiumSold {
+            premiumButton.type = .premiumSoldOut
+        } else {
+            premiumButton.type = .premiumSell
+        }
+        
+        isPremiumEmpty = train.premiumPrice == 0
+        
     }
 }
 

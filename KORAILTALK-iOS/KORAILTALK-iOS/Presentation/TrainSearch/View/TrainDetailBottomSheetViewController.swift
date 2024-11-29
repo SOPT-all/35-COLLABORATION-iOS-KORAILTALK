@@ -63,7 +63,7 @@ final class TrainDetailBottomSheetViewController: UIViewController {
         trainName: String,
         departureTime: String,
         arrivalTime: String,
-        time: String
+        time: Int
     ) {
         super.init(nibName: nil, bundle: nil)
         
@@ -71,7 +71,7 @@ final class TrainDetailBottomSheetViewController: UIViewController {
         self.trainNameLabel.text = trainName
         self.departureTimeLabel.text = departureTime
         self.arrivalTimeLabel.text = arrivalTime
-        self.timeLabel.text = time
+        self.timeLabel.text = convertIntToString(time: time)
         
         modalTransitionStyle = .coverVertical
         modalPresentationStyle = .overFullScreen
@@ -388,6 +388,21 @@ extension TrainDetailBottomSheetViewController {
         attributedString.append(textString)
         
         return AttributedString(attributedString)
+    }
+    
+    private func convertIntToString(time: Int) -> String {
+        
+        let hours = time / 60
+        let minutes = time % 60
+        
+        if hours != 0 && minutes != 0 {
+            return "\(hours)시간 \(minutes)분"
+        } else if minutes == 0 {
+            return "\(hours)시간"
+        } else {
+            return "\(time)분"
+        }
+
     }
     
 }

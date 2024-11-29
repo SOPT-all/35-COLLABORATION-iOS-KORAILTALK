@@ -29,7 +29,7 @@ final class TrainSearchFilterView: UIView {
     private let trainList: [String] = ["모든열차", "KTX", "ITX", "무궁화"]
     private let seatList: [String] = ["일반석", "유아동반", "휠체어", "전동휠체어", "2층석", "자전거", "대피도우미"]
     private let transferList: [String] = ["직통", "환승"]
-    private var todayText = "" {
+    var todayText = "" {
         didSet {
             redrawDate()
         }
