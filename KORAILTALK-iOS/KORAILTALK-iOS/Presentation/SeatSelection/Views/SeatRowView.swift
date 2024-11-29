@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol SeatRowViewDelegate: AnyObject {
-    func seatButtonTapped(_ seatID: Int)
+    func seatButtonTapped(_ seat: Seat)
 }
 
 class SeatRowView: UIView {
@@ -121,7 +121,7 @@ extension SeatRowView {
         
         let seatButtonTapped = UIAction { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.seatButtonTapped(seat.seatId)
+            self.delegate?.seatButtonTapped(seat)
         }
         button.addAction(seatButtonTapped, for: .touchUpInside)
         

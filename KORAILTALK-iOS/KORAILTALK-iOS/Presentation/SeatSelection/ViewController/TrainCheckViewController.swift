@@ -104,9 +104,17 @@ extension TrainCheckViewController: PaymentActionsViewDelegate {
     func payButtonTapped() {
         print("바로결제 Tapped")
         let popupVC = TrainCheckPopupViewController()
+        popupVC.delegate = self
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
         present(popupVC, animated: true)
     }
     
+}
+
+extension TrainCheckViewController: TrainCheckPopupDelegate {
+    func didTapConfirmButton() {
+        let paymentVC = PaymentViewController()
+        navigationController?.pushViewController(paymentVC, animated: true)
+    }
 }
