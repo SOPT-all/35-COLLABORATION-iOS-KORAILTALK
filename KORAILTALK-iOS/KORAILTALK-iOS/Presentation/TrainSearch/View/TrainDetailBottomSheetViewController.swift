@@ -52,6 +52,7 @@ final class TrainDetailBottomSheetViewController: UIViewController {
     
     private var isTimetableImageHidden = true
     private var isPriceImageHidden = true
+    private var standardPrice: Int
     
     weak var delegate: BottomSheetDelegate?
     
@@ -63,8 +64,10 @@ final class TrainDetailBottomSheetViewController: UIViewController {
         trainName: String,
         departureTime: String,
         arrivalTime: String,
-        time: Int
+        time: Int,
+        price: Int
     ) {
+        self.standardPrice = price
         super.init(nibName: nil, bundle: nil)
         
         self.dateLabel.text = dateText
@@ -607,7 +610,7 @@ extension TrainDetailBottomSheetViewController {
             
         }, completion: { _ in
             self.dismiss(animated: false) { [weak self] in
-                self?.delegate?.didDismissAndnavigateToCheck()
+                self?.delegate?.didDismissAndnavigateToCheck(price: self?.standardPrice ?? 0)
             }
         })
     }
@@ -617,5 +620,5 @@ extension TrainDetailBottomSheetViewController {
 protocol BottomSheetDelegate: AnyObject {
     func bottomSheetDidDismiss()
     func didDismissAndNavigateToSeat()
-    func didDismissAndnavigateToCheck()
+    func didDismissAndnavigateToCheck(price: Int)
 }
