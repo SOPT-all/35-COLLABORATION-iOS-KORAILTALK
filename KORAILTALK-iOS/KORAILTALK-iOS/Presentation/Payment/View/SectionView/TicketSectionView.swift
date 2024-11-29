@@ -15,7 +15,7 @@ final class TicketSectionView: UIView {
     //MARK: - UI Properties
     
     private let titleLabel = UILabel()
-    private let priceLabel = UILabel()
+    let priceLabel = UILabel()
     private let labelStackView = UIStackView()
     private let descriptioLabel = UILabel()
         
@@ -49,7 +49,6 @@ extension TicketSectionView {
         }
         
         priceLabel.do {
-            $0.text = "12,500원"
             $0.textColor = .korailPurple(.purple04)
             $0.textAlignment = .center
             $0.font = .korailHead(.head5m20)
