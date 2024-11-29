@@ -227,7 +227,6 @@ extension TrainCheckView {
         
         trainNameLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview().inset(30)
             $0.height.equalTo(14)
         }
         
@@ -260,7 +259,6 @@ extension TrainCheckView {
         departureTimeLabel.snp.makeConstraints {
             $0.top.equalTo(departurePlaceLabel.snp.bottom).offset(8)
             $0.trailing.equalTo(arrowImageView.snp.leading).offset(-62.5)
-            $0.width.equalTo(36)
             $0.height.equalTo(14)
         }
         
@@ -274,7 +272,6 @@ extension TrainCheckView {
         arrivalTimeLabel.snp.makeConstraints {
             $0.top.equalTo(arrivalPlaceLabel.snp.bottom).offset(8)
             $0.leading.equalTo(arrowImageView.snp.trailing).offset(62.5)
-            $0.width.equalTo(36)
             $0.height.equalTo(14)
         }
         

@@ -119,7 +119,9 @@ class CoachDataSource: NSObject {
         return nil
     }
     
-    func applySnapshot(using trainData: TrainData) {
+    func applySnapshot(using trainData: TrainData?) {
+        guard let trainData = trainData else { return }
+        
         var snapshot = Snapshot()
         
         snapshot.appendSections([.routeInfo])

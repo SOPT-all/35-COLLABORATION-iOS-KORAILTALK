@@ -109,7 +109,9 @@ class SeatSelectionDataSource {
         return header
     }
     
-    func applySnapshot(seats: [Seat]) {
+    func applySnapshot(seats: [Seat]?) {
+        guard let seats = seats else { return }
+        
         var snapshot = Snapshot()
         
         let headerSeats = Array(seats.prefix(4))
@@ -125,6 +127,15 @@ class SeatSelectionDataSource {
         }
         
         dataSource?.apply(snapshot, animatingDifferences: true)
+        
+       
+        if let headerView = self.collectionView?.supplementaryView(
+            forElementKind: UICollectionView.elementKindSectionHeader,
+            at: IndexPath(item: 0, section: 0)
+        ) as? SeatRowHeaderView {
+            headerView.configure(with: headerSeats)
+        }
+        
     }
     
 }

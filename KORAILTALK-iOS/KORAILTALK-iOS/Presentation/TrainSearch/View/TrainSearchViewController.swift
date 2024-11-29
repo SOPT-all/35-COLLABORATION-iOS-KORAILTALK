@@ -12,6 +12,7 @@ import Then
 
 final class TrainSearchViewController: UIViewController {
     
+    private let seatSelectionService = SeatSelectionService()
     //MARK: - UI Properties
     
     private let headerView = UIView()
@@ -438,17 +439,35 @@ extension TrainSearchViewController: BottomSheetDelegate {
     }
     
     func didDismissAndNavigateToSeat() {
-        //TODO: 파라미터로 timetableId 넘겨주기
-        let viewController = SeatSelectionViewController()
-//        let viewController = SeatSelectionViewController(timetableId: selectedTrain?.timetableId ?? 1)
+        let viewController = SeatSelectionViewController(timetableId: 1)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func didDismissAndnavigateToCheck() {
-        //TODO: 파라미터로 timetableId 넘겨주기
-        let viewController = TrainCheckViewController()
-//        let viewController = TrainCheckViewController(timetableId: selectedTrain?.timetableId ?? 1)
-        navigationController?.pushViewController(viewController, animated: true)
+        let request = SeatSelectionRequestDTO(
+            isAuto: true,
+            timetableId: 1,
+            coachId: 1,
+            seatId: 1,
+            price: 1000
+        )
+        
+        seatSelectionService.selectSeat(request: request) { [weak self] result in
+            switch result {
+            case .success(let response):
+                if let ticketId = response?.data.ticketId {
+                    DispatchQueue.main.async {
+                        print("UserDefault Save: ID - \(ticketId)")
+                        UserDefaultsManager.shared.saveTicketId(ticketId)
+                        
+                        let trainCheckVC = TrainCheckViewController()
+                        self?.navigationController?.pushViewController(trainCheckVC, animated: true)
+                    }
+                }
+            default:
+                break
+            }
+        }
     }
     
 }

@@ -12,6 +12,8 @@ import Then
 
 class TrainCheckViewController: UIViewController {
     
+    private let ticketsService = NetworkService.shared.ticketsService
+    
     // MARK: - UI Properties
     private let trainCheckView = TrainCheckView()
     private let paymentActionsView = PaymentActionsView()
@@ -19,19 +21,7 @@ class TrainCheckViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trainCheckView.configure(
-            date: "2024년 10월 30일",
-            trainName: "KTX 001",
-            departurePlace: "서울",
-            departureTime: "19:54",
-            arrivalPlace: "부산",
-            arrivalTime: "18:32",
-            passengerCount: "어른 1명",
-            seatNumber: "7호차 16A",
-            price: "12,500원",
-            deadline: "16시 01분"
-        )
-
+        loadTicketData()
         view.backgroundColor = .korailGrayscale(.gray100)
         sethierarchy()
         setLayout()
@@ -93,6 +83,36 @@ extension TrainCheckViewController {
         paymentActionsView.delegate = self
     }
     
+    private func loadTicketData() {
+        guard let ticketId = UserDefaultsManager.shared.getTicketId() else { return }
+        
+        ticketsService.getMyTicket(ticketId: ticketId) { [weak self] response in
+            switch response {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    if let ticket = data?.data {
+                        UserDefaultsManager.shared.saveTicketPrice(ticket.ticketPrice)
+                        print("UserDefault Save - Price: \(ticket.ticketPrice) ")
+                        self?.trainCheckView.configure(
+                            date: ticket.date,
+                            trainName: ticket.trainName,
+                            departurePlace: ticket.departurePlace,
+                            departureTime: ticket.departureTime,
+                            arrivalPlace: ticket.arrivalPlace,
+                            arrivalTime: ticket.arrivalTime,
+                            passengerCount: "어른 1명",
+                            seatNumber: ticket.seatName,
+                            price: "\(ticket.ticketPrice)원",
+                            deadline: ticket.limitPaymentTime
+                        )
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
 }
 
 extension TrainCheckViewController: PaymentActionsViewDelegate {
@@ -104,9 +124,17 @@ extension TrainCheckViewController: PaymentActionsViewDelegate {
     func payButtonTapped() {
         print("바로결제 Tapped")
         let popupVC = TrainCheckPopupViewController()
+        popupVC.delegate = self
         popupVC.modalPresentationStyle = .overFullScreen
         popupVC.modalTransitionStyle = .crossDissolve
         present(popupVC, animated: true)
     }
     
+}
+
+extension TrainCheckViewController: TrainCheckPopupDelegate {
+    func didTapConfirmButton() {
+        let paymentVC = PaymentViewController()
+        navigationController?.pushViewController(paymentVC, animated: true)
+    }
 }

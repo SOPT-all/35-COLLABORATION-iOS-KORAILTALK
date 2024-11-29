@@ -14,9 +14,14 @@ final class SeatSelectionViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let timetableId: Int
+    private let seatSelectionService = SeatSelectionService()
+    
     private var coachDataSource: CoachDataSource?
     private var seatSelectionDataSource: SeatSelectionDataSource?
     private var selectedSeatID: Int?
+    private var currentCoach: Coach?
+    private var selectedSeat: Seat?
     
     // MARK: - UI Properties
     
@@ -46,6 +51,11 @@ final class SeatSelectionViewController: UIViewController {
     
     // MARK: - Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCoachData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,8 +64,17 @@ final class SeatSelectionViewController: UIViewController {
         setStyle()
         setHierarchy()
         setLayout()
-        fetchTrainData()
         setDelegate()
+    }
+    
+    init(timetableId: Int) {
+        self.timetableId = timetableId
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
@@ -163,16 +182,6 @@ extension SeatSelectionViewController {
         bottomView.delegate = self
     }
     
-    private func fetchTrainData() {
-        
-        // TODO: - API
-        
-        let mockTrainData = TrainData.mock
-        let mockSeatsData = Coach.mock.seats
-        coachDataSource?.applySnapshot(using: mockTrainData)
-        seatSelectionDataSource?.applySnapshot(seats: mockSeatsData)
-    }
-    
     private func createFirstLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { [weak self] section, _ in
             guard let self,
@@ -196,34 +205,34 @@ extension SeatSelectionViewController {
 extension SeatSelectionViewController {
     
     private func createSecondLayout() -> NSCollectionLayoutSection {
-            let seatRowItemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(54)
-            )
-            let seatRowItem = NSCollectionLayoutItem(layoutSize: seatRowItemSize)
-            seatRowItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18)
-            
-            let seatRowGroupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(54)
-            )
-            let seatRowGroup = NSCollectionLayoutGroup.vertical(
-                layoutSize: seatRowGroupSize,
-                subitems: [seatRowItem]
-            )
-            
-            let section = NSCollectionLayoutSection(group: seatRowGroup)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
-            let headerSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(70)
-            )
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            section.boundarySupplementaryItems = [header]
+        let seatRowItemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(54)
+        )
+        let seatRowItem = NSCollectionLayoutItem(layoutSize: seatRowItemSize)
+        seatRowItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18)
+        
+        let seatRowGroupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(54)
+        )
+        let seatRowGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: seatRowGroupSize,
+            subitems: [seatRowItem]
+        )
+        
+        let section = NSCollectionLayoutSection(group: seatRowGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(70)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [header]
         
         return section
     }
@@ -304,22 +313,20 @@ extension SeatSelectionViewController: CoachDataSourceDelegate {
     }
     
     func coachCellSelected(_ coach: Coach) {
-        // TODO: 객실에 따라 좌석 다르게 설정
-        
-        print("선택된 객실: \(coach.coachId)호차")
-        print("남은 좌석: \(coach.leftSeats)석")
+        self.currentCoach = coach
+        seatSelectionDataSource?.applySnapshot(seats: coach.seats)
     }
     
 }
 
 extension SeatSelectionViewController: SeatRowViewDelegate {
-    func seatButtonTapped(_ seatID: Int) {
-        print("VC SelectedID: \(self.selectedSeatID)")
-        print("\(seatID) 좌석 선택")
-        if selectedSeatID == seatID {
+    func seatButtonTapped(_ seat: Seat) {
+        if selectedSeatID == seat.seatId {
             selectedSeatID = nil
+            selectedSeat = nil
         } else {
-            selectedSeatID = seatID
+            selectedSeatID = seat.seatId
+            selectedSeat = seat
         }
         
         updateAllSeatViews()
@@ -346,10 +353,52 @@ extension SeatSelectionViewController: SeatRowViewDelegate {
 extension SeatSelectionViewController: BottomSelectionViewDelegate {
     
     func completeButtonTapped() {
-        guard let selectedSeatID = selectedSeatID else { return }
+        guard let selectedSeat = selectedSeat,
+              let currentCoach = currentCoach else { return }
         
-        // TODO: 선택 완료 처리
-        print("선택된 좌석: \(selectedSeatID)")
+        let request = SeatSelectionRequestDTO(
+            isAuto: false,
+            timetableId: timetableId,
+            coachId: currentCoach.coachId,
+            seatId: selectedSeat.seatId,
+            price: 1000
+        )
+        
+        seatSelectionService.selectSeat(request: request) { [weak self] result in
+            switch result {
+            case .success(let response):
+                if let ticketId = response?.data.ticketId {
+                    DispatchQueue.main.async {
+                        print("UserDefault Save: ID - \(ticketId)")
+                        UserDefaultsManager.shared.saveTicketId(ticketId)
+                        
+                        let trainCheckVC = TrainCheckViewController()
+                        self?.navigationController?.pushViewController(trainCheckVC, animated: true)
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+}
+
+// MARK: - Network
+
+extension SeatSelectionViewController {
+    
+    private func fetchCoachData() {
+        seatSelectionService.getCoaches(timetableId: timetableId) { [weak self] result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.coachDataSource?.applySnapshot(using: response?.data)
+                }
+            default:
+                break
+            }
+        }
     }
     
 }

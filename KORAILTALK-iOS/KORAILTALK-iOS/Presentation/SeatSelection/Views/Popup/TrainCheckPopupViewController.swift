@@ -10,7 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TrainCheckPopupDelegate: AnyObject {
+    func didTapConfirmButton()
+}
+
 class TrainCheckPopupViewController: BasePopupViewController {
+    
+    weak var delegate: TrainCheckPopupDelegate?
     
     private let firstLabel = UILabel()
     private let secondLabel = UILabel()
@@ -35,6 +41,15 @@ class TrainCheckPopupViewController: BasePopupViewController {
         setStyle()
         setHierarchy()
         setLayout()
+    }
+    
+    override func setAction() {
+        let confirmButtonTapped = UIAction { [weak self] _ in
+            self?.dismiss(animated: true) {
+                self?.delegate?.didTapConfirmButton()
+            }
+        }
+        confirmButton.addAction(confirmButtonTapped, for: .touchUpInside)
     }
 }
 

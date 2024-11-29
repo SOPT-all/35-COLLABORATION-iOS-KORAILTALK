@@ -17,7 +17,7 @@ class BasePopupViewController: UIViewController {
     private let containerView = UIView()
     private let titleLabel = UILabel()
     let contentView = UIView()
-    private let confirmButton = UIButton()
+    let confirmButton = UIButton()
     
     // MARK: - Life Cycle
     
@@ -28,6 +28,13 @@ class BasePopupViewController: UIViewController {
         setHierarchy()
         setLayout()
         setAction()
+    }
+    
+   func setAction() {
+        let confirmButtonTapped = UIAction { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+        confirmButton.addAction(confirmButtonTapped, for: .touchUpInside)
     }
     
 }
@@ -88,13 +95,6 @@ extension BasePopupViewController {
             $0.height.equalTo(56)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    private func setAction() {
-        let confirmButtonTapped = UIAction { [weak self] _ in
-            self?.dismiss(animated: true)
-        }
-        confirmButton.addAction(confirmButtonTapped, for: .touchUpInside)
     }
     
     // MARK: - Func
