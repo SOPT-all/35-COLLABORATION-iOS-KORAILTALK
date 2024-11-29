@@ -15,4 +15,5 @@ final class NetworkService {
     
     let userService: UserServiceProtocol = UserService()
     let timetableService: TimetableServiceProtocol = TimetableService()
+    let ticketsService: TicketsServiceProtocol = TicketsService()
 }
