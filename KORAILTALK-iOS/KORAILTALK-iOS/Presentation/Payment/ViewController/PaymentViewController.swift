@@ -186,7 +186,12 @@ extension PaymentViewController {
         let ticketID = ticketID ?? 0
         let totalPrice = ticketPrice - discountAmount
         patchTicketing(body: TicketsRequestDTO(ticketId: ticketID, totalPrice: totalPrice, usedPoint: discountAmount))
+        
+        let viewController = MyTicketViewController(ticketId: ticketID)
+        navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    
 }
 
 extension PaymentViewController: DiscountDelegate {

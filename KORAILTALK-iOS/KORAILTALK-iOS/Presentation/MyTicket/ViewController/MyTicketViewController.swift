@@ -10,6 +10,17 @@ import UIKit
 final class MyTicketViewController: UIViewController {
     
     private let rootView = MyTicketView()
+    private var ticketId: Int = 1
+    
+    init(ticketId: Int) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.ticketId = ticketId
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = rootView
@@ -56,9 +67,8 @@ final class MyTicketViewController: UIViewController {
 
 extension MyTicketViewController {
     private func loadMyTicket() {
-        
-        //TODO: ticket id 받기
-        NetworkService.shared.ticketsService.getMyTicket(ticketId: 10) { [weak self] response in
+    
+        NetworkService.shared.ticketsService.getMyTicket(ticketId: ticketId) { [weak self] response in
             switch response {
             case .success(let data):
                 DispatchQueue.main.async {
