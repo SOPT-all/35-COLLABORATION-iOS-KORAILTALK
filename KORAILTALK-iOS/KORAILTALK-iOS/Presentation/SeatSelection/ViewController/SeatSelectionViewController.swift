@@ -389,22 +389,16 @@ extension SeatSelectionViewController: BottomSelectionViewDelegate {
 extension SeatSelectionViewController {
     
     private func fetchCoachData() {
-//        seatSelectionService.getCoaches(timetableId: timetableId) { [weak self] result in
-//            switch result {
-//            case .success(let response):
-//                DispatchQueue.main.async {
-//                    self?.coachDataSource?.applySnapshot(using: response?.data)
-//                }
-//            default:
-//                break
-//            }
-//        }
-        let mockResponse = SeatsResponseDTO(data: TrainData.mock)
-            DispatchQueue.main.async { [weak self] in
-                self?.coachDataSource?.applySnapshot(using: mockResponse.data)
+        seatSelectionService.getCoaches(timetableId: timetableId) { [weak self] result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.coachDataSource?.applySnapshot(using: response?.data)
+                }
+            default:
+                break
             }
+        }
     }
-    
-    
     
 }
