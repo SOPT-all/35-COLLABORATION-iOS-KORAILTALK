@@ -11,6 +11,7 @@ import Moya
 
 enum TicketsAPI {
     case getMyTicket(ticketId: Int)
+    case patchTicketing(body: TicketsRequestDTO)
 }
 
 extension TicketsAPI: BaseTargetType {
@@ -21,6 +22,8 @@ extension TicketsAPI: BaseTargetType {
         switch self {
         case .getMyTicket(let ticketId):
             return "/tickets/\(ticketId)"
+        case .patchTicketing:
+            return "/tickets"
         }
     }
     
@@ -28,6 +31,8 @@ extension TicketsAPI: BaseTargetType {
         switch self {
         case .getMyTicket:
             return .get
+        case .patchTicketing:
+            return .patch
         }
     }
     
@@ -35,6 +40,8 @@ extension TicketsAPI: BaseTargetType {
         switch self {
         case .getMyTicket:
             return .requestPlain
+        case .patchTicketing(let body):
+            return .requestJSONEncodable(body)
         }
     }
 }

@@ -11,6 +11,7 @@ import Moya
 
 protocol TicketsServiceProtocol {
     func getMyTicket(ticketId: Int, completion: @escaping (NetworkResult<TicketsResponseDTO>) -> ())
+    func patchTicketing(body: TicketsRequestDTO, completion: @escaping (NetworkResult<Any>) -> ())
 }
 
 final class TicketsService: BaseService, TicketsServiceProtocol {
@@ -21,6 +22,21 @@ final class TicketsService: BaseService, TicketsServiceProtocol {
             switch result {
             case .success(let response):
                 let networkResult: NetworkResult<TicketsResponseDTO> = self.fetchNetworkResult(
+                    statusCode: response.statusCode,
+                    data: response.data
+                )
+                completion(networkResult)
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func patchTicketing(body: TicketsRequestDTO, completion: @escaping (NetworkResult<Any>) -> ()) {
+        provider.request(.patchTicketing(body: body)) { result in
+            switch result {
+            case .success(let response):
+                let networkResult: NetworkResult<Any> = self.fetchNetworkResult(
                     statusCode: response.statusCode,
                     data: response.data
                 )
