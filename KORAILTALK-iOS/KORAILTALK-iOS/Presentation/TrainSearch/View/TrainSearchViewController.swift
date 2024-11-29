@@ -292,7 +292,8 @@ extension TrainSearchViewController {
             trainName: selectedTrain?.trainName ?? "KTX 001",
             departureTime: selectedTrain?.departureTime ?? "05:00",
             arrivalTime: selectedTrain?.arrivalTime ?? "06:00",
-            time: selectedTrain?.travelTime ?? 50
+            time: selectedTrain?.travelTime ?? 50,
+            price: selectedTrain?.standardPrice ?? 0
         )
         viewController.delegate = self
         present(viewController, animated: false)
@@ -439,17 +440,20 @@ extension TrainSearchViewController: BottomSheetDelegate {
     }
     
     func didDismissAndNavigateToSeat() {
-        let viewController = SeatSelectionViewController(timetableId: 1)
+        let viewController = SeatSelectionViewController(
+            timetableId: 1,
+            price: selectedTrain?.standardPrice ?? 0
+        )
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func didDismissAndnavigateToCheck() {
+    func didDismissAndnavigateToCheck(price: Int) {
         let request = SeatSelectionRequestDTO(
             isAuto: true,
             timetableId: 1,
             coachId: 1,
             seatId: 1,
-            price: 1000
+            price: price
         )
         
         seatSelectionService.selectSeat(request: request) { [weak self] result in

@@ -15,6 +15,7 @@ final class SeatSelectionViewController: UIViewController {
     // MARK: - Properties
     
     private let timetableId: Int
+    private let standardPrice: Int
     private let seatSelectionService = SeatSelectionService()
     
     private var coachDataSource: CoachDataSource?
@@ -67,8 +68,9 @@ final class SeatSelectionViewController: UIViewController {
         setDelegate()
     }
     
-    init(timetableId: Int) {
+    init(timetableId: Int, price: Int) {
         self.timetableId = timetableId
+        self.standardPrice = price
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -361,7 +363,7 @@ extension SeatSelectionViewController: BottomSelectionViewDelegate {
             timetableId: timetableId,
             coachId: currentCoach.coachId,
             seatId: selectedSeat.seatId,
-            price: 1000
+            price: standardPrice
         )
         
         seatSelectionService.selectSeat(request: request) { [weak self] result in
